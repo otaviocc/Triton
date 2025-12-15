@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E211DA8429CA5AC000A11C82 /* Now in Frameworks */ = {isa = PBXBuildFile; productRef = E211DA8329CA5AC000A11C82 /* Now */; };
+		E213884229A5153D00CE1692 /* Account in Frameworks */ = {isa = PBXBuildFile; productRef = E213884129A5153D00CE1692 /* Account */; };
+		E215670929BA86FF0062C8C3 /* AuthSessionService in Frameworks */ = {isa = PBXBuildFile; productRef = E215670829BA86FF0062C8C3 /* AuthSessionService */; };
+		E215670B29BA86FF0062C8C3 /* AuthSessionServiceInterface in Frameworks */ = {isa = PBXBuildFile; productRef = E215670A29BA86FF0062C8C3 /* AuthSessionServiceInterface */; };
+		E22BDE5B29B69ECC00B98BD9 /* Sidebar in Frameworks */ = {isa = PBXBuildFile; productRef = E22BDE5A29B69ECC00B98BD9 /* Sidebar */; };
+		E257927C29D9E68700D985C3 /* Webpage in Frameworks */ = {isa = PBXBuildFile; productRef = E257927B29D9E68700D985C3 /* Webpage */; };
+		E262C8F829C0641200B28EFB /* PURLs in Frameworks */ = {isa = PBXBuildFile; productRef = E262C8F729C0641200B28EFB /* PURLs */; };
+		E267BD5629BA9C7A0076C022 /* SessionService in Frameworks */ = {isa = PBXBuildFile; productRef = E267BD5529BA9C7A0076C022 /* SessionService */; };
+		E267BD5829BA9C7A0076C022 /* SessionServiceInterface in Frameworks */ = {isa = PBXBuildFile; productRef = E267BD5729BA9C7A0076C022 /* SessionServiceInterface */; };
+		E2A89E4629B72FC900C22586 /* Route in Frameworks */ = {isa = PBXBuildFile; productRef = E2A89E4529B72FC900C22586 /* Route */; };
+		E2BC2B472975840300DE5FB6 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E2BC2B462975840300DE5FB6 /* Auth */; };
+		E2D07E4529A80D8C001F58CB /* AccountUpdateService in Frameworks */ = {isa = PBXBuildFile; productRef = E2D07E4429A80D8C001F58CB /* AccountUpdateService */; };
+		EA7632CD2EAEBFDD00E9CD6E /* Shortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = EA7632CC2EAEBFDD00E9CD6E /* Shortcuts */; };
+		EA8DCD482964DC4500AAF957 /* Status in Frameworks */ = {isa = PBXBuildFile; productRef = EA8DCD472964DC4500AAF957 /* Status */; };
+		EAB0E9D22ED646BF000B7932 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EAB0E9D12ED646BF000B7932 /* AsyncAlgorithms */; };
+		EAB0E9D62ED64720000B7932 /* MicroClient in Frameworks */ = {isa = PBXBuildFile; productRef = EAB0E9D52ED64720000B7932 /* MicroClient */; };
+		EAD89BCD2E6B2C0700C9041F /* Weblog in Frameworks */ = {isa = PBXBuildFile; productRef = EAD89BCC2E6B2C0700C9041F /* Weblog */; };
+		EADEE5FF2E78744900204760 /* Pics in Frameworks */ = {isa = PBXBuildFile; productRef = EADEE5FE2E78744900204760 /* Pics */; };
+		EAE1723E29F5C0CC00AEC787 /* Pastebin in Frameworks */ = {isa = PBXBuildFile; productRef = EAE1723D29F5C0CC00AEC787 /* Pastebin */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E205A369296C0376007D092D /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
+		E210DF1229CA57AB0049B9E7 /* Now */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Now; sourceTree = "<group>"; };
+		E215670C29BA9B2F0062C8C3 /* SessionService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SessionService; sourceTree = "<group>"; };
+		E2208AFE29AED6A6009E69BC /* PURLs */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PURLs; sourceTree = "<group>"; };
+		E23FA85629A6E5F0003CFDF8 /* AccountUpdate */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AccountUpdate; sourceTree = "<group>"; };
+		E257927A29D9E62700D985C3 /* Webpage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Webpage; sourceTree = "<group>"; };
+		E28061D029B5421100826BE1 /* Route */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Route; sourceTree = "<group>"; };
+		E28061D129B543D800826BE1 /* Sidebar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Sidebar; sourceTree = "<group>"; };
+		E28A20912A72850100483749 /* OMGAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OMGAPI; sourceTree = "<group>"; };
+		E2A85B0C29BA85E000AD6AB8 /* AuthSession */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthSession; sourceTree = "<group>"; };
+		E2BC2B4B29758BBE00DE5FB6 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
+		E2C1505329A2933800FCB6F1 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
+		E2E57A9829AE97AD00531E82 /* FoundationExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FoundationExtensions; sourceTree = "<group>"; };
+		E2FA03B929A0EA3C00DDB75E /* Account */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Account; sourceTree = "<group>"; };
+		EA7632CB2EAEBFD000E9CD6E /* Shortcuts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Shortcuts; sourceTree = "<group>"; };
+		EA8DCD462964DC0D00AAF957 /* Status */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Status; sourceTree = "<group>"; };
+		EAC944D4295E56E9004EE34F /* OMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD89BCB2E6B2BF900C9041F /* Weblog */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Weblog; sourceTree = "<group>"; };
+		EADEE5FD2E786D3900204760 /* Pics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Pics; sourceTree = "<group>"; };
+		EAE1723C29F5C08000AEC787 /* Pastebin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Pastebin; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EAA086952E8EA353005D4406 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Supporting Files/Info.plist",
+			);
+			target = EAC944D3295E56E9004EE34F /* OMG */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EAA086842E8EA353005D4406 /* OMG */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (EAA086952E8EA353005D4406 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = OMG; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAC944D1295E56E9004EE34F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E267BD5829BA9C7A0076C022 /* SessionServiceInterface in Frameworks */,
+				E215670B29BA86FF0062C8C3 /* AuthSessionServiceInterface in Frameworks */,
+				E2A89E4629B72FC900C22586 /* Route in Frameworks */,
+				EADEE5FF2E78744900204760 /* Pics in Frameworks */,
+				E262C8F829C0641200B28EFB /* PURLs in Frameworks */,
+				E215670929BA86FF0062C8C3 /* AuthSessionService in Frameworks */,
+				EAD89BCD2E6B2C0700C9041F /* Weblog in Frameworks */,
+				E2BC2B472975840300DE5FB6 /* Auth in Frameworks */,
+				E213884229A5153D00CE1692 /* Account in Frameworks */,
+				E22BDE5B29B69ECC00B98BD9 /* Sidebar in Frameworks */,
+				EAE1723E29F5C0CC00AEC787 /* Pastebin in Frameworks */,
+				EAB0E9D22ED646BF000B7932 /* AsyncAlgorithms in Frameworks */,
+				E267BD5629BA9C7A0076C022 /* SessionService in Frameworks */,
+				E211DA8429CA5AC000A11C82 /* Now in Frameworks */,
+				EAB0E9D62ED64720000B7932 /* MicroClient in Frameworks */,
+				EA8DCD482964DC4500AAF957 /* Status in Frameworks */,
+				E257927C29D9E68700D985C3 /* Webpage in Frameworks */,
+				EA7632CD2EAEBFDD00E9CD6E /* Shortcuts in Frameworks */,
+				E2D07E4529A80D8C001F58CB /* AccountUpdateService in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAC944CB295E56E9004EE34F = {
+			isa = PBXGroup;
+			children = (
+				EAA086842E8EA353005D4406 /* OMG */,
+				EAC944E6295E5873004EE34F /* Packages */,
+				EAC944D5295E56E9004EE34F /* Products */,
+				EAD763042960953600E18E02 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EAC944D5295E56E9004EE34F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAC944D4295E56E9004EE34F /* OMG.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAC944E6295E5873004EE34F /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E2FA03B929A0EA3C00DDB75E /* Account */,
+				E23FA85629A6E5F0003CFDF8 /* AccountUpdate */,
+				E205A369296C0376007D092D /* Auth */,
+				E2A85B0C29BA85E000AD6AB8 /* AuthSession */,
+				E2BC2B4B29758BBE00DE5FB6 /* DesignSystem */,
+				E2E57A9829AE97AD00531E82 /* FoundationExtensions */,
+				E210DF1229CA57AB0049B9E7 /* Now */,
+				E28A20912A72850100483749 /* OMGAPI */,
+				EAE1723C29F5C08000AEC787 /* Pastebin */,
+				EADEE5FD2E786D3900204760 /* Pics */,
+				E2208AFE29AED6A6009E69BC /* PURLs */,
+				E28061D029B5421100826BE1 /* Route */,
+				E215670C29BA9B2F0062C8C3 /* SessionService */,
+				EA7632CB2EAEBFD000E9CD6E /* Shortcuts */,
+				E28061D129B543D800826BE1 /* Sidebar */,
+				EA8DCD462964DC0D00AAF957 /* Status */,
+				E2C1505329A2933800FCB6F1 /* Utilities */,
+				EAD89BCB2E6B2BF900C9041F /* Weblog */,
+				E257927A29D9E62700D985C3 /* Webpage */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		EAD763042960953600E18E02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAC944D3295E56E9004EE34F /* OMG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAC944E3295E56EA004EE34F /* Build configuration list for PBXNativeTarget "OMG" */;
+			buildPhases = (
+				EAC944D0295E56E9004EE34F /* Sources */,
+				EAC944D1295E56E9004EE34F /* Frameworks */,
+				EAC944D2295E56E9004EE34F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EAA086842E8EA353005D4406 /* OMG */,
+			);
+			name = OMG;
+			packageProductDependencies = (
+				EA8DCD472964DC4500AAF957 /* Status */,
+				E2BC2B462975840300DE5FB6 /* Auth */,
+				E213884129A5153D00CE1692 /* Account */,
+				E2D07E4429A80D8C001F58CB /* AccountUpdateService */,
+				E22BDE5A29B69ECC00B98BD9 /* Sidebar */,
+				E2A89E4529B72FC900C22586 /* Route */,
+				E215670829BA86FF0062C8C3 /* AuthSessionService */,
+				E215670A29BA86FF0062C8C3 /* AuthSessionServiceInterface */,
+				E267BD5529BA9C7A0076C022 /* SessionService */,
+				E267BD5729BA9C7A0076C022 /* SessionServiceInterface */,
+				E262C8F729C0641200B28EFB /* PURLs */,
+				E211DA8329CA5AC000A11C82 /* Now */,
+				E257927B29D9E68700D985C3 /* Webpage */,
+				EAE1723D29F5C0CC00AEC787 /* Pastebin */,
+				EAD89BCC2E6B2C0700C9041F /* Weblog */,
+				EADEE5FE2E78744900204760 /* Pics */,
+				EA7632CC2EAEBFDD00E9CD6E /* Shortcuts */,
+				EAB0E9D12ED646BF000B7932 /* AsyncAlgorithms */,
+				EAB0E9D52ED64720000B7932 /* MicroClient */,
+			);
+			productName = OMG;
+			productReference = EAC944D4295E56E9004EE34F /* OMG.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAC944CC295E56E9004EE34F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					EAC944D3295E56E9004EE34F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = EAC944CF295E56E9004EE34F /* Build configuration list for PBXProject "OMG" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAC944CB295E56E9004EE34F;
+			packageReferences = (
+				E25F79C62966E7D10015CCA4 /* XCRemoteSwiftPackageReference "MicroContainer" */,
+				EAB0E9D02ED646BF000B7932 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+				EAB0E9D32ED646D4000B7932 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				EAB0E9D42ED64720000B7932 /* XCRemoteSwiftPackageReference "MicroClient" */,
+			);
+			productRefGroup = EAC944D5295E56E9004EE34F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAC944D3295E56E9004EE34F /* OMG */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAC944D2295E56E9004EE34F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAC944D0295E56E9004EE34F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EAC944E1295E56EA004EE34F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S9X9XY5GF8;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		EAC944E2295E56EA004EE34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S9X9XY5GF8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		EAC944E4295E56EA004EE34F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = TritonIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "OMG/Supporting Files/OMG.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"OMG/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OMG/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otaviocc.OMG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAC944E5295E56EA004EE34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = TritonIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "OMG/Supporting Files/OMG.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"OMG/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OMG/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otaviocc.OMG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAC944CF295E56E9004EE34F /* Build configuration list for PBXProject "OMG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC944E1295E56EA004EE34F /* Debug */,
+				EAC944E2295E56EA004EE34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAC944E3295E56EA004EE34F /* Build configuration list for PBXNativeTarget "OMG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC944E4295E56EA004EE34F /* Debug */,
+				EAC944E5295E56EA004EE34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E25F79C62966E7D10015CCA4 /* XCRemoteSwiftPackageReference "MicroContainer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/otaviocc/MicroContainer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
+		EAB0E9D02ED646BF000B7932 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		EAB0E9D32ED646D4000B7932 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		EAB0E9D42ED64720000B7932 /* XCRemoteSwiftPackageReference "MicroClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/otaviocc/MicroClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.27;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E211DA8329CA5AC000A11C82 /* Now */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Now;
+		};
+		E213884129A5153D00CE1692 /* Account */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Account;
+		};
+		E215670829BA86FF0062C8C3 /* AuthSessionService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthSessionService;
+		};
+		E215670A29BA86FF0062C8C3 /* AuthSessionServiceInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthSessionServiceInterface;
+		};
+		E22BDE5A29B69ECC00B98BD9 /* Sidebar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Sidebar;
+		};
+		E257927B29D9E68700D985C3 /* Webpage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Webpage;
+		};
+		E262C8F729C0641200B28EFB /* PURLs */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PURLs;
+		};
+		E267BD5529BA9C7A0076C022 /* SessionService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SessionService;
+		};
+		E267BD5729BA9C7A0076C022 /* SessionServiceInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SessionServiceInterface;
+		};
+		E2A89E4529B72FC900C22586 /* Route */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Route;
+		};
+		E2BC2B462975840300DE5FB6 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Auth;
+		};
+		E2D07E4429A80D8C001F58CB /* AccountUpdateService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AccountUpdateService;
+		};
+		EA7632CC2EAEBFDD00E9CD6E /* Shortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shortcuts;
+		};
+		EA8DCD472964DC4500AAF957 /* Status */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Status;
+		};
+		EAB0E9D12ED646BF000B7932 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAB0E9D02ED646BF000B7932 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
+		EAB0E9D52ED64720000B7932 /* MicroClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAB0E9D42ED64720000B7932 /* XCRemoteSwiftPackageReference "MicroClient" */;
+			productName = MicroClient;
+		};
+		EAD89BCC2E6B2C0700C9041F /* Weblog */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Weblog;
+		};
+		EADEE5FE2E78744900204760 /* Pics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Pics;
+		};
+		EAE1723D29F5C0CC00AEC787 /* Pastebin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Pastebin;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EAC944CC295E56E9004EE34F /* Project object */;
+}

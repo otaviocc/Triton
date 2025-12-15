@@ -1,0 +1,96 @@
+# MARK: - Indentation and Spacing
+--indent 4
+--tab-width 4
+--max-width 120
+--wrap-arguments before-first
+--wrap-parameters before-first
+--wrap-collections before-first
+--closing-paren balanced
+--wrap-return-type never
+
+# MARK: - Line Breaks and Spacing
+--linebreaks lf
+--trim-whitespace always
+--trailing-commas never
+--semicolons never
+--operator-func spaced
+--no-space-operators ...,..<
+--ranges spaced
+
+# MARK: - Braces and Brackets
+--allman false
+--else-position same-line
+--guard-else auto
+--ifdef indent
+--indent-case false
+--indent-strings false
+--xcode-indentation enabled
+
+# MARK: - Imports and Headers
+--import-grouping testable-last
+--mark-extensions always
+--mark-types always
+--extension-acl on-extension
+--property-types inferred
+--nil-init remove
+
+# MARK: - Function and Method Formatting
+--func-attributes preserve
+--type-attributes preserve
+--stored-var-attributes preserve
+--computed-var-attributes preserve
+--pattern-let hoist
+--strip-unused-args closure-only
+--self remove
+--self-required UIViewController,UIView,NSViewController,NSView
+
+# MARK: - Comments and Documentation
+--doc-comments before-declarations
+--header strip
+--ifdef indent
+
+# MARK: - SwiftUI and Modern Swift Features
+--swift-version 6.0
+--sort-swiftui-properties first-appearance-sort
+--some-any true
+--short-optionals always
+
+# MARK: - Code Organization
+--organize-types class,actor,struct,enum,extension,protocol
+--organization-mode visibility
+--class-threshold 0
+--struct-threshold 0
+--enum-threshold 0
+--extension-threshold 0
+
+# MARK: - Blank Lines and Spacing
+# --disable blankLinesAtStartOfScope
+--enable blankLinesAtStartOfScope
+--disable blankLinesAtEndOfScope
+--type-blank-lines insert
+
+# MARK: - Exclusions
+--exclude "**/.build/**"
+--exclude "**/DerivedData/**"
+--exclude "**/Pods/**"
+--exclude "**/Carthage/**"
+--exclude "**/.git/**"
+--exclude "**/node_modules/**"
+
+# MARK: - File Patterns
+--symlinks ignore
+
+# MARK: - Enhanced Modern Swift
+--acronyms auto
+
+# MARK: - Better Organization  
+--modifierorder override,public,internal,fileprivate,private,static,class,final,required,convenience,lazy,weak,unowned
+
+# MARK: - Improved Consistency
+--wrap-ternary before-operators
+
+# MARK: - Additional Rules
+--enable wrapMultilineStatementBraces
+--enable preferKeyPath
+--enable sortSwitchCases
+--enable blankLinesBetweenImports

@@ -1,0 +1,29 @@
+# xcode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata
+build/*
+DerivedData/
+# *.xcworkspace/
+
+# osx
+.DS_Store
+
+# vscode
+.vscode/*
+
+# Bundler
+.bundle
+
+# Carthage
+Carthage
+
+# CocoaPods
+Pods/
+Packages/*/Package.resolved
+
+# Environment
+.env
