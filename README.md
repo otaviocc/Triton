@@ -17,6 +17,7 @@ A native macOS client for [omg.lol](https://omg.lol), built with SwiftUI. Triton
   - [Pics](#pics)
   - [Pastebin](#pastebin)
   - [Multiple Addresses](#multiple-addresses)
+- [Install Triton](#install-triton)
 - [Thanks and Acknowledgments](#thanks-and-acknowledgments)
 - [App Store Distribution](#app-store-distribution)
   - [Why?](#why)
@@ -89,6 +90,19 @@ Code snippet and paste management:
 ### Multiple Addresses
 
 Switch seamlessly between multiple omg.lol addresses, all in one app.
+
+## Install Triton
+
+**Download directly from GitHub Releases**
+
+You can download the latest pre-built version of Triton directly from the [GitHub Releases page](https://github.com/otaviocc/Triton/releases). Simply download the `.zip` file from the latest release, open it, and drag OMG.app to your Applications folder. This method is useful if you prefer manual installation or don't use Homebrew.
+
+**Install via [Brew](https://brew.sh) 🤩**
+
+```bash
+brew tap otaviocc/apps
+brew install --cask triton
+```
 
 ## Thanks and Acknowledgments
 
