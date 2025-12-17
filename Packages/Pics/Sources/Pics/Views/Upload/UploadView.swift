@@ -25,30 +25,21 @@ struct UploadView: View {
     // MARK: - Public
 
     var body: some View {
-        VStack {
-            HStack(alignment: .top) {
-                makeSidebarView()
-                    .frame(width: 200)
-
-                makeEditorView()
+        makeContentView()
+            .frame(minWidth: 400, idealWidth: 640, maxWidth: 640)
+            .toolbar {
+                makeToolbarContent()
             }
-
-            makeVisibilityView()
-        }
-        .frame(minWidth: 400, idealWidth: 640, maxWidth: 640)
-        .toolbar {
-            makeToolbarContent()
-        }
-        .navigationTitle("")
-        .onChange(of: viewModel.shouldDismiss) { _, shouldDismiss in
-            if shouldDismiss {
-                dismiss()
+            .navigationTitle("")
+            .onChange(of: viewModel.shouldDismiss) { _, shouldDismiss in
+                if shouldDismiss {
+                    dismiss()
+                }
             }
-        }
-        .padding()
-        .onDrop(of: [.image], isTargeted: $viewModel.isDragging) { providers -> Bool in
-            handleDrop(providers: providers)
-        }
+            .padding()
+            .onDrop(of: [.image], isTargeted: $viewModel.isDragging) { providers -> Bool in
+                handleDrop(providers: providers)
+            }
     }
 
     // MARK: - Private
@@ -62,26 +53,42 @@ struct UploadView: View {
 
     @ViewBuilder
     private func makeSidebarView() -> some View {
-        if viewModel.isDragging {
-            makeDropPictureView()
-        } else {
-            VStack {
-                makePictureView()
-                makePicturePickerView()
+        VStack {
+            makePictureView()
+            makePicturePickerView()
+        }
+    }
+
+    @ViewBuilder
+    private func makeContentView() -> some View {
+        ZStack {
+            if viewModel.isDragging {
+                makeDropZoneView()
+            } else {
+                VStack {
+                    HStack(alignment: .top) {
+                        makeSidebarView()
+                            .frame(width: 200)
+                        makeEditorView()
+                    }
+                    makeVisibilityView()
+                }
             }
         }
     }
 
     @ViewBuilder
-    private func makeDropPictureView() -> some View {
-        VStack(alignment: .center, spacing: 8) {
-            Image(systemName: "arrow.down.heart")
-                .font(.largeTitle)
-
-            Text("Drop it here")
-        }
-        .frame(width: 100, height: 100)
-        .card(.accentColor)
+    private func makeDropZoneView() -> some View {
+        RoundedRectangle(cornerRadius: 8)
+            .fill(
+                AnyShapeStyle(
+                    viewModel.isDragging ? Color.accentColor.opacity(0.1) : .clear
+                )
+            )
+            .strokeBorder(
+                viewModel.isDragging ? Color.accentColor : .secondary.opacity(0.3),
+                style: StrokeStyle(lineWidth: 2, dash: [8, 4])
+            )
     }
 
     @ViewBuilder
