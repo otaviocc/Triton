@@ -1,0 +1,105 @@
+name: Create Draft Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  create-draft-release:
+    name: Create Draft Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get previous tag
+        id: previous_tag
+        run: |
+          # Get all tags sorted by version
+          PREVIOUS_TAG=$(git tag -l '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | sed -n '2p')
+          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+          echo "Previous tag: $PREVIOUS_TAG"
+
+      - name: Generate release notes
+        id: release_notes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CURRENT_TAG="${{ github.ref_name }}"
+          PREVIOUS_TAG="${{ steps.previous_tag.outputs.previous_tag }}"
+
+          if [ -z "$PREVIOUS_TAG" ]; then
+            echo "No previous tag found. This is the first release."
+            # Get all merged PRs
+            PRS=$(gh pr list --state merged --json number,title,mergedAt --jq '.[] | "\(.number)|\(.title)"')
+          else
+            # Get the date of the previous tag
+            PREVIOUS_DATE=$(git log -1 --format=%aI $PREVIOUS_TAG)
+            echo "Previous tag date: $PREVIOUS_DATE"
+
+            # Get all PRs merged since the previous tag
+            PRS=$(gh pr list --state merged --search "merged:>=$PREVIOUS_DATE" --json number,title --jq '.[] | "\(.number)|\(.title)"')
+          fi
+
+          echo "Found PRs:"
+          echo "$PRS"
+          echo "---"
+
+          # Separate fixes from other PRs
+          FIXES=""
+          OTHERS=""
+
+          while IFS='|' read -r PR_NUM PR_TITLE; do
+            if [ -n "$PR_NUM" ]; then
+              PR_LINE="- https://github.com/${{ github.repository }}/pull/$PR_NUM - $PR_TITLE"
+
+              # Check if it's a fix (case-insensitive)
+              if echo "$PR_TITLE" | grep -iE "^(fix|bugfix|hotfix)" > /dev/null; then
+                FIXES="$FIXES$PR_LINE"$'\n'
+              else
+                OTHERS="$OTHERS$PR_LINE"$'\n'
+              fi
+            fi
+          done <<< "$PRS"
+
+          # Create release notes
+          {
+            if [ -n "$FIXES" ]; then
+              echo "This release fixes:"
+              echo ""
+              echo "$FIXES"
+            fi
+
+            if [ -n "$OTHERS" ]; then
+              if [ -n "$FIXES" ]; then
+                echo "Other Pull Requests:"
+              else
+                echo "This release includes:"
+              fi
+              echo ""
+              echo "$OTHERS"
+            fi
+
+            if [ -z "$FIXES" ] && [ -z "$OTHERS" ]; then
+              echo "No pull requests were merged in this release."
+              echo ""
+            fi
+          } > release_notes.md
+
+          cat release_notes.md
+
+      - name: Create Draft Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          name: Release ${{ github.ref_name }}
+          body_path: release_notes.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
