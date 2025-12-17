@@ -70,7 +70,7 @@ Full-featured blog post management:
 
 Manage your pictures on some.pics:
 
-- Upload new images
+- Upload new images from your Photo Library or drag and drop images from Finder
 - Delete pictures
 - Copy photo URL, Some Pics URL, or as Markdown (link or image)
 - Open in browser
