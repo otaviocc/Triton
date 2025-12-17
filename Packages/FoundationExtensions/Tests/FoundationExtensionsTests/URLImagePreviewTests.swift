@@ -14,7 +14,7 @@ final class URLImagePreviewTests: XCTestCase {
         XCTAssertEqual(
             result.absoluteString,
             "https://cdn.some.pics/user/image.preview.jpg",
-            "It should insert .preview before the file extension"
+            "It should replace the file extension with .preview.jpg"
         )
     }
 
@@ -28,8 +28,8 @@ final class URLImagePreviewTests: XCTestCase {
         // Then
         XCTAssertEqual(
             result.absoluteString,
-            "https://example.com/photos/sunset.preview.png",
-            "It should insert .preview before PNG extension"
+            "https://example.com/photos/sunset.preview.jpg",
+            "It should replace PNG extension with .preview.jpg"
         )
     }
 
@@ -43,8 +43,8 @@ final class URLImagePreviewTests: XCTestCase {
         // Then
         XCTAssertEqual(
             result.absoluteString,
-            "https://example.com/images/photo.preview",
-            "It should append .preview when there is no file extension"
+            "https://example.com/images/photo.preview.jpg",
+            "It should append .preview.jpg when there is no file extension"
         )
     }
 
@@ -58,8 +58,8 @@ final class URLImagePreviewTests: XCTestCase {
         // Then
         XCTAssertEqual(
             result.absoluteString,
-            "https://cdn.example.com/user-uploads/my-vacation-photo.preview.jpeg",
-            "It should handle complex filenames with hyphens"
+            "https://cdn.example.com/user-uploads/my-vacation-photo.preview.jpg",
+            "It should replace the extension with .preview.jpg for complex filenames"
         )
     }
 
@@ -74,7 +74,7 @@ final class URLImagePreviewTests: XCTestCase {
         XCTAssertEqual(
             result.absoluteString,
             "https://api.example.com/images/photo.preview.jpg?size=large&quality=high",
-            "It should preserve query parameters in the preview URL"
+            "It should preserve query parameters and use .preview.jpg extension"
         )
     }
 
@@ -88,8 +88,8 @@ final class URLImagePreviewTests: XCTestCase {
         // Then
         XCTAssertEqual(
             result.absoluteString,
-            "https://storage.example.com/users/123/albums/vacation/beach.preview.gif",
-            "It should maintain the full directory structure"
+            "https://storage.example.com/users/123/albums/vacation/beach.preview.jpg",
+            "It should maintain the full directory structure and use .preview.jpg extension"
         )
     }
 
@@ -103,8 +103,8 @@ final class URLImagePreviewTests: XCTestCase {
         // Then
         XCTAssertEqual(
             result.path,
-            "/Users/test/Documents/screenshot.preview.png",
-            "It should work with local file URLs"
+            "/Users/test/Documents/screenshot.preview.jpg",
+            "It should work with local file URLs and use .preview.jpg extension"
         )
     }
 
@@ -119,7 +119,7 @@ final class URLImagePreviewTests: XCTestCase {
         XCTAssertEqual(
             result.absoluteString,
             "https://example.com/files/image.backup.preview.jpg",
-            "It should insert .preview before the last extension when multiple dots exist"
+            "It should replace the last extension with .preview.jpg when multiple dots exist"
         )
     }
 
@@ -134,7 +134,7 @@ final class URLImagePreviewTests: XCTestCase {
         XCTAssertEqual(
             result.absoluteString,
             "https://example.com/a.preview.jpg",
-            "It should handle single character filenames"
+            "It should handle single character filenames and use .preview.jpg extension"
         )
     }
 }
