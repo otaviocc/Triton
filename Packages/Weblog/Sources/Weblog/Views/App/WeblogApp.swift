@@ -78,9 +78,19 @@ struct WeblogApp: View {
     }
 
     @ViewBuilder
-    private func makeAddEntryToolbarItem() -> some View {
+    private func makeAddEntryToolbarItem(
+        address: SelectedAddress
+    ) -> some View {
         Button {
-            openWindow(id: EditWeblogEntryWindow.id)
+            openWindow(
+                id: EditWeblogEntryWindow.id,
+                value: EditWeblogEntry(
+                    address: address,
+                    body: "# Title of your post\n\nThis is the body of your post...",
+                    date: .init(),
+                    entryID: nil
+                )
+            )
         } label: {
             Image(systemName: "plus")
         }
@@ -108,7 +118,7 @@ struct WeblogApp: View {
                 helpText: "Refresh weblog entries",
                 isDisabled: viewModel.isLoading
             )
-            makeAddEntryToolbarItem()
+            makeAddEntryToolbarItem(address: address)
         }
     }
 }
