@@ -16,7 +16,7 @@ public extension AccountInformationResponse {
 
         public let message: String
         public let email: String
-        public let name: String
+        public let name: String?
         public let created: Created
     }
 }

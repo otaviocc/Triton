@@ -76,11 +76,19 @@ private extension AccountResponse {
 
     /// Initializes the `AccountResponse` model from the network response
     /// model, so that the client doesn't depend on network models.
+    ///
+    /// If the name from the API response is `nil` or empty, it defaults to "Anonymous"
+    /// to ensure all layers of the application work with a non-optional name value.
+    ///
     /// - Parameter response: The network model to be mapped.
     init(
         response: AccountInformationResponse.Response
     ) {
-        name = response.name
+        if let responseName = response.name, !responseName.isEmpty {
+            name = responseName
+        } else {
+            name = "Anonymous"
+        }
         email = response.email
         unixEpochTime = response.created.unixEpochTime
     }
