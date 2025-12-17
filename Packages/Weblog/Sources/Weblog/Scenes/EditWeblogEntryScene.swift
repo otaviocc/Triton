@@ -24,8 +24,8 @@ struct EditWeblogEntryScene: Scene {
             for: EditWeblogEntry.self
         ) { $entry in
             makeEditorView(
-                body: entry?.body ?? "# Title of your post\n\nThis is the body of your post...",
-                date: entry?.date ?? Date(),
+                body: entry?.body ?? "",
+                date: entry?.date ?? .init(),
                 entryID: entry?.entryID,
                 address: entry?.address ?? ""
             )
