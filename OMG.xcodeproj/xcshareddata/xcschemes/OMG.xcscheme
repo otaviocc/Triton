@@ -28,6 +28,176 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AuthNetworkServiceTests"
+               BuildableName = "AuthNetworkServiceTests"
+               BlueprintName = "AuthNetworkServiceTests"
+               ReferencedContainer = "container:Packages/Auth">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AuthPersistenceServiceTests"
+               BuildableName = "AuthPersistenceServiceTests"
+               BlueprintName = "AuthPersistenceServiceTests"
+               ReferencedContainer = "container:Packages/Auth">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AuthRepositoryTests"
+               BuildableName = "AuthRepositoryTests"
+               BlueprintName = "AuthRepositoryTests"
+               ReferencedContainer = "container:Packages/Auth">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AuthSessionServiceTests"
+               BuildableName = "AuthSessionServiceTests"
+               BlueprintName = "AuthSessionServiceTests"
+               ReferencedContainer = "container:Packages/AuthSession">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationExtensionsTests"
+               BuildableName = "FoundationExtensionsTests"
+               BlueprintName = "FoundationExtensionsTests"
+               ReferencedContainer = "container:Packages/FoundationExtensions">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NowTests"
+               BuildableName = "NowTests"
+               BlueprintName = "NowTests"
+               ReferencedContainer = "container:Packages/Now">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "OMGAPITests"
+               BuildableName = "OMGAPITests"
+               BlueprintName = "OMGAPITests"
+               ReferencedContainer = "container:Packages/OMGAPI">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PastebinTests"
+               BuildableName = "PastebinTests"
+               BlueprintName = "PastebinTests"
+               ReferencedContainer = "container:Packages/Pastebin">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PicsTests"
+               BuildableName = "PicsTests"
+               BlueprintName = "PicsTests"
+               ReferencedContainer = "container:Packages/Pics">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PURLsTests"
+               BuildableName = "PURLsTests"
+               BlueprintName = "PURLsTests"
+               ReferencedContainer = "container:Packages/PURLs">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SessionServiceTests"
+               BuildableName = "SessionServiceTests"
+               BlueprintName = "SessionServiceTests"
+               ReferencedContainer = "container:Packages/SessionService">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StatusNetworkServiceTests"
+               BuildableName = "StatusNetworkServiceTests"
+               BlueprintName = "StatusNetworkServiceTests"
+               ReferencedContainer = "container:Packages/Status">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StatusPersistenceServiceTests"
+               BuildableName = "StatusPersistenceServiceTests"
+               BlueprintName = "StatusPersistenceServiceTests"
+               ReferencedContainer = "container:Packages/Status">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StatusRepositoryTests"
+               BuildableName = "StatusRepositoryTests"
+               BlueprintName = "StatusRepositoryTests"
+               ReferencedContainer = "container:Packages/Status">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ArchiverTests"
+               BuildableName = "ArchiverTests"
+               BlueprintName = "ArchiverTests"
+               ReferencedContainer = "container:Packages/Utilities">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "WeblogTests"
+               BuildableName = "WeblogTests"
+               BlueprintName = "WeblogTests"
+               ReferencedContainer = "container:Packages/Weblog">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "WebpageTests"
+               BuildableName = "WebpageTests"
+               BlueprintName = "WebpageTests"
+               ReferencedContainer = "container:Packages/Webpage">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
