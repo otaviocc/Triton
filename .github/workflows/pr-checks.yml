@@ -23,6 +23,17 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
+      - name: Install swiftformat
+        run: brew install swiftformat
+
+      - name: Check code formatting
+        run: |
+          swiftformat --lint .
+          if [ $? -ne 0 ]; then
+            echo "❌ Code formatting issues detected. Please run 'swiftformat .' locally to fix."
+            exit 1
+          fi
+
       - name: Cache Swift Package Manager
         uses: actions/cache@v4
         with:
@@ -46,13 +57,12 @@ jobs:
             | xcpretty || exit 1
         continue-on-error: false
 
-      - name: Install swiftformat
-        run: brew install swiftformat
-
-      - name: Check code formatting
+      - name: Run OMG Tests
         run: |
-          swiftformat --lint .
-          if [ $? -ne 0 ]; then
-            echo "❌ Code formatting issues detected. Please run 'swiftformat .' locally to fix."
-            exit 1
-          fi
+          xcodebuild test \
+            -project OMG.xcodeproj \
+            -scheme OMG \
+            -configuration Debug \
+            -destination 'platform=macOS' \
+            | xcpretty || exit 1
+        continue-on-error: false
