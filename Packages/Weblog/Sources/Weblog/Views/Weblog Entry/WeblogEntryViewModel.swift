@@ -34,8 +34,8 @@ final class WeblogEntryViewModel: Identifiable {
         )
     }
 
-    var isLive: Bool {
-        status == "live"
+    var showStatus: Bool {
+        status.lowercased() != "live"
     }
 
     private let repository: any WeblogRepositoryProtocol

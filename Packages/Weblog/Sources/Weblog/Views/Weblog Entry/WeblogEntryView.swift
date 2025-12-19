@@ -26,6 +26,10 @@ struct WeblogEntryView: View {
         VStack(alignment: .leading, spacing: 4) {
             makeHeaderView()
             makeContentView()
+
+            if viewModel.showStatus {
+                makeStatusView()
+            }
         }
         .frame(
             maxWidth: .infinity,
@@ -63,6 +67,17 @@ struct WeblogEntryView: View {
             .truncationMode(.tail)
             .lineLimit(2)
             .foregroundColor(.primary)
+    }
+
+    @ViewBuilder
+    private func makeStatusView() -> some View {
+        HStack {
+            Spacer()
+            Text(viewModel.status)
+                .textCase(.uppercase)
+                .font(.caption)
+                .foregroundColor(.accentColor)
+        }
     }
 
     @ViewBuilder
