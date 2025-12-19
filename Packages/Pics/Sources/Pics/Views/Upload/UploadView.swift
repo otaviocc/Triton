@@ -123,17 +123,17 @@ struct UploadView: View {
     @ViewBuilder
     private func makeEditorView() -> some View {
         VStack {
-            TextField("Caption", text: $viewModel.caption)
-                .autocorrectionDisabled(false)
-                .font(.body.monospaced())
-                .textFieldCard()
-                .help("Add a caption for your image")
+            PlaceholderTextEditor(
+                placeholder: "Caption",
+                text: $viewModel.caption,
+                help: "Add a caption for your image"
+            )
 
-            TextEditor(text: $viewModel.altText)
-                .autocorrectionDisabled(false)
-                .font(.body.monospaced())
-                .textEditorCard()
-                .help("Add descriptive alt text for accessibility")
+            PlaceholderTextEditor(
+                placeholder: "Alt text",
+                text: $viewModel.altText,
+                help: "Add descriptive alt text for accessibility"
+            )
 
             makeTagsView()
         }
