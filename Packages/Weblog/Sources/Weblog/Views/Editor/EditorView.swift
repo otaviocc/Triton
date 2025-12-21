@@ -29,7 +29,7 @@ struct EditorView: View {
                 makeSidebarView()
             }
 
-            makeTagsView()
+            makeSelectedTagsView()
         }
         .toolbar {
             makeToolbarContent()
@@ -108,11 +108,6 @@ struct EditorView: View {
         }
         .frame(width: 200)
         .padding()
-    }
-
-    @ViewBuilder
-    private func makeTagsView() -> some View {
-        makeSelectedTagsView()
     }
 
     @ViewBuilder
