@@ -54,6 +54,14 @@ public struct StorableEntry {
     /// proper data organization and multi-address support in local storage.
     let address: String
 
+    /// An array of tags associated with the weblog entry for categorization and discovery.
+    ///
+    /// These user-defined tags enable content organization, filtering, and search
+    /// functionality. Tags can be used to group related entries or identify
+    /// specific themes, events, or characteristics of the content. The array may
+    /// be empty if no tags have been assigned to the entry.
+    let tags: [String]
+
     // MARK: - Lifecycle
 
     /// Initializes a new storable entry with all required weblog entry data.
@@ -69,6 +77,7 @@ public struct StorableEntry {
     ///   - status: The publication status of the entry.
     ///   - location: The URL slug for the entry.
     ///   - address: The domain where the entry is hosted.
+    ///   - tags: An array of tags associated with the entry. Defaults to empty array.
     public init(
         id: String,
         title: String,
@@ -76,7 +85,8 @@ public struct StorableEntry {
         date: Double,
         status: String,
         location: String,
-        address: String
+        address: String,
+        tags: [String]
     ) {
         self.id = id
         self.title = title
@@ -85,5 +95,6 @@ public struct StorableEntry {
         self.status = status
         self.location = location
         self.address = address
+        self.tags = tags
     }
 }

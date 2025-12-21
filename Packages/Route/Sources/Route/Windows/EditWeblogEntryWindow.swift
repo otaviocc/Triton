@@ -33,6 +33,9 @@ public struct EditWeblogEntry: Codable, Hashable {
     /// The publication status of the weblog entry.
     public let status: String?
 
+    /// An array of tags associated with the weblog entry.
+    public let tags: [String]
+
     // MARK: - Lifecycle
 
     public init(
@@ -40,12 +43,14 @@ public struct EditWeblogEntry: Codable, Hashable {
         body: String,
         date: Date,
         entryID: String?,
-        status: String?
+        status: String?,
+        tags: [String]
     ) {
         self.address = address
         self.body = body
         self.date = date
         self.entryID = entryID
         self.status = status
+        self.tags = tags
     }
 }

@@ -61,6 +61,7 @@ public protocol WeblogRepositoryProtocol: Sendable {
     ///   - entryID: The unique identifier of the entry to update. If nil, creates a new entry.
     ///   - body: The content body of the weblog entry in markdown format
     ///   - status: The publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only", "Unlisted")
+    ///   - tags: An array of tags associated with the entry
     ///   - date: The publication date for the entry
     /// - Throws: Network errors from the remote operation or persistence errors
     ///           from the local storage operations.
@@ -69,6 +70,7 @@ public protocol WeblogRepositoryProtocol: Sendable {
         entryID: String?,
         body: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws
 
@@ -142,6 +144,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
         entryID: String? = nil,
         body: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws {
         if let entryID {
@@ -150,6 +153,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
                 entryID: entryID,
                 body: body,
                 status: status,
+                tags: tags,
                 date: date
             )
         } else {
@@ -157,6 +161,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
                 address: address,
                 body: body,
                 status: status,
+                tags: tags,
                 date: date
             )
         }
@@ -168,6 +173,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
         address: String,
         body: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws {
         guard await authSessionService.isLoggedIn else {
@@ -178,6 +184,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
             address: address,
             content: body,
             status: status,
+            tags: tags,
             date: date
         )
 
@@ -189,6 +196,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
         entryID: String,
         body: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws {
         guard await authSessionService.isLoggedIn else {
@@ -200,6 +208,7 @@ actor WeblogRepository: WeblogRepositoryProtocol {
             entryID: entryID,
             content: body,
             status: status,
+            tags: tags,
             date: date
         )
 

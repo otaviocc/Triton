@@ -172,7 +172,8 @@ struct WeblogEntryView: View {
                 body: viewModel.body,
                 date: viewModel.publishedDate,
                 entryID: viewModel.id,
-                status: viewModel.status
+                status: viewModel.status,
+                tags: viewModel.tags
             )
         )
     }

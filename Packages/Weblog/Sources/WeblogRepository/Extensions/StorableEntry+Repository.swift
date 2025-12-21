@@ -13,7 +13,8 @@ extension StorableEntry {
             date: entryResponse.date,
             status: entryResponse.status,
             location: entryResponse.location,
-            address: entryResponse.address
+            address: entryResponse.address,
+            tags: entryResponse.tags
         )
     }
 }

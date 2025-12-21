@@ -52,6 +52,14 @@ public struct EntryResponse: Identifiable, Equatable, Sendable {
     /// multi-address support within the same application instance.
     public let address: String
 
+    /// An array of tags associated with the weblog entry for categorization and discovery.
+    ///
+    /// These user-defined tags enable content organization, filtering, and search
+    /// functionality. Tags can be used to group related entries or identify
+    /// specific themes, events, or characteristics of the content. The array may
+    /// be empty if no tags have been assigned to the entry.
+    public let tags: [String]
+
     // MARK: - Public
 
     public init(
@@ -61,7 +69,8 @@ public struct EntryResponse: Identifiable, Equatable, Sendable {
         status: String,
         title: String,
         body: String,
-        address: String
+        address: String,
+        tags: [String] = []
     ) {
         self.id = id
         self.location = location
@@ -70,5 +79,6 @@ public struct EntryResponse: Identifiable, Equatable, Sendable {
         self.title = title
         self.body = body
         self.address = address
+        self.tags = tags
     }
 }

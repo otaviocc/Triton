@@ -28,6 +28,7 @@ struct EditWeblogEntryScene: Scene {
                 date: entry?.date ?? .init(),
                 entryID: entry?.entryID,
                 status: entry?.status.flatMap(WeblogEntryStatus.init) ?? .draft,
+                tags: entry?.tags ?? .init(),
                 address: entry?.address ?? ""
             )
         }
@@ -46,6 +47,7 @@ struct EditWeblogEntryScene: Scene {
         date: Date,
         entryID: String?,
         status: WeblogEntryStatus,
+        tags: [String],
         address: String
     ) -> some View {
         let viewModel = environment.viewModelFactory
@@ -54,12 +56,14 @@ struct EditWeblogEntryScene: Scene {
                 body: body,
                 date: date,
                 entryID: entryID,
-                status: status
+                status: status,
+                tags: tags
             )
 
         EditorView(
             viewModel: viewModel
         )
-        .frame(minWidth: 420, idealWidth: 420, maxWidth: 640)
+        .modelContainer(environment.modelContainer)
+        .frame(minWidth: 640, idealWidth: 640, maxWidth: 800)
     }
 }

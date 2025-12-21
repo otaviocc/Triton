@@ -52,6 +52,7 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
     ///   - address: The user address (username) to create the entry for
     ///   - content: The markdown content body of the weblog entry
     ///   - status: The publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only", "Unlisted")
+    ///   - tags: An array of tags associated with the entry
     ///   - date: The publication date for the entry
     /// - Returns: The created weblog entry with metadata and generated ID
     /// - Throws: Network errors, authentication errors, or API-specific errors.
@@ -59,6 +60,7 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
         address: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws -> EntryResponse
 
@@ -78,6 +80,7 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
     ///   - content: The updated markdown content body of the weblog entry
     ///   - status: The updated publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only",
     /// "Unlisted")
+    ///   - tags: An array of tags associated with the entry
     ///   - date: The updated publication date for the entry
     /// - Returns: The updated weblog entry with new content and metadata
     /// - Throws: Network errors, authentication errors, or API-specific errors if the entry is not found.
@@ -86,6 +89,7 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
         entryID: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws -> EntryResponse
 
@@ -149,6 +153,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
         address: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws -> EntryResponse {
         let response = try await networkClient.run(
@@ -156,6 +161,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
                 address: address,
                 content: content,
                 status: status,
+                tags: tags,
                 date: date
             )
         )
@@ -171,6 +177,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
         entryID: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) async throws -> EntryResponse {
         let response = try await networkClient.run(
@@ -179,6 +186,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
                 entryID: entryID,
                 content: content,
                 status: status,
+                tags: tags,
                 date: date
             )
         )
@@ -220,6 +228,7 @@ private extension EntryResponse {
         title = weblogEntryResponse.title
         body = weblogEntryResponse.body
         address = weblogEntryResponse.address
+        tags = weblogEntryResponse.tags
     }
 }
 
@@ -227,6 +236,8 @@ private extension EntryResponse {
 
     /// Initializes the `CreateWeblogEntryResponse` model from the network response
     /// model, so that the client doesn't depend on network models.
+    ///
+    /// Tags not returned in create/update response, will be synced on next fetch.
     ///
     /// - Parameter createWeblogEntryResponse: The network model to be mapped.
     init(
@@ -239,6 +250,7 @@ private extension EntryResponse {
         status = createWeblogEntryResponse.status
         title = createWeblogEntryResponse.title
         body = createWeblogEntryResponse.body
+        tags = .init()
         self.address = address
     }
 }

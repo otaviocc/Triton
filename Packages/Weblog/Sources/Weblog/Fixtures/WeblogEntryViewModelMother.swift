@@ -16,6 +16,7 @@
                 timestamp: 12_312_312,
                 address: "otaviocc",
                 location: "/2022/12/my-weblog-post",
+                tags: .init(),
                 repository: WeblogRepositoryMother.makeWeblogRepository(),
                 clipboardService: ClipboardServiceMother.makeClipboardService()
             )

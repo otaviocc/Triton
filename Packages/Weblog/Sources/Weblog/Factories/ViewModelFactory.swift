@@ -41,6 +41,7 @@ final class ViewModelFactory: Sendable {
             timestamp: entry.date,
             address: entry.address,
             location: entry.location,
+            tags: entry.tags ?? [],
             repository: container.resolve(),
             clipboardService: container.resolve()
         )
@@ -64,7 +65,8 @@ final class ViewModelFactory: Sendable {
         body: String,
         date: Date,
         entryID: String?,
-        status: WeblogEntryStatus
+        status: WeblogEntryStatus,
+        tags: [String]
     ) -> EditorViewModel {
         .init(
             address: address,
@@ -72,6 +74,7 @@ final class ViewModelFactory: Sendable {
             date: date,
             entryID: entryID,
             status: status,
+            tags: tags,
             repository: container.resolve()
         )
     }

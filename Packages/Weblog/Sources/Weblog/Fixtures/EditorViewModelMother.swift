@@ -14,6 +14,7 @@
                 date: .init(),
                 entryID: nil,
                 status: .draft,
+                tags: .init(),
                 repository: WeblogRepositoryMother.makeWeblogRepository()
             )
         }

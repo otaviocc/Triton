@@ -64,6 +64,17 @@ public final class WeblogEntry {
     /// for multiple weblogs within the same app instance.
     public private(set) var address: String
 
+    /// An array of tags associated with the weblog entry for categorization and discovery.
+    ///
+    /// These user-defined tags enable content organization, filtering, and search
+    /// functionality. Tags can be used to group related entries or identify
+    /// specific themes, events, or characteristics of the content. The array may
+    /// be empty if no tags have been assigned to the entry.
+    ///
+    /// This property is optional to support migration from older database schemas
+    /// that didn't include tags. When nil, it should be treated as an empty array.
+    public private(set) var tags: [String]?
+
     // MARK: - Unique constraints
 
     /// Ensures each entry has a unique identifier in the database.
@@ -87,6 +98,7 @@ public final class WeblogEntry {
     ///   - status: The publication status of the entry.
     ///   - location: The URL slug for the entry.
     ///   - address: The domain where the entry is hosted.
+    ///   - tags: An optional array of tags associated with the entry. Defaults to nil (treated as empty array).
     public init(
         id: String,
         title: String,
@@ -94,7 +106,8 @@ public final class WeblogEntry {
         date: Double,
         status: String,
         location: String,
-        address: String
+        address: String,
+        tags: [String]? = nil
     ) {
         self.id = id
         self.title = title
@@ -103,5 +116,6 @@ public final class WeblogEntry {
         self.status = status
         self.location = location
         self.address = address
+        self.tags = tags
     }
 }

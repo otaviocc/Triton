@@ -1,13 +1,16 @@
 import DesignSystem
+import FoundationExtensions
+import SwiftData
 import SwiftUI
+import WeblogPersistenceService
 
 struct EditorView: View {
 
     // MARK: - Properties
 
     @State private var viewModel: EditorViewModel
-    @State private var isPopoverPresented = false
     @Environment(\.dismiss) private var dismiss
+    @Query(WeblogTag.fetchDescriptor()) private var existingTags: [WeblogTag]
 
     // MARK: - Lifecycle
 
@@ -20,9 +23,13 @@ struct EditorView: View {
     // MARK: - Public
 
     var body: some View {
-        HStack(alignment: .top) {
-            makeComposeView()
-            makeSidebarView()
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(alignment: .top) {
+                makeComposeView()
+                makeSidebarView()
+            }
+
+            makeTagsView()
         }
         .toolbar {
             makeToolbarContent()
@@ -48,8 +55,8 @@ struct EditorView: View {
 
     @ViewBuilder
     private func makeSidebarView() -> some View {
-        Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 8) {
-            GridRow {
+        Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 12) {
+            GridRow(alignment: .firstTextBaseline) {
                 Text("Date")
                     .gridColumnAlignment(.trailing)
 
@@ -60,7 +67,7 @@ struct EditorView: View {
                     .help("Select publication date")
             }
 
-            GridRow {
+            GridRow(alignment: .firstTextBaseline) {
                 Text("Time")
                     .gridColumnAlignment(.trailing)
 
@@ -71,7 +78,7 @@ struct EditorView: View {
                     .help("Select publication time")
             }
 
-            GridRow {
+            GridRow(alignment: .firstTextBaseline) {
                 Text("Status")
                     .gridColumnAlignment(.trailing)
 
@@ -87,8 +94,80 @@ struct EditorView: View {
                 .pickerStyle(.radioGroup)
                 .labelsHidden()
             }
+
+            GridRow(alignment: .firstTextBaseline) {
+                Text("Tags")
+                    .gridColumnAlignment(.trailing)
+
+                VStack {
+                    makeTagInputView()
+                    makeTagSuggestionsView()
+                    makeTagInputDescription()
+                }
+            }
         }
+        .frame(width: 200)
         .padding()
+    }
+
+    @ViewBuilder
+    private func makeTagsView() -> some View {
+        makeSelectedTagsView()
+    }
+
+    @ViewBuilder
+    private func makeTagInputView() -> some View {
+        TextField("Add tag", text: $viewModel.tagInput)
+            .autocorrectionDisabled(true)
+            .font(.body.monospaced())
+            .textFieldCard()
+            .help("Enter a tag and press the return key to add it")
+            .onSubmit {
+                withAnimation {
+                    viewModel.addTag(viewModel.tagInput)
+                }
+            }
+            .onChange(of: viewModel.tagInput) {
+                viewModel.updateTagSuggestions(from: existingTags.map(\.title))
+            }
+    }
+
+    @ViewBuilder
+    private func makeTagSuggestionsView() -> some View {
+        if !viewModel.suggestedTags.isEmpty {
+            TagListView(
+                tags: viewModel.suggestedTags,
+                helpText: { "Add existing tag '\($0)'" }
+            ) { tag in
+                withAnimation {
+                    viewModel.addTag(tag)
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func makeTagInputDescription() -> some View {
+        if viewModel.suggestedTags.isEmpty {
+            Text("Type a tag and press Return")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    @ViewBuilder
+    private func makeSelectedTagsView() -> some View {
+        if !viewModel.tags.isEmpty {
+            TagListView(
+                tags: viewModel.tags,
+                style: .remove,
+                helpText: { "Remove tag '\($0)'" }
+            ) { tag in
+                withAnimation {
+                    viewModel.removeTag(tag)
+                }
+            }
+        }
     }
 
     @ViewBuilder

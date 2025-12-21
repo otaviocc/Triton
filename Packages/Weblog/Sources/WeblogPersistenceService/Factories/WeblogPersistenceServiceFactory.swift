@@ -64,13 +64,13 @@ public struct WeblogPersistenceServiceFactory: WeblogPersistenceServiceFactoryPr
     ) -> any WeblogPersistenceServiceProtocol {
         let configuration = ModelConfiguration(
             "entries",
-            schema: .init([WeblogEntry.self]),
+            schema: .init([WeblogEntry.self, WeblogTag.self]),
             isStoredInMemoryOnly: inMemory,
             allowsSave: true
         )
 
         let container = try? ModelContainer(
-            for: WeblogEntry.self,
+            for: WeblogEntry.self, WeblogTag.self,
             configurations: configuration
         )
 

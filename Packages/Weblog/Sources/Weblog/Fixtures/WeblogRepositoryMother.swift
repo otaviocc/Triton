@@ -39,14 +39,16 @@
             // MARK: - Public
 
             func fetchEntries() async throws {}
+            func deleteEntry(address: String, entryID: String) async throws {}
+
             func createOrUpdateEntry(
                 address: String,
                 entryID: String?,
                 body: String,
                 status: String,
+                tags: [String],
                 date: Date
             ) async throws {}
-            func deleteEntry(address: String, entryID: String) async throws {}
         }
 
         // MARK: - Public

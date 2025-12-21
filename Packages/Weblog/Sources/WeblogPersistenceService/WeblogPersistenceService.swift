@@ -110,6 +110,7 @@ actor WeblogPersistenceService: WeblogPersistenceServiceProtocol {
             for await _ in authSessionService.observeLogoutEvents() {
                 Task { @MainActor [weak self] in
                     try self?.container.mainContext.delete(model: WeblogEntry.self)
+                    try self?.container.mainContext.delete(model: WeblogTag.self)
                     try self?.container.mainContext.save()
                 }
             }
@@ -129,7 +130,23 @@ actor WeblogPersistenceService: WeblogPersistenceServiceProtocol {
     ) throws {
         let model = WeblogEntry.makeEntry(storableEntry: entry)
         container.mainContext.insert(model)
+        try storeTags(entry.tags)
         try container.mainContext.save()
+    }
+
+    @MainActor
+    private func storeTags(
+        _ tags: [String]
+    ) throws {
+        try tags.forEach(storeTag)
+    }
+
+    @MainActor
+    private func storeTag(
+        _ title: String
+    ) throws {
+        let newTag = WeblogTag.makeTag(title: title)
+        container.mainContext.insert(newTag)
     }
 
     @MainActor

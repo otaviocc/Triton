@@ -24,6 +24,7 @@
                 address: String,
                 content: String,
                 status: String,
+                tags: [String],
                 date: Date
             ) async throws -> EntryResponse {
                 EntryResponseMother.makeEntryResponse()
@@ -34,6 +35,7 @@
                 entryID: String,
                 content: String,
                 status: String,
+                tags: [String],
                 date: Date
             ) async throws -> EntryResponse {
                 EntryResponseMother.makeEntryResponse()

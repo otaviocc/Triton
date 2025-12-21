@@ -26,7 +26,7 @@ struct UploadView: View {
 
     var body: some View {
         makeContentView()
-            .frame(minWidth: 400, idealWidth: 640, maxWidth: 640)
+            .frame(minWidth: 640, idealWidth: 640, maxWidth: 800)
             .toolbar {
                 makeToolbarContent()
             }

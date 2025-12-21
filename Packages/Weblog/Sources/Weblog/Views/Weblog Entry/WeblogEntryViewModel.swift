@@ -15,6 +15,7 @@ final class WeblogEntryViewModel: Identifiable {
     let timestamp: Double
     let address: String
     let location: String
+    let tags: [String]
 
     var publishedDate: Date {
         Date(timeIntervalSince1970: timestamp)
@@ -51,6 +52,7 @@ final class WeblogEntryViewModel: Identifiable {
         timestamp: Double,
         address: String,
         location: String,
+        tags: [String],
         repository: any WeblogRepositoryProtocol,
         clipboardService: ClipboardServiceProtocol
     ) {
@@ -61,6 +63,7 @@ final class WeblogEntryViewModel: Identifiable {
         self.timestamp = timestamp
         self.address = address
         self.location = location
+        self.tags = tags
         self.repository = repository
         self.clipboardService = clipboardService
     }

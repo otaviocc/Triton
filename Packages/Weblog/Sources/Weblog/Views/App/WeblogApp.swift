@@ -89,7 +89,8 @@ struct WeblogApp: View {
                     body: "# Title of your post\n\nThis is the body of your post...",
                     date: .init(),
                     entryID: nil,
-                    status: nil
+                    status: nil,
+                    tags: .init()
                 )
             )
         } label: {

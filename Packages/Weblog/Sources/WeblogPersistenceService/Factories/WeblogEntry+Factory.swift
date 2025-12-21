@@ -10,7 +10,8 @@ extension WeblogEntry {
             date: storableEntry.date,
             status: storableEntry.status,
             location: storableEntry.location,
-            address: storableEntry.address
+            address: storableEntry.address,
+            tags: storableEntry.tags.isEmpty ? nil : storableEntry.tags
         )
     }
 }

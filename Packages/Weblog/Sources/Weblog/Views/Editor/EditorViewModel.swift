@@ -1,4 +1,5 @@
 import Foundation
+import FoundationExtensions
 import Observation
 import WeblogRepository
 
@@ -12,7 +13,10 @@ final class EditorViewModel {
     var entryID: String?
     var date: Date
     var status: WeblogEntryStatus
+    var tagInput = ""
     var shouldDismiss = false
+    private(set) var tags: [String] = []
+    private(set) var suggestedTags: [String] = []
     private(set) var isSubmitting = false
 
     private let address: String
@@ -40,6 +44,7 @@ final class EditorViewModel {
         date: Date,
         entryID: String?,
         status: WeblogEntryStatus,
+        tags: [String],
         repository: any WeblogRepositoryProtocol
     ) {
         self.address = address
@@ -47,6 +52,7 @@ final class EditorViewModel {
         self.date = date
         self.entryID = entryID
         self.status = status
+        self.tags = tags
         self.repository = repository
     }
 
@@ -64,6 +70,7 @@ final class EditorViewModel {
                     entryID: entryID,
                     body: body,
                     status: status.rawValue,
+                    tags: tags,
                     date: date
                 )
                 shouldDismiss = true
@@ -71,5 +78,41 @@ final class EditorViewModel {
                 // Error handled by defer
             }
         }
+    }
+
+    func updateTagSuggestions(
+        from existingTags: [String]
+    ) {
+        let trimmedInput = tagInput
+            .slugified()
+            .lowercased()
+
+        guard !trimmedInput.isEmpty else {
+            suggestedTags = []
+            return
+        }
+
+        suggestedTags = existingTags
+            .filter { tag in
+                tag.lowercased().contains(trimmedInput) && !tags.contains(tag)
+            }
+            .prefix(5)
+            .map(\.self)
+    }
+
+    func addTag(_ tag: String) {
+        let trimmedTag = tag.slugified()
+
+        guard !trimmedTag.isEmpty, !tags.contains(trimmedTag) else {
+            tagInput = ""
+            return
+        }
+
+        tags.append(trimmedTag)
+        tagInput = ""
+    }
+
+    func removeTag(_ tag: String) {
+        tags.removeAll { $0 == tag }
     }
 }

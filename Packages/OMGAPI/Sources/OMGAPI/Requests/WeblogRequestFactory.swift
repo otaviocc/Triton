@@ -105,17 +105,20 @@ public enum WeblogRequestFactory {
     ///   - address: The user address (username) to create the entry for
     ///   - content: The markdown content body of the weblog entry
     ///   - status: The publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only", "Unlisted")
+    ///   - tags: An array of tags associated with the entry
     ///   - date: The publication date for the entry
     /// - Returns: A configured network request for creating a weblog entry
     public static func makeCreateWeblogEntryRequest(
         address: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) -> NetworkRequest<Data, CreateOrUpdateWeblogEntryResponse> {
         let body = content.weblogEntryBody(
             date: date,
-            status: status
+            status: status,
+            tags: tags
         )
 
         return .init(
@@ -152,6 +155,7 @@ public enum WeblogRequestFactory {
     ///   - content: The updated markdown content body of the weblog entry
     ///   - status: The updated publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only",
     /// "Unlisted")
+    ///   - tags: An array of tags associated with the entry
     ///   - date: The updated publication date for the entry
     /// - Returns: A configured network request for updating the weblog entry
     public static func makeUpdateWeblogEntryRequest(
@@ -159,11 +163,13 @@ public enum WeblogRequestFactory {
         entryID: String,
         content: String,
         status: String,
+        tags: [String],
         date: Date
     ) -> NetworkRequest<Data, CreateOrUpdateWeblogEntryResponse> {
         let body = content.weblogEntryBody(
             date: date,
-            status: status
+            status: status,
+            tags: tags
         )
 
         return .init(
