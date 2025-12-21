@@ -70,6 +70,23 @@ struct EditorView: View {
                 ) {}
                     .help("Select publication time")
             }
+
+            GridRow {
+                Text("Status")
+                    .gridColumnAlignment(.trailing)
+
+                Picker(
+                    selection: $viewModel.selectedStatus,
+                    content: {
+                        ForEach(WeblogEntryStatus.allCases) { status in
+                            Text(status.displayName)
+                        }
+                    },
+                    label: { EmptyView() }
+                )
+                .pickerStyle(.radioGroup)
+                .labelsHidden()
+            }
         }
         .padding()
     }

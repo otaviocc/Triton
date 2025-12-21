@@ -30,17 +30,22 @@ public struct EditWeblogEntry: Codable, Hashable {
     /// The unique identifier for the weblog entry, if it already exists.
     public let entryID: String?
 
+    /// The publication status of the weblog entry.
+    public let status: String?
+
     // MARK: - Lifecycle
 
     public init(
         address: String,
         body: String,
         date: Date,
-        entryID: String?
+        entryID: String?,
+        status: String?
     ) {
         self.address = address
         self.body = body
         self.date = date
         self.entryID = entryID
+        self.status = status
     }
 }

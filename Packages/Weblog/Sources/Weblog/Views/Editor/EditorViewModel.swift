@@ -11,6 +11,7 @@ final class EditorViewModel {
     var body: String
     var entryID: String?
     var date: Date
+    var selectedStatus: WeblogEntryStatus
     var shouldDismiss = false
     private(set) var isSubmitting = false
 
@@ -38,12 +39,14 @@ final class EditorViewModel {
         body: String,
         date: Date,
         entryID: String?,
+        status: WeblogEntryStatus,
         repository: any WeblogRepositoryProtocol
     ) {
         self.address = address
         self.body = body
         self.date = date
         self.entryID = entryID
+        selectedStatus = status
         self.repository = repository
     }
 
