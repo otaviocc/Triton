@@ -76,7 +76,7 @@ struct EditorView: View {
                     .gridColumnAlignment(.trailing)
 
                 Picker(
-                    selection: $viewModel.selectedStatus,
+                    selection: $viewModel.status,
                     content: {
                         ForEach(WeblogEntryStatus.allCases) { status in
                             Text(status.displayName)

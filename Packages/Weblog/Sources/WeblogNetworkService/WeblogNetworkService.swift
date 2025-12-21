@@ -41,22 +41,24 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
     /// Creates a new weblog entry for the specified address.
     ///
     /// This method sends a POST request to the OMG.LOL API to create a new weblog entry.
-    /// The content is formatted with frontmatter including the publication date and
-    /// sent as raw data to the API endpoint.
+    /// The content is formatted with frontmatter including the publication date, status,
+    /// and sent as raw data to the API endpoint.
     ///
     /// The request requires authentication and will create a new entry with a
     /// system-generated unique identifier. The entry will be immediately available
-    /// at the user's weblog URL.
+    /// at the user's weblog URL according to the specified status.
     ///
     /// - Parameters:
     ///   - address: The user address (username) to create the entry for
     ///   - content: The markdown content body of the weblog entry
+    ///   - status: The publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only", "Unlisted")
     ///   - date: The publication date for the entry
     /// - Returns: The created weblog entry with metadata and generated ID
     /// - Throws: Network errors, authentication errors, or API-specific errors.
     func createWeblogEntry(
         address: String,
         content: String,
+        status: String,
         date: Date
     ) async throws -> EntryResponse
 
@@ -64,16 +66,18 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
     ///
     /// This method sends a POST request to the OMG.LOL API to update an existing
     /// weblog entry identified by its entry ID. The content is formatted with
-    /// frontmatter including the updated publication date and sent as raw data.
+    /// frontmatter including the updated publication date, status, and sent as raw data.
     ///
     /// The request requires authentication and the user must own the entry being
     /// updated. The entry's URL and slug will remain unchanged, but the content,
-    /// publication date, and metadata will be updated.
+    /// publication date, status, and metadata will be updated.
     ///
     /// - Parameters:
     ///   - address: The user address (username) who owns the entry
     ///   - entryID: The unique identifier of the entry to update
     ///   - content: The updated markdown content body of the weblog entry
+    ///   - status: The updated publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only",
+    /// "Unlisted")
     ///   - date: The updated publication date for the entry
     /// - Returns: The updated weblog entry with new content and metadata
     /// - Throws: Network errors, authentication errors, or API-specific errors if the entry is not found.
@@ -81,6 +85,7 @@ public protocol WeblogNetworkServiceProtocol: AnyObject, Sendable {
         address: String,
         entryID: String,
         content: String,
+        status: String,
         date: Date
     ) async throws -> EntryResponse
 
@@ -143,12 +148,14 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
     func createWeblogEntry(
         address: String,
         content: String,
+        status: String,
         date: Date
     ) async throws -> EntryResponse {
         let response = try await networkClient.run(
             WeblogRequestFactory.makeCreateWeblogEntryRequest(
                 address: address,
                 content: content,
+                status: status,
                 date: date
             )
         )
@@ -163,6 +170,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
         address: String,
         entryID: String,
         content: String,
+        status: String,
         date: Date
     ) async throws -> EntryResponse {
         let response = try await networkClient.run(
@@ -170,6 +178,7 @@ actor WeblogNetworkService: WeblogNetworkServiceProtocol {
                 address: address,
                 entryID: entryID,
                 content: content,
+                status: status,
                 date: date
             )
         )

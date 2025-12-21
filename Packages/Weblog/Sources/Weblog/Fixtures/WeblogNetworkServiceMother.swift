@@ -20,7 +20,12 @@
                 EntryResponseMother.makeEntryResponses(count: 2)
             }
 
-            func createWeblogEntry(address: String, content: String, date: Date) async throws -> EntryResponse {
+            func createWeblogEntry(
+                address: String,
+                content: String,
+                status: String,
+                date: Date
+            ) async throws -> EntryResponse {
                 EntryResponseMother.makeEntryResponse()
             }
 
@@ -28,6 +33,7 @@
                 address: String,
                 entryID: String,
                 content: String,
+                status: String,
                 date: Date
             ) async throws -> EntryResponse {
                 EntryResponseMother.makeEntryResponse()

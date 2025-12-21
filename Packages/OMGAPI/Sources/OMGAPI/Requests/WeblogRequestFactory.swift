@@ -83,13 +83,14 @@ public enum WeblogRequestFactory {
     /// Creates a request to create a new weblog entry.
     ///
     /// This method builds a POST request to create a new weblog entry with the
-    /// specified content and publication date. The request formats the content
-    /// with frontmatter containing the date and sends it as raw data to the API.
+    /// specified content, publication date, and status. The request formats the content
+    /// with frontmatter containing the date and status, then sends it as raw data to the API.
     ///
     /// The content is formatted as:
     /// ```
     /// ---
     /// Date: YYYY-MM-DD HH:MM
+    /// Status: [status value]
     /// ---
     ///
     /// [content goes here]
@@ -97,19 +98,25 @@ public enum WeblogRequestFactory {
     ///
     /// This request requires authentication as it creates content on behalf
     /// of the authenticated user. The API will generate a unique entry ID
-    /// and URL slug based on the content title.
+    /// and URL slug based on the content title. The entry's visibility and
+    /// distribution will be controlled by the specified status.
     ///
     /// - Parameters:
     ///   - address: The user address (username) to create the entry for
     ///   - content: The markdown content body of the weblog entry
+    ///   - status: The publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only", "Unlisted")
     ///   - date: The publication date for the entry
     /// - Returns: A configured network request for creating a weblog entry
     public static func makeCreateWeblogEntryRequest(
         address: String,
         content: String,
+        status: String,
         date: Date
     ) -> NetworkRequest<Data, CreateOrUpdateWeblogEntryResponse> {
-        let body = content.weblogEntryBody(with: date)
+        let body = content.weblogEntryBody(
+            date: date,
+            status: status
+        )
 
         return .init(
             path: "/address/\(address)/weblog/entry",
@@ -122,12 +129,13 @@ public enum WeblogRequestFactory {
     ///
     /// This method builds a POST request to update an existing weblog entry
     /// identified by its entry ID. The request formats the updated content
-    /// with frontmatter containing the new date and sends it as raw data.
+    /// with frontmatter containing the new date and status, then sends it as raw data.
     ///
     /// The content is formatted as:
     /// ```
     /// ---
     /// Date: YYYY-MM-DD HH:MM
+    /// Status: [status value]
     /// ---
     ///
     /// [updated content goes here]
@@ -135,21 +143,28 @@ public enum WeblogRequestFactory {
     ///
     /// This request requires authentication and the user must own the entry
     /// being updated. The entry's URL and slug will remain unchanged, but
-    /// the content and metadata will be updated with the new values.
+    /// the content, publication date, status, and metadata will be updated
+    /// with the new values.
     ///
     /// - Parameters:
     ///   - address: The user address (username) who owns the entry
     ///   - entryID: The unique identifier of the entry to update
     ///   - content: The updated markdown content body of the weblog entry
+    ///   - status: The updated publication status of the entry (e.g., "Draft", "Live", "Feed Only", "Web Only",
+    /// "Unlisted")
     ///   - date: The updated publication date for the entry
     /// - Returns: A configured network request for updating the weblog entry
     public static func makeUpdateWeblogEntryRequest(
         address: String,
         entryID: String,
         content: String,
+        status: String,
         date: Date
     ) -> NetworkRequest<Data, CreateOrUpdateWeblogEntryResponse> {
-        let body = content.weblogEntryBody(with: date)
+        let body = content.weblogEntryBody(
+            date: date,
+            status: status
+        )
 
         return .init(
             path: "/address/\(address)/weblog/entry/\(entryID)",

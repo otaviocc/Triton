@@ -39,7 +39,13 @@
             // MARK: - Public
 
             func fetchEntries() async throws {}
-            func createOrUpdateEntry(address: String, entryID: String?, body: String, date: Date) async throws {}
+            func createOrUpdateEntry(
+                address: String,
+                entryID: String?,
+                body: String,
+                status: String,
+                date: Date
+            ) async throws {}
             func deleteEntry(address: String, entryID: String) async throws {}
         }
 
