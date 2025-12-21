@@ -27,6 +27,7 @@ struct EditWeblogEntryScene: Scene {
                 body: entry?.body ?? "",
                 date: entry?.date ?? .init(),
                 entryID: entry?.entryID,
+                status: entry?.status.flatMap(WeblogEntryStatus.init) ?? .draft,
                 address: entry?.address ?? ""
             )
         }
@@ -44,6 +45,7 @@ struct EditWeblogEntryScene: Scene {
         body: String,
         date: Date,
         entryID: String?,
+        status: WeblogEntryStatus,
         address: String
     ) -> some View {
         let viewModel = environment.viewModelFactory
@@ -51,7 +53,8 @@ struct EditWeblogEntryScene: Scene {
                 address: address,
                 body: body,
                 date: date,
-                entryID: entryID
+                entryID: entryID,
+                status: status
             )
 
         EditorView(

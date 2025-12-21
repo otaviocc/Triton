@@ -13,6 +13,7 @@
                 body: "# This is the title\n\nThis is the body...",
                 date: .init(),
                 entryID: nil,
+                status: .draft,
                 repository: WeblogRepositoryMother.makeWeblogRepository()
             )
         }

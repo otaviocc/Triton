@@ -63,13 +63,15 @@ final class ViewModelFactory: Sendable {
         address: String,
         body: String,
         date: Date,
-        entryID: String?
+        entryID: String?,
+        status: WeblogEntryStatus
     ) -> EditorViewModel {
         .init(
             address: address,
             body: body,
             date: date,
             entryID: entryID,
+            status: status,
             repository: container.resolve()
         )
     }
