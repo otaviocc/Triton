@@ -19,7 +19,7 @@ public extension String {
     /// ```
     func slugified() -> String {
         trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: .whitespaces)
+            .components(separatedBy: .whitespacesAndNewlines)
             .filter { !$0.isEmpty }
             .joined(separator: "-")
     }
