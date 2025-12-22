@@ -121,6 +121,7 @@ actor WeblogPersistenceService: WeblogPersistenceServiceProtocol {
     private func storeEntries(
         _ entries: [StorableEntry]
     ) throws {
+        try removeAllTags()
         try entries.forEach(storeEntry)
     }
 
@@ -147,6 +148,11 @@ actor WeblogPersistenceService: WeblogPersistenceServiceProtocol {
     ) throws {
         let newTag = WeblogTag.makeTag(title: title)
         container.mainContext.insert(newTag)
+    }
+
+    @MainActor
+    private func removeAllTags() throws {
+        try container.mainContext.delete(model: WeblogTag.self)
     }
 
     @MainActor
