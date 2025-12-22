@@ -54,12 +54,16 @@ struct WeblogRequestFactoryTests {
         // Given
         let address = "charlie"
         let content = "This is my first blog post!"
+        let status = "Live"
+        let tags: [String] = []
         let date = Date(timeIntervalSince1970: 1_704_067_200) // 2024-01-01
 
         // When
         let request = WeblogRequestFactory.makeCreateWeblogEntryRequest(
             address: address,
             content: content,
+            status: status,
+            tags: tags,
             date: date
         )
 
@@ -86,6 +90,8 @@ struct WeblogRequestFactoryTests {
         let address = "dave"
         let entryID = "updated-post"
         let content = "This is an updated blog post!"
+        let status = "Live"
+        let tags: [String] = []
         let date = Date(timeIntervalSince1970: 1_704_153_600) // 2024-01-02
 
         // When
@@ -93,6 +99,8 @@ struct WeblogRequestFactoryTests {
             address: address,
             entryID: entryID,
             content: content,
+            status: status,
+            tags: tags,
             date: date
         )
 
