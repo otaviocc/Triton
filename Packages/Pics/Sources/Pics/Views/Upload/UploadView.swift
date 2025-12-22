@@ -253,4 +253,12 @@ struct UploadView: View {
         )
     }
 
+    #Preview("Drag-And-Drop") {
+        UploadView(
+            viewModel: UploadViewModelMother.makeUploadViewModel(
+                isDragging: true
+            )
+        )
+    }
+
 #endif

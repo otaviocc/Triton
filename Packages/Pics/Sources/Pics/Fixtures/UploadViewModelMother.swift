@@ -13,7 +13,8 @@
             altText: String? = nil,
             isHidden: Bool? = nil,
             tags: [String]? = nil,
-            imageData: Data? = nil
+            imageData: Data? = nil,
+            isDragging: Bool? = nil
         ) -> UploadViewModel {
             let viewModel = UploadViewModel(
                 repository: PicsRepositoryMother.makePicsRepository(),
@@ -36,6 +37,10 @@
 
             if let tags {
                 tags.forEach { viewModel.addTag($0) }
+            }
+
+            if let isDragging {
+                viewModel.isDragging = isDragging
             }
 
             return viewModel
