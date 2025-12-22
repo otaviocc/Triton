@@ -42,6 +42,7 @@ struct UploadPictureScene: Scene {
         UploadView(
             viewModel: viewModel
         )
+        .frame(minWidth: 640, idealWidth: 640, maxWidth: 800)
         .environment(\.viewModelFactory, environment.viewModelFactory)
         .modelContainer(environment.modelContainer)
     }
