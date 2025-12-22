@@ -77,6 +77,9 @@ struct EditorView: View {
                     .help("Select publication time")
             }
 
+            Divider()
+                .foregroundStyle(Color.accentColor)
+
             GridRow(alignment: .firstTextBaseline) {
                 Text("Status")
                     .gridColumnAlignment(.trailing)
@@ -94,6 +97,9 @@ struct EditorView: View {
                 .labelsHidden()
                 .help("Select publication visibility")
             }
+
+            Divider()
+                .foregroundStyle(Color.accentColor)
 
             GridRow(alignment: .firstTextBaseline) {
                 Text("Tags")
