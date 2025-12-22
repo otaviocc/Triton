@@ -54,7 +54,7 @@ struct EditorView: View {
 
     @ViewBuilder
     private func makeSidebarView() -> some View {
-        Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 12) {
+        Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
             GridRow(alignment: .firstTextBaseline) {
                 Text("Date")
                     .gridColumnAlignment(.trailing)
@@ -92,6 +92,7 @@ struct EditorView: View {
                 )
                 .pickerStyle(.radioGroup)
                 .labelsHidden()
+                .help("Select publication visibility")
             }
 
             GridRow(alignment: .firstTextBaseline) {
