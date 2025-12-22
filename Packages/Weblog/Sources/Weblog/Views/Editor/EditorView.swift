@@ -28,7 +28,6 @@ struct EditorView: View {
                 makeComposeView()
                 makeSidebarView()
             }
-
             makeSelectedTagsView()
         }
         .toolbar {
@@ -191,9 +190,18 @@ struct EditorView: View {
 
 #if DEBUG
 
-    #Preview(traits: .sizeThatFitsLayout) {
+    #Preview("Draft", traits: .sizeThatFitsLayout) {
         EditorView(
             viewModel: EditorViewModelMother.makeEditorViewModel()
+        )
+    }
+
+    #Preview("Live with Tags", traits: .sizeThatFitsLayout) {
+        EditorView(
+            viewModel: EditorViewModelMother.makeEditorViewModel(
+                status: .live,
+                tags: ["Foo", "Bar"]
+            )
         )
     }
 
