@@ -36,9 +36,6 @@ struct UploadView: View {
                 }
             }
             .padding()
-            .onDrop(of: [.image], isTargeted: $viewModel.isDragging) { providers -> Bool in
-                handleDrop(providers: providers)
-            }
     }
 
     // MARK: - Private
@@ -51,43 +48,64 @@ struct UploadView: View {
     }
 
     @ViewBuilder
-    private func makeSidebarView() -> some View {
+    private func makeContentView() -> some View {
         VStack {
-            makePictureView()
-            makePicturePickerView()
+            HStack(alignment: .top) {
+                makeSidebarView()
+                    .frame(width: 200)
+                makeEditorView()
+            }
+            makeVisibilityView()
         }
     }
 
     @ViewBuilder
-    private func makeContentView() -> some View {
-        ZStack {
-            if viewModel.isDragging {
-                makeDropZoneView()
+    private func makeSidebarView() -> some View {
+        VStack {
+            if viewModel.imageData != nil {
+                makePictureView()
+                makeRemoveButtonView()
             } else {
-                VStack {
-                    HStack(alignment: .top) {
-                        makeSidebarView()
-                            .frame(width: 200)
-                        makeEditorView()
-                    }
-                    makeVisibilityView()
+                ZStack {
+                    makeDropZoneBorder()
+                    makeDropZoneContentView()
+                }
+                .onDrop(of: [.image], isTargeted: $viewModel.isDragging) { providers -> Bool in
+                    handleDrop(providers: providers)
                 }
             }
         }
     }
 
     @ViewBuilder
-    private func makeDropZoneView() -> some View {
+    private func makeDropZoneBorder() -> some View {
         RoundedRectangle(cornerRadius: 8)
             .fill(
                 AnyShapeStyle(
-                    viewModel.isDragging ? Color.accentColor.opacity(0.1) : .clear
+                    viewModel.isDragging ? Color.accentColor.opacity(0.3) : .secondary.opacity(0.05)
                 )
             )
-            .strokeBorder(
-                viewModel.isDragging ? Color.accentColor : .secondary.opacity(0.3),
-                style: StrokeStyle(lineWidth: 2, dash: [8, 4])
-            )
+            .stroke(Color.accentColor, lineWidth: 1.0)
+            .opacity(0.3)
+            .frame(minHeight: 200)
+    }
+
+    @ViewBuilder
+    private func makeDropZoneContentView() -> some View {
+        VStack(spacing: 12) {
+            Image(systemName: viewModel.dropZoneImageName)
+                .font(.system(size: 48))
+                .foregroundStyle(viewModel.isDragging ? Color.accentColor : .secondary)
+
+            if !viewModel.isDragging {
+                Text("Drag your picture here or click the button to select one from your Photo Library")
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+
+                makePicturePickerView()
+            }
+        }
+        .padding(.vertical, 16)
     }
 
     @ViewBuilder
@@ -108,7 +126,7 @@ struct UploadView: View {
             matching: .images,
             photoLibrary: .shared()
         ) {
-            Text("Select Picture")
+            Text("Select from Library")
         }
         .help("Choose an image from your photo library")
         .onChange(of: selectedItem) {
@@ -117,6 +135,20 @@ struct UploadView: View {
             }
         }
         .buttonStyle(.borderedProminent)
+    }
+
+    @ViewBuilder
+    private func makeRemoveButtonView() -> some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                viewModel.imageData = nil
+                selectedItem = nil
+            }
+        } label: {
+            Label("Remove", systemImage: "trash")
+        }
+        .help("Remove selected image")
+        .buttonStyle(.bordered)
     }
 
     @ViewBuilder
@@ -155,7 +187,7 @@ struct UploadView: View {
             .textFieldCard()
             .help("Enter a tag and press the return key to add it")
             .onSubmit {
-                withAnimation {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     viewModel.addTag(viewModel.tagInput)
                 }
             }
@@ -171,7 +203,7 @@ struct UploadView: View {
                 tags: viewModel.suggestedTags,
                 helpText: { "Add existing tag '\($0)'" }
             ) { tag in
-                withAnimation {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     viewModel.addTag(tag)
                 }
             }
@@ -186,7 +218,7 @@ struct UploadView: View {
                 style: .remove,
                 helpText: { "Remove tag '\($0)'" }
             ) { tag in
-                withAnimation {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     viewModel.removeTag(tag)
                 }
             }

@@ -29,8 +29,6 @@ final class UploadViewModel {
 
     @ObservationIgnored private var observationTask: Task<Void, Never>?
 
-    // MARK: - Computed Properties
-
     var isSubmitDisabled: Bool {
         let trimmedCaption = caption.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedCaption.isEmpty || isSubmitting || imageData == nil
@@ -42,6 +40,10 @@ final class UploadViewModel {
 
     var shouldShowProgress: Bool {
         isSubmitting
+    }
+
+    var dropZoneImageName: String {
+        isDragging ? "photo.badge.plus.fill" : "photo.badge.plus"
     }
 
     // MARK: - Lifecycle
