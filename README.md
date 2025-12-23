@@ -6,6 +6,10 @@ A native macOS client for [omg.lol](https://omg.lol), built with SwiftUI. Triton
   <img width="722" height="902" alt="Screenshot of Triton, a native macOS client for omg.lol." src="https://github.com/user-attachments/assets/693c0517-cfbd-470e-bbf5-c417c6b8ea63" />
 </p>
 
+## Support This Project
+
+If you find this project useful, consider [buying me a coffee](https://ko-fi.com/otaviocc) to fuel future development ☕️
+
 ## Table of Contents
 
 - [Features](#features)
