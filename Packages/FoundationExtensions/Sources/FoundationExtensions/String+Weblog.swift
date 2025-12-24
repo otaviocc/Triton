@@ -21,16 +21,21 @@ public extension String {
     ///
     /// - Parameters:
     ///   - date: The publication date to include in the frontmatter
+    ///   - timeZone: The timezone used for the publication (defaults to user's current timezone)
     ///   - status: The publication status to include in the frontmatter (e.g., "Draft", "Live", "Feed Only", "Web
     /// Only", "Unlisted")
     ///   - tags: An array of tags to include in the frontmatter. Tags are comma-separated.
     /// - Returns: UTF-8 encoded data containing the formatted weblog entry body
     func weblogEntryBody(
         date: Date,
+        timeZone: TimeZone = .current,
         status: String,
         tags: [String]
     ) -> Data {
-        let formattedString = DateFormatter.iso8601WithShortTime.string(from: date)
+        let formattedString = DateFormatter
+            .iso8601WithShortTime(timeZone: timeZone)
+            .string(from: date)
+
         var frontmatter = """
         ---
         Date: \(formattedString)

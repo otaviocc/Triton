@@ -22,8 +22,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -57,8 +58,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -91,8 +93,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -125,8 +128,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -159,8 +163,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -194,8 +199,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -229,8 +235,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -265,8 +272,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -291,8 +299,9 @@ struct StringWeblogTests {
         let tags: [String] = []
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -325,8 +334,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -360,8 +370,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -394,8 +405,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -429,8 +441,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
@@ -465,8 +478,9 @@ struct StringWeblogTests {
         """
 
         // When
-        let result = content.weblogEntryBody(
+        let result = try content.weblogEntryBody(
             date: date,
+            timeZone: #require(TimeZone(secondsFromGMT: 0)),
             status: status,
             tags: tags
         )
