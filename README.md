@@ -23,6 +23,7 @@ If you find this project useful, consider [buying me a coffee](https://ko-fi.com
   - [Multiple Addresses](#multiple-addresses)
 - [Install Triton](#install-triton)
 - [Thanks and Acknowledgments](#thanks-and-acknowledgments)
+- [Disclaimer](#disclaimer)
 - [App Store Distribution](#app-store-distribution)
   - [Why?](#why)
   - [What you CAN do](#what-you-can-do)
@@ -114,6 +115,10 @@ This project wouldn't exist without the amazing work of several people in the om
 
 - **[Adam](https://social.lol/@adam)** for creating and maintaining the incredible [omg.lol](https://omg.lol) service, its comprehensive API, and excellent documentation that made building this client possible
 - **[Eric](https://social.lol/@ericmwalk)** and **[Joanna](https://social.lol/@jmj)** for documenting the new [some.pics](https://some.pics) API endpoints for photo uploading and description editing, making the Pics feature integration seamless
+
+## Disclaimer
+
+Triton is an independent, third-party client for omg.lol and is not officially affiliated with, endorsed by, or connected to omg.lol or its creator. This app is a community-developed project that uses the publicly available omg.lol API. For official omg.lol support and services, please visit [omg.lol](https://omg.lol).
 
 ## App Store Distribution
 
