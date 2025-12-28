@@ -9,6 +9,13 @@ import UniformTypeIdentifiers
 @Observable
 final class UploadViewModel {
 
+    // MARK: - Nested types
+
+    enum TagSelectionError: Error {
+
+        case noSuggestions
+    }
+
     // MARK: - Properties
 
     var caption = ""
@@ -143,6 +150,14 @@ final class UploadViewModel {
 
     func removeTag(_ tag: String) {
         tags.removeAll { $0 == tag }
+    }
+
+    func selectFistTagSuggestion() throws(TagSelectionError) {
+        guard let tag = suggestedTags.first else {
+            throw .noSuggestions
+        }
+
+        addTag(tag)
     }
 
     // MARK: - Private

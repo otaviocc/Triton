@@ -7,6 +7,13 @@ import WeblogRepository
 @Observable
 final class EditorViewModel {
 
+    // MARK: - Nested types
+
+    enum TagSelectionError: Error {
+
+        case noSuggestions
+    }
+
     // MARK: - Properties
 
     var body: String
@@ -114,5 +121,13 @@ final class EditorViewModel {
 
     func removeTag(_ tag: String) {
         tags.removeAll { $0 == tag }
+    }
+
+    func selectFistTagSuggestion() throws(TagSelectionError) {
+        guard let tag = suggestedTags.first else {
+            throw .noSuggestions
+        }
+
+        addTag(tag)
     }
 }

@@ -74,7 +74,7 @@ struct EditPictureView: View {
             .autocorrectionDisabled(true)
             .font(.body.monospaced())
             .textFieldCard()
-            .help("Enter a tag and press the return key to add it")
+            .help("Enter a tag and press the return key to add it, or press tab to select the first suggestion")
             .onSubmit {
                 withAnimation {
                     viewModel.addTag(viewModel.tagInput)
@@ -82,6 +82,14 @@ struct EditPictureView: View {
             }
             .onChange(of: viewModel.tagInput) {
                 viewModel.updateTagSuggestions(from: existingTags.map(\.title))
+            }
+            .onKeyPress(.tab) {
+                do {
+                    try viewModel.selectFistTagSuggestion()
+                    return .handled
+                } catch {
+                    return .ignored
+                }
             }
     }
 

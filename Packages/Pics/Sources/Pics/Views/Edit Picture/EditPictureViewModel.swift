@@ -7,6 +7,13 @@ import PicsRepository
 @Observable
 final class EditPictureViewModel {
 
+    // MARK: - Nested types
+
+    enum TagSelectionError: Error {
+
+        case noSuggestions
+    }
+
     // MARK: - Properties
 
     let pictureID: String
@@ -107,5 +114,13 @@ final class EditPictureViewModel {
 
     func removeTag(_ tag: String) {
         tags.removeAll { $0 == tag }
+    }
+
+    func selectFistTagSuggestion() throws(TagSelectionError) {
+        guard let tag = suggestedTags.first else {
+            throw .noSuggestions
+        }
+
+        addTag(tag)
     }
 }
