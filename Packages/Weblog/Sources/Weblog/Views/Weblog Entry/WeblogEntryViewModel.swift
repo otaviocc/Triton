@@ -39,6 +39,10 @@ final class WeblogEntryViewModel: Identifiable {
         status.lowercased() != "live"
     }
 
+    var isDraft: Bool {
+        status.lowercased() == "draft"
+    }
+
     private let repository: any WeblogRepositoryProtocol
     private let clipboardService: ClipboardServiceProtocol
 
