@@ -83,13 +83,20 @@ struct WeblogEntryView: View {
     @ViewBuilder
     private func makeContextualMenu() -> some View {
         makeEditEntryMenuItem()
-        Divider()
-        makeCopyEntryURLMenuItem()
-        makeCopyMarkdownLinkMenuItem()
-        Divider()
-        makeOpenInBrowserMenuItem()
-        makeShareMenuItem()
-        makeShareOnStatuslogMenuItem()
+
+        if !viewModel.isDraft {
+            Divider()
+            makeCopyEntryURLMenuItem()
+            makeCopyMarkdownLinkMenuItem()
+        }
+
+        if !viewModel.isDraft {
+            Divider()
+            makeOpenInBrowserMenuItem()
+            makeShareMenuItem()
+            makeShareOnStatuslogMenuItem()
+        }
+
         Divider()
         makeDeleteEntryMenuItem()
     }
@@ -99,7 +106,7 @@ struct WeblogEntryView: View {
         Button {
             openEditor()
         } label: {
-            Label("Edit Entry", systemImage: "link")
+            Label("Edit Entry", systemImage: "pencil")
         }
     }
 
