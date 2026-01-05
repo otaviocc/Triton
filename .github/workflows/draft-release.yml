@@ -91,6 +91,27 @@ jobs:
               echo "No pull requests were merged in this release."
               echo ""
             fi
+
+            echo "## Installation"
+            echo ""
+            echo "**Download directly from GitHub Releases**"
+            echo ""
+            echo "Download the \`.zip\` file from this release, extract it, and drag OMG.app to your Applications folder."
+            echo ""
+            echo "**Install via [Homebrew](https://brew.sh)**"
+            echo ""
+            echo "\`\`\`bash"
+            echo "brew tap otaviocc/apps"
+            echo "brew install --cask triton"
+            echo "\`\`\`"
+            echo ""
+            echo "**Upgrade via Homebrew**"
+            echo ""
+            echo "If you installed Triton using Homebrew, upgrade to the latest version with:"
+            echo ""
+            echo "\`\`\`bash"
+            echo "brew upgrade --cask triton"
+            echo "\`\`\`"
           } > release_notes.md
 
           cat release_notes.md

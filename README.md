@@ -102,11 +102,19 @@ Switch seamlessly between multiple omg.lol addresses, all in one app.
 
 You can download the latest pre-built version of Triton directly from the [GitHub Releases page](https://github.com/otaviocc/Triton/releases). Simply download the `.zip` file from the latest release, open it, and drag OMG.app to your Applications folder. This method is useful if you prefer manual installation or don't use Homebrew.
 
-**Install via [Brew](https://brew.sh) 🤩**
+**Install via [Homebrew](https://brew.sh) 🤩**
 
 ```bash
 brew tap otaviocc/apps
 brew install --cask triton
+```
+
+**Upgrade Triton**
+
+If you installed Triton using Homebrew, you can upgrade to the latest version with:
+
+```bash
+brew upgrade --cask triton
 ```
 
 ## Thanks and Acknowledgments
