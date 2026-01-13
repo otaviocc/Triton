@@ -37,7 +37,12 @@
             // MARK: - Public
 
             func fetchNowPage() async throws {}
-            func updateNowPage(address: String, content: String, isListed: Bool) async throws {}
+
+            func updateNowPage(
+                address: String,
+                content: String,
+                isListed: Bool
+            ) async throws {}
         }
 
         // MARK: - Public

@@ -42,6 +42,7 @@ struct PicsEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: PicsNetworkServiceFactoryProtocol,
         persistenceServiceFactory: PicsPersistenceServiceFactoryProtocol,
@@ -119,4 +120,5 @@ struct PicsEnvironment {
             )
         }
     }
+    // swiftlint:enable function_body_length
 }

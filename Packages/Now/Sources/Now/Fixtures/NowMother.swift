@@ -12,12 +12,12 @@
             count: Int,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 let now = Now(
                     listed: true,
-                    markdown: "Foobar \(i)",
+                    markdown: "Foobar \(index)",
                     submitted: true,
-                    timestamp: 123_123 * Double(i),
+                    timestamp: 123_123 * Double(index),
                     address: "otaviocc"
                 )
 

@@ -17,9 +17,21 @@
                 }
             }
 
-            func fetchPastes(for address: String) async throws {}
-            func createOrUpdatePaste(address: String, title: String, content: String, listed: Bool) async throws {}
-            func deletePaste(address: String, title: String) async throws {}
+            func fetchPastes(
+                for address: String
+            ) async throws {}
+
+            func createOrUpdatePaste(
+                address: String,
+                title: String,
+                content: String,
+                listed: Bool
+            ) async throws {}
+
+            func deletePaste(
+                address: String,
+                title: String
+            ) async throws {}
         }
 
         // MARK: - Public

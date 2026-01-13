@@ -40,6 +40,7 @@ struct WebpageEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: WebpageNetworkServiceFactoryProtocol,
         persistenceServiceFactory: WebpagePersistenceServiceFactoryProtocol,
@@ -112,4 +113,5 @@ struct WebpageEnvironment {
                 )
         }
     }
+    // swiftlint:enable function_body_length
 }

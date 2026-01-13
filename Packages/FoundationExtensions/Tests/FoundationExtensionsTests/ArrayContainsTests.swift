@@ -1,6 +1,8 @@
 import Testing
 @testable import FoundationExtensions
 
+// swiftlint:disable file_length type_body_length
+
 @Suite("ArrayContains Tests")
 struct ArrayContainsTests {
 
@@ -535,3 +537,5 @@ struct ArrayContainsTests {
         )
     }
 }
+
+// swiftlint:enable file_length type_body_length

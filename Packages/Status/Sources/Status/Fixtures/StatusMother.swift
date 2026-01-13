@@ -12,11 +12,11 @@
             count: Int,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 let status = Status(
-                    username: "user\(i)",
-                    statusID: "(i)",
-                    timestamp: Double(i),
+                    username: "user\(index)",
+                    statusID: "(index)",
+                    timestamp: Double(index),
                     icon: "🤣",
                     content: "Nulla purus urna, bibendum nec purus."
                 )

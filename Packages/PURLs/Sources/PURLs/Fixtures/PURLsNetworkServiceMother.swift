@@ -17,9 +17,20 @@
                 }
             }
 
-            func fetchPURLs(for address: String) {}
-            func addPURL(address: String, name: String, url: String) {}
-            func deletePURL(address: String, name: String) async throws {}
+            func fetchPURLs(
+                for address: String
+            ) {}
+
+            func addPURL(
+                address: String,
+                name: String,
+                url: String
+            ) {}
+
+            func deletePURL(
+                address: String,
+                name: String
+            ) async throws {}
         }
 
         // MARK: - Public

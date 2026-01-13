@@ -42,6 +42,7 @@ struct StatusEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         repositoryFactory: StatusRepositoryFactoryProtocol,
         networkServiceFactory: StatusNetworkServiceFactoryProtocol,
@@ -120,4 +121,5 @@ struct StatusEnvironment {
             )
         }
     }
+    // swiftlint:enable function_body_length
 }

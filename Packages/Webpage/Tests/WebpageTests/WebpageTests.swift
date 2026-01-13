@@ -3,5 +3,6 @@ import XCTest
 
 final class WebpageTests: XCTestCase {
 
+    // swiftlint:disable:next empty_xctest_method
     func testExample() throws {}
 }

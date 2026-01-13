@@ -25,10 +25,8 @@ final class AuthAppViewModel {
             let currentState = await authSessionService.isLoggedIn
             isLoggedIn = currentState
 
-            for await loginState in authSessionService.observeLoginState() {
-                if isLoggedIn != loginState {
-                    isLoggedIn = loginState
-                }
+            for await loginState in authSessionService.observeLoginState() where isLoggedIn != loginState {
+                isLoggedIn = loginState
             }
         }
     }

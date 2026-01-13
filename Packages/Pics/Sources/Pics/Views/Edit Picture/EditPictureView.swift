@@ -98,12 +98,13 @@ struct EditPictureView: View {
         if !viewModel.suggestedTags.isEmpty {
             TagListView(
                 tags: viewModel.suggestedTags,
-                helpText: { "Add existing tag '\($0)'" }
-            ) { tag in
-                withAnimation {
-                    viewModel.addTag(tag)
+                helpText: { "Add existing tag '\($0)'" },
+                action: { tag in
+                    withAnimation {
+                        viewModel.addTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 
@@ -113,12 +114,13 @@ struct EditPictureView: View {
             TagListView(
                 tags: viewModel.tags,
                 style: .remove,
-                helpText: { "Remove tag '\($0)'" }
-            ) { tag in
-                withAnimation {
-                    viewModel.removeTag(tag)
+                helpText: { "Remove tag '\($0)'" },
+                action: { tag in
+                    withAnimation {
+                        viewModel.removeTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 

@@ -78,14 +78,16 @@ public struct TagListView: View {
 #Preview("Regular Tags") {
     TagListView(
         tags: ["swift", "ios", "macos"],
-        helpText: { "Select \($0)" }
-    ) { _ in }
+        helpText: { "Select \($0)" },
+        action: { _ in }
+    )
 }
 
 #Preview("Remove Tags") {
     TagListView(
         tags: ["swift", "ios", "macos"],
         style: .remove,
-        helpText: { "Remove \($0)" }
-    ) { _ in }
+        helpText: { "Remove \($0)" },
+        action: { _ in }
+    )
 }

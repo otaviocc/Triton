@@ -17,8 +17,15 @@
                 }
             }
 
-            func fetchNowPage(for address: String) async throws {}
-            func updateNowPage(address: String, content: String, listed: Bool) async throws {}
+            func fetchNowPage(
+                for address: String
+            ) async throws {}
+
+            func updateNowPage(
+                address: String,
+                content: String,
+                listed: Bool
+            ) async throws {}
         }
 
         // MARK: - Public

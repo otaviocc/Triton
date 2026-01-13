@@ -39,7 +39,12 @@
             // MARK: - Public
 
             func fetchPictures() async throws {}
-            func deletePicture(address: String, pictureID: String) async throws {}
+
+            func deletePicture(
+                address: String,
+                pictureID: String
+            ) async throws {}
+
             func updatePicture(
                 address: String,
                 pictureID: String,
@@ -47,6 +52,7 @@
                 alt: String,
                 tags: [String]
             ) async throws {}
+
             func uploadPicture(
                 address: String,
                 data: Data,

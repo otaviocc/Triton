@@ -12,11 +12,11 @@
             count: Int,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 let page = Webpage(
                     address: "otaviocc",
-                    markdown: "Foobar \(i)",
-                    timestamp: 123_123 * Double(i)
+                    markdown: "Foobar \(index)",
+                    timestamp: 123_123 * Double(index)
                 )
 
                 container.mainContext.insert(

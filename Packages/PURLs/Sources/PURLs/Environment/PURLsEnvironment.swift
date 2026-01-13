@@ -43,6 +43,7 @@ struct PURLsEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: PURLsNetworkServiceFactoryProtocol,
         persistenceServiceFactory: PURLsPersistenceServiceFactoryProtocol,
@@ -123,4 +124,5 @@ struct PURLsEnvironment {
                 )
         }
     }
+    // swiftlint:enable function_body_length
 }

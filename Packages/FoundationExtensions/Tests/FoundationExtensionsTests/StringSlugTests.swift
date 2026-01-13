@@ -90,7 +90,7 @@ struct StringSlugTests {
 
         // Then
         #expect(
-            result == "",
+            result.isEmpty,
             "It should handle empty string"
         )
     }
@@ -105,7 +105,7 @@ struct StringSlugTests {
 
         // Then
         #expect(
-            result == "",
+            result.isEmpty,
             "It should handle string with only whitespace"
         )
     }

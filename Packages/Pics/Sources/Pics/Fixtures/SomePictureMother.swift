@@ -13,9 +13,9 @@
             count: Int = 3,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 SomePicture.makePicture(
-                    created: Double(i * i),
+                    created: Double(index * index),
                     in: container
                 )
             }

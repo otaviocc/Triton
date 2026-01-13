@@ -41,8 +41,8 @@ struct TritonScene: Scene {
             #endif
             .environment(makeAccountUpdateService())
             .handlesExternalEvents(
-                preferring: Set(arrayLiteral: "viewer"),
-                allowing: Set(arrayLiteral: "*")
+                preferring: ["viewer"],
+                allowing: ["*"]
             )
             .onAppear {
                 environment

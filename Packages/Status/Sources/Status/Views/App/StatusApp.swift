@@ -45,9 +45,10 @@ public struct StatusApp: View {
         ToolbarItemGroup {
             SelectionToolbarItem(
                 options: StatusListFilter.allCases,
-                selection: $filter,
-                itemLabel: { $0.localizedTitle }
-            )
+                selection: $filter
+            ) { label in
+                label.localizedTitle
+            }
             .selectionToolbarItemStyle(FilterSelectionToolbarItemStyle())
         }
 
