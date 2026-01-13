@@ -4,14 +4,4 @@ public struct UpdateWebpageRequest: Encodable, Sendable {
 
     let content: String
     let publish: Bool
-
-    // MARK: - Lifecycle
-
-    init(
-        content: String,
-        publish: Bool
-    ) {
-        self.content = content
-        self.publish = publish
-    }
 }

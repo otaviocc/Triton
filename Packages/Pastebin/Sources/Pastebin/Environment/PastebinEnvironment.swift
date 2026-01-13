@@ -43,6 +43,7 @@ struct PastebinEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: PastebinNetworkServiceFactoryProtocol,
         persistenceServiceFactory: PastebinPersistenceServiceFactoryProtocol,
@@ -123,4 +124,5 @@ struct PastebinEnvironment {
                 )
         }
     }
+    // swiftlint:enable function_body_length
 }

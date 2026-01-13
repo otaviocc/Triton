@@ -17,8 +17,14 @@
                 }
             }
 
-            func fetchWebpage(for address: String) async throws {}
-            func updateWebpage(address: String, content: String) async throws {}
+            func fetchWebpage(
+                for address: String
+            ) async throws {}
+
+            func updateWebpage(
+                address: String,
+                content: String
+            ) async throws {}
         }
 
         // MARK: - Public

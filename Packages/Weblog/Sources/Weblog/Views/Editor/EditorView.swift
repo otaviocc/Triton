@@ -53,6 +53,7 @@ struct EditorView: View {
     }
 
     @ViewBuilder
+    // swiftlint:disable:next function_body_length
     private func makeSidebarView() -> some View {
         Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
             GridRow(alignment: .firstTextBaseline) {
@@ -146,12 +147,13 @@ struct EditorView: View {
         if !viewModel.suggestedTags.isEmpty {
             TagListView(
                 tags: viewModel.suggestedTags,
-                helpText: { "Add existing tag '\($0)'" }
-            ) { tag in
-                withAnimation {
-                    viewModel.addTag(tag)
+                helpText: { "Add existing tag '\($0)'" },
+                action: { tag in
+                    withAnimation {
+                        viewModel.addTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 
@@ -170,12 +172,13 @@ struct EditorView: View {
             TagListView(
                 tags: viewModel.tags,
                 style: .remove,
-                helpText: { "Remove tag '\($0)'" }
-            ) { tag in
-                withAnimation {
-                    viewModel.removeTag(tag)
+                helpText: { "Remove tag '\($0)'" },
+                action: { tag in
+                    withAnimation {
+                        viewModel.removeTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 

@@ -27,14 +27,14 @@
         }
 
         static func makeEntryResponses(count: Int = 5) -> [EntryResponse] {
-            (0..<count).map { i in
+            (0..<count).map { index in
                 makeEntryResponse(
-                    id: "entry-\(i)",
-                    location: "test-entry-\(i)",
-                    date: Double(1_700_000_000 + (i * 86400)),
-                    status: i % 3 == 0 ? "draft" : "published",
-                    title: "Test Entry \(i)",
-                    body: "Content for test entry \(i)"
+                    id: "entry-\(index)",
+                    location: "test-entry-\(index)",
+                    date: Double(1_700_000_000 + (index * 86400)),
+                    status: index % 3 == 0 ? "draft" : "published",
+                    title: "Test Entry \(index)",
+                    body: "Content for test entry \(index)"
                 )
             }
         }

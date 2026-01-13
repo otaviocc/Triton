@@ -2,6 +2,8 @@ import Foundation
 import Testing
 @testable import FoundationExtensions
 
+// swiftlint:disable file_length type_body_length
+
 @Suite("StringWeblog Tests")
 struct StringWeblogTests {
 
@@ -496,3 +498,5 @@ struct StringWeblogTests {
         )
     }
 }
+
+// swiftlint:enable file_length type_body_length

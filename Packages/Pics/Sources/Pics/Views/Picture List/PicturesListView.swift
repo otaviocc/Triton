@@ -21,7 +21,7 @@ struct PicturesListView: View {
         _pictures = .init(viewModel.fetchDescriptor())
     }
 
-    // MARK; - Public
+    // MARK: - Public
 
     var body: some View {
         Group {

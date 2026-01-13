@@ -13,10 +13,10 @@
             count: Int,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 let purl = PURL(
-                    name: "purl\(i)",
-                    url: URL(string: "http://subdomain\(i).otavio.lol")!,
+                    name: "purl\(index)",
+                    url: URL(string: "http://subdomain\(index).otavio.lol")!,
                     address: "otaviocc"
                 )
 

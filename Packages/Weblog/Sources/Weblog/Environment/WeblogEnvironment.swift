@@ -42,6 +42,7 @@ struct WeblogEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: WeblogNetworkServiceFactoryProtocol,
         persistenceServiceFactory: WeblogPersistenceServiceFactoryProtocol,
@@ -119,4 +120,5 @@ struct WeblogEnvironment {
             )
         }
     }
+    // swiftlint:enable function_body_length
 }

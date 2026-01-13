@@ -207,6 +207,7 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         authSessionServiceFactory: any AuthSessionServiceFactoryProtocol,
         sessionServiceFactory: any SessionServiceFactoryProtocol,
@@ -233,11 +234,9 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
             allocation: .static
         ) { container in
             let authSessionService = container.resolve() as any AuthSessionServiceProtocol
-            return networkClient.makeOMGAPIClient(
-                authTokenProvider: {
-                    await authSessionService.accessToken
-                }
-            )
+            return networkClient.makeOMGAPIClient {
+                await authSessionService.accessToken
+            }
         }
 
         container.register(
@@ -375,4 +374,5 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
             )
         }
     }
+    // swiftlint:enable function_body_length
 }

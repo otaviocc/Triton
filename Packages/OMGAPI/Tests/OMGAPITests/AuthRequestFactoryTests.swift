@@ -40,22 +40,22 @@ struct AuthRequestFactoryTests {
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "client_id" }),
+            queryItems.contains { $0.name == "client_id" },
             "It should include client_id parameter"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "scope" && $0.value == "everything" }),
+            queryItems.contains { $0.name == "scope" && $0.value == "everything" },
             "It should include scope parameter with 'everything' value"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "response_type" && $0.value == "code" }),
+            queryItems.contains { $0.name == "response_type" && $0.value == "code" },
             "It should include response_type parameter with 'code' value"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "redirect_uri" }),
+            queryItems.contains { $0.name == "redirect_uri" },
             "It should include redirect_uri parameter"
         )
     }
@@ -82,27 +82,27 @@ struct AuthRequestFactoryTests {
         let queryItems = request.queryItems
 
         #expect(
-            queryItems.contains(where: { $0.name == "client_id" }),
+            queryItems.contains { $0.name == "client_id" },
             "It should include client_id query parameter"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "client_secret" }),
+            queryItems.contains { $0.name == "client_secret" },
             "It should include client_secret query parameter"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "redirect_uri" }),
+            queryItems.contains { $0.name == "redirect_uri" },
             "It should include redirect_uri query parameter"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "code" && $0.value == authCode }),
+            queryItems.contains { $0.name == "code" && $0.value == authCode },
             "It should include code query parameter with provided auth code"
         )
 
         #expect(
-            queryItems.contains(where: { $0.name == "scope" && $0.value == "everything" }),
+            queryItems.contains { $0.name == "scope" && $0.value == "everything" },
             "It should include scope query parameter"
         )
     }

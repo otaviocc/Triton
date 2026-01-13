@@ -12,14 +12,14 @@
             count: Int,
             in container: ModelContainer
         ) {
-            for i in 0..<count {
+            for index in 0..<count {
                 let entry = WeblogEntry(
-                    id: "entry-\(i)",
-                    title: "Test Entry \(i)",
-                    body: "This is the body for test entry \(i). Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    date: Double(1_700_000_000 + (i * 86400)),
-                    status: i % 3 == 0 ? "draft" : "published",
-                    location: "test-entry-\(i)",
+                    id: "entry-\(index)",
+                    title: "Test Entry \(index)",
+                    body: "This is the body for test entry \(index). Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    date: Double(1_700_000_000 + (index * 86400)),
+                    status: index % 3 == 0 ? "draft" : "published",
+                    location: "test-entry-\(index)",
                     address: "otaviocc"
                 )
 

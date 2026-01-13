@@ -17,7 +17,10 @@
                 )
         }
 
-        func copy(_ data: Data, type: String) {
+        func copy(
+            _ data: Data,
+            type: String
+        ) {
             NSPasteboard
                 .general
                 .clearContents()

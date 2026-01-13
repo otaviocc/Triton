@@ -81,7 +81,7 @@ final class AuthSessionServiceTests: XCTestCase {
         )
     }
 
-    func testObserveLoginStateYieldsCurrentState() async {
+    func testObserveLoginStateYieldsCurrentState() async throws {
         // Given
         let initialState = await service.isLoggedIn
 
@@ -97,9 +97,8 @@ final class AuthSessionServiceTests: XCTestCase {
         var iterator = stream.makeAsyncIterator()
         let firstValue = await iterator.next()
 
-        XCTAssertEqual(
-            firstValue,
-            false,
+        XCTAssertFalse(
+            try XCTUnwrap(firstValue),
             "It should yielded the first value correctly"
         )
     }

@@ -43,7 +43,13 @@ struct ClipboardService: ClipboardServiceProtocol {
         service.copy(string)
     }
 
-    func copy(_ data: Data, type: String) {
-        service.copy(data, type: type)
+    func copy(
+        _ data: Data,
+        type: String
+    ) {
+        service.copy(
+            data,
+            type: type
+        )
     }
 }

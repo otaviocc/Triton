@@ -209,12 +209,13 @@ struct UploadView: View {
         if !viewModel.suggestedTags.isEmpty {
             TagListView(
                 tags: viewModel.suggestedTags,
-                helpText: { "Add existing tag '\($0)'" }
-            ) { tag in
-                withAnimation(.easeInOut(duration: 0.2)) {
-                    viewModel.addTag(tag)
+                helpText: { "Add existing tag '\($0)'" },
+                action: { tag in
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        viewModel.addTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 
@@ -224,12 +225,13 @@ struct UploadView: View {
             TagListView(
                 tags: viewModel.tags,
                 style: .remove,
-                helpText: { "Remove tag '\($0)'" }
-            ) { tag in
-                withAnimation(.easeInOut(duration: 0.2)) {
-                    viewModel.removeTag(tag)
+                helpText: { "Remove tag '\($0)'" },
+                action: { tag in
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        viewModel.removeTag(tag)
+                    }
                 }
-            }
+            )
         }
     }
 

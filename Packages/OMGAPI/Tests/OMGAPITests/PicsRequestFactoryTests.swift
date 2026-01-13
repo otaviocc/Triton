@@ -232,7 +232,7 @@ struct PicsRequestFactoryTests {
     }
 
     @Test("It should create picture edit request with empty tags array")
-    func makeEditPictureRequest_withOnlyWithEmptyTagsArray_createsRequest() {
+    func makeEditPictureRequest_withOnlyWithEmptyTagsArray_createsRequest() throws {
         // Given
         let address = "dave"
         let pictureID = "pic-456"
@@ -256,23 +256,26 @@ struct PicsRequestFactoryTests {
             "It should use PUT method"
         )
 
+        let body = try #require(request.body)
+        let bodyTags = try #require(body.tags)
+
         #expect(
-            request.body?.tags == "",
+            bodyTags.isEmpty == true,
             "It should include tags in request body"
         )
 
         #expect(
-            request.body?.caption == nil,
+            body.caption == nil,
             "It should have nil caption when not provided"
         )
 
         #expect(
-            request.body?.alt == nil,
+            body.alt == nil,
             "It should have nil alt text when not provided"
         )
 
         #expect(
-            request.body?.isHidden == nil,
+            body.isHidden == nil,
             "It should have nil isHidden when not provided"
         )
     }

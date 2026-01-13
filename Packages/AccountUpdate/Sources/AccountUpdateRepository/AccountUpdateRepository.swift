@@ -70,10 +70,8 @@ actor AccountUpdateRepository: AccountUpdateRepositoryProtocol {
                 await fetchAccountInformation()
             }
 
-            for await isLoggedIn in authSessionService.observeLoginState() {
-                if isLoggedIn {
-                    await fetchAccountInformation()
-                }
+            for await isLoggedIn in authSessionService.observeLoginState() where isLoggedIn {
+                await fetchAccountInformation()
             }
         }
     }

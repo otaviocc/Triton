@@ -41,6 +41,7 @@ struct NowEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
         networkServiceFactory: NowNetworkServiceFactoryProtocol,
         persistenceServiceFactory: NowPersistenceServiceFactoryProtocol,
@@ -113,4 +114,5 @@ struct NowEnvironment {
                 )
         }
     }
+    // swiftlint:enable function_body_length
 }

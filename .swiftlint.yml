@@ -1,0 +1,64 @@
+# Minimal SwiftLint configuration
+# SwiftFormat handles all formatting, so SwiftLint focuses on code quality and best practices
+
+disabled_rules:
+  - line_length
+  - opening_brace
+  - function_parameter_count
+  - nesting
+  - large_tuple
+  - type_name
+  - force_unwrapping
+  - blanket_disable_command
+
+opt_in_rules:
+  - array_init
+  - contains_over_first_not_nil
+  - convenience_type
+  - discouraged_assert
+  - discouraged_object_literal
+  - empty_count
+  - empty_string
+  - empty_xctest_method
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - force_cast
+  - force_try
+  - implicit_return
+  - joined_default_parameter
+  - last_where
+  - legacy_random
+  - lower_acl_than_parent
+  - multiline_function_chains
+  - multiline_parameters
+  - multiline_parameters_brackets
+  - no_fallthrough_only
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - single_test_class
+  - sorted_first_last
+  - static_operator
+  - switch_case_alignment
+  - trailing_closure
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unused_control_flow_label
+  - vertical_whitespace_closing_braces
+  - xct_specific_matcher
+  - xctfail_message
+  - yoda_condition
+
+multiline_parameters:
+  allows_single_line: false
+
+excluded:
+  - .build
+  - "**/.build"
+  - DerivedData
+  - Pods
+  - Carthage
+  - .git
+  - node_modules

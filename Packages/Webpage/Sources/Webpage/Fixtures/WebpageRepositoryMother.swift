@@ -37,7 +37,11 @@
             // MARK: - Public
 
             func fetchWebpage() async throws {}
-            func updateWebpage(address: String, content: String) async throws {}
+
+            func updateWebpage(
+                address: String,
+                content: String
+            ) async throws {}
         }
 
         // MARK: - Public

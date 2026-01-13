@@ -185,10 +185,10 @@ public struct SelectionToolbarItem<Option: Hashable & CaseIterable>: View {
         DropdownMenuView(
             options: options,
             selection: selection,
-            itemLabel: itemLabel,
-            label: {
-                AnyView(style.makeLabel(helpText: helpText ?? style.defaultHelpText))
-            }
-        )
+            itemLabel: itemLabel
+        ) {
+            let helpText = helpText ?? style.defaultHelpText
+            return AnyView(style.makeLabel(helpText: helpText))
+        }
     }
 }

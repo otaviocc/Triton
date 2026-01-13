@@ -12,11 +12,16 @@
 
             // MARK: - Public
 
-            func fetchWeblogEntry(for address: String, entryID: String) async throws -> EntryResponse {
+            func fetchWeblogEntry(
+                for address: String,
+                entryID: String
+            ) async throws -> EntryResponse {
                 EntryResponseMother.makeEntryResponse()
             }
 
-            func fetchWeblogEntries(for address: String) async throws -> [EntryResponse] {
+            func fetchWeblogEntries(
+                for address: String
+            ) async throws -> [EntryResponse] {
                 EntryResponseMother.makeEntryResponses(count: 2)
             }
 
@@ -41,7 +46,10 @@
                 EntryResponseMother.makeEntryResponse()
             }
 
-            func deleteWeblogEntry(address: String, entryID: String) async throws {}
+            func deleteWeblogEntry(
+                address: String,
+                entryID: String
+            ) async throws {}
         }
 
         // MARK: - Public
