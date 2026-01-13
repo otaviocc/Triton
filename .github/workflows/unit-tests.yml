@@ -1,4 +1,4 @@
-name: Pull Request Checks
+name: Unit Tests
 
 on:
   pull_request:
@@ -7,8 +7,8 @@ on:
       - develop
 
 jobs:
-  build-and-format:
-    name: Build and Format Check
+  test:
+    name: Run Unit Tests
     runs-on: macos-26
 
     steps:
@@ -23,17 +23,6 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
-      - name: Install swiftformat
-        run: brew install swiftformat
-
-      - name: Check code formatting
-        run: |
-          swiftformat --lint .
-          if [ $? -ne 0 ]; then
-            echo "❌ Code formatting issues detected. Please run 'swiftformat .' locally to fix."
-            exit 1
-          fi
-
       - name: Cache Swift Package Manager
         uses: actions/cache@v4
         with:
@@ -46,16 +35,6 @@ jobs:
 
       - name: Resolve Swift Package dependencies
         run: xcodebuild -resolvePackageDependencies -project OMG.xcodeproj -scheme OMG
-
-      - name: Build OMG
-        run: |
-          xcodebuild build \
-            -project OMG.xcodeproj \
-            -scheme OMG \
-            -configuration Debug \
-            -destination 'platform=macOS' \
-            | xcpretty || exit 1
-        continue-on-error: false
 
       - name: Run OMG Tests
         run: |

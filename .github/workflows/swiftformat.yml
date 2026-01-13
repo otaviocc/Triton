@@ -1,0 +1,27 @@
+name: SwiftFormat Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  swiftformat:
+    name: Code Formatting Check
+    runs-on: macos-26
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install swiftformat
+        run: brew install swiftformat
+
+      - name: Check code formatting
+        run: |
+          swiftformat --lint .
+          if [ $? -ne 0 ]; then
+            echo "❌ Code formatting issues detected. Please run 'swiftformat .' locally to fix."
+            exit 1
+          fi
