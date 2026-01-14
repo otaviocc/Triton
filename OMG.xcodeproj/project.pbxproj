@@ -251,7 +251,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/.swiftformat",
 			);
 			name = SwiftFormat;
 			outputFileListPaths = (
@@ -260,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "#!/bin/zsh\n\n# Add Homebrew paths to PATH\nexport PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# Exit successfully if swiftformat is not installed\nif ! command -v swiftformat &> /dev/null; then\n    echo \"warning: SwiftFormat not installed, skipping formatting\"\n    exit 0\nfi\n\n# Only run on actual builds, not indexing\nif [[ \"${ACTION}\" == \"indexbuild\" ]]; then\n    exit 0\nfi\n\n# Change to source root to ensure .swiftformat is accessible\ncd \"${SRCROOT}\" || exit 0\n\n# Run SwiftFormat on the project directory\nswiftformat . --lenient 2>&1 | while IFS= read -r line; do\n    echo \"${line}\"\ndone\n\necho \"SwiftFormat completed successfully\"\nexit 0\n";
+			shellScript = "#!/bin/zsh\n\n# Add Homebrew paths to PATH\nexport PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# Exit successfully if swiftformat is not installed\nif ! command -v swiftformat &> /dev/null; then\n    echo \"warning: SwiftFormat not installed, skipping formatting\"\n    exit 0\nfi\n\n# Only run on actual builds, not indexing\nif [[ \"${ACTION}\" == \"indexbuild\" ]]; then\n    exit 0\nfi\n\n# Change to source root to ensure .swiftformat is accessible\ncd \"${SRCROOT}\" || exit 0\n\n# Run SwiftFormat on the project directory\nswiftformat . --lint --lenient 2>&1 | while IFS= read -r line; do\n    echo \"${line}\"\ndone\n\necho \"SwiftFormat completed successfully\"\nexit 0\n";
 		};
 		EA67B2152F17DF3300A145FB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
