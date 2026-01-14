@@ -153,6 +153,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAC944E3295E56EA004EE34F /* Build configuration list for PBXNativeTarget "OMG" */;
 			buildPhases = (
+				EA67B2142F17DE3400A145FB /* SwiftFormat */,
+				EA67B2152F17DF3300A145FB /* SwiftLint */,
 				EAC944D0295E56E9004EE34F /* Sources */,
 				EAC944D1295E56E9004EE34F /* Frameworks */,
 				EAC944D2295E56E9004EE34F /* Resources */,
@@ -238,6 +240,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EA67B2142F17DE3400A145FB /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.swiftformat",
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "#!/bin/zsh\n\n# Add Homebrew paths to PATH\nexport PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# Exit successfully if swiftformat is not installed\nif ! command -v swiftformat &> /dev/null; then\n    echo \"warning: SwiftFormat not installed, skipping formatting\"\n    exit 0\nfi\n\n# Only run on actual builds, not indexing\nif [[ \"${ACTION}\" == \"indexbuild\" ]]; then\n    exit 0\nfi\n\n# Change to source root to ensure .swiftformat is accessible\ncd \"${SRCROOT}\" || exit 0\n\n# Run SwiftFormat on the project directory\nswiftformat . --lenient 2>&1 | while IFS= read -r line; do\n    echo \"${line}\"\ndone\n\necho \"SwiftFormat completed successfully\"\nexit 0\n";
+		};
+		EA67B2152F17DF3300A145FB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "#!/bin/zsh\n\n# Add Homebrew paths to PATH\nexport PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# Exit successfully if swiftlint is not installed\nif ! command -v swiftlint &> /dev/null; then\n    echo \"warning: SwiftLint not installed, skipping linting\"\n    exit 0\nfi\n\n# Only run on actual builds, not indexing\nif [[ \"${ACTION}\" == \"indexbuild\" ]]; then\n    exit 0\nfi\n\n# Change to source root to ensure .swiftlint.yml is accessible\ncd \"${SRCROOT}\" || exit 0\n\n# Run SwiftLint and report violations as Xcode warnings/errors\nswiftlint lint --quiet --reporter xcode\n\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAC944D0295E56E9004EE34F /* Sources */ = {
@@ -390,6 +434,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "OMG/Supporting Files/Info.plist";
@@ -439,6 +484,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "OMG/Supporting Files/Info.plist";
