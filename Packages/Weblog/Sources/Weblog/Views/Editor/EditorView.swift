@@ -53,50 +53,21 @@ struct EditorView: View {
     }
 
     @ViewBuilder
-    // swiftlint:disable:next function_body_length
     private func makeSidebarView() -> some View {
         Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
             GridRow(alignment: .firstTextBaseline) {
-                Text("Date")
-                    .gridColumnAlignment(.trailing)
-
-                DatePicker(
-                    selection: $viewModel.date,
-                    displayedComponents: [.date]
-                ) {}
-                    .help("Select publication date")
+                makeDatePicker()
             }
 
             GridRow(alignment: .firstTextBaseline) {
-                Text("Time")
-                    .gridColumnAlignment(.trailing)
-
-                DatePicker(
-                    selection: $viewModel.date,
-                    displayedComponents: [.hourAndMinute]
-                ) {}
-                    .help("Select publication time")
+                makeTimePicker()
             }
 
             Divider()
                 .foregroundStyle(Color.accentColor)
 
             GridRow(alignment: .firstTextBaseline) {
-                Text("Status")
-                    .gridColumnAlignment(.trailing)
-
-                Picker(
-                    selection: $viewModel.status,
-                    content: {
-                        ForEach(WeblogEntryStatus.allCases) { status in
-                            Text(status.displayName)
-                        }
-                    },
-                    label: { EmptyView() }
-                )
-                .pickerStyle(.radioGroup)
-                .labelsHidden()
-                .help("Select publication visibility")
+                makeStatusPicker()
             }
 
             Divider()
@@ -115,6 +86,49 @@ struct EditorView: View {
         }
         .frame(width: 200)
         .padding()
+    }
+
+    @ViewBuilder
+    private func makeDatePicker() -> some View {
+        Text("Date")
+            .gridColumnAlignment(.trailing)
+
+        DatePicker(
+            selection: $viewModel.date,
+            displayedComponents: [.date]
+        ) {}
+            .help("Select publication date")
+    }
+
+    @ViewBuilder
+    private func makeTimePicker() -> some View {
+        Text("Time")
+            .gridColumnAlignment(.trailing)
+
+        DatePicker(
+            selection: $viewModel.date,
+            displayedComponents: [.hourAndMinute]
+        ) {}
+            .help("Select publication time")
+    }
+
+    @ViewBuilder
+    private func makeStatusPicker() -> some View {
+        Text("Status")
+            .gridColumnAlignment(.trailing)
+
+        Picker(
+            selection: $viewModel.status,
+            content: {
+                ForEach(WeblogEntryStatus.allCases) { status in
+                    Text(status.displayName)
+                }
+            },
+            label: { EmptyView() }
+        )
+        .pickerStyle(.radioGroup)
+        .labelsHidden()
+        .help("Select publication visibility")
     }
 
     @ViewBuilder
