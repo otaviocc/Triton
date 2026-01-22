@@ -76,6 +76,11 @@ Standardized context menu structure for content items using native ShareLink for
 ### [ADR-016: SwiftUI Previews with Mother Objects](ADR-016-swiftui-previews-with-mother-objects.md)
 Use of Mother Object pattern for creating reusable test fixtures that support SwiftUI Previews across 90% of views, enabling rapid UI development with realistic data.
 
+## Distribution
+
+### [ADR-017: Direct Distribution Outside App Store](ADR-017-direct-distribution-outside-app-store.md)
+Decision to distribute the application directly through downloadable installers outside the Mac App Store, prioritizing development velocity and cost efficiency while maintaining security through code signing and notarization.
+
 ## Contributing
 
 When making significant architectural decisions:
