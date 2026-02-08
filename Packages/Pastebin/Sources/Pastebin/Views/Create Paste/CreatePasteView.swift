@@ -43,7 +43,6 @@ struct CreatePasteView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         VStack {
             TextField("Filename", text: $viewModel.title)
@@ -71,7 +70,6 @@ struct CreatePasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCreatePasteToolbarItem() -> some View {
         Button {
             viewModel.postPaste()

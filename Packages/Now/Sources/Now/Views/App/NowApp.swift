@@ -42,7 +42,6 @@ struct NowApp: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makePageListView(
         address: SelectedAddress
     ) -> some View {
@@ -59,7 +58,6 @@ struct NowApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareToolbarItem(
         address: SelectedAddress
     ) -> some View {
@@ -71,7 +69,6 @@ struct NowApp: View {
         .help("Share now page")
     }
 
-    @ViewBuilder
     private func makeGardenToolbarItem() -> some View {
         Button {
             openURL(.nowGardenURL)
@@ -81,7 +78,6 @@ struct NowApp: View {
         .help("Open garden")
     }
 
-    @ViewBuilder
     private func makeOpenNowPageToolbarItem(
         address: SelectedAddress
     ) -> some View {

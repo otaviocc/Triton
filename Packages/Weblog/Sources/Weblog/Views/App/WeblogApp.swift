@@ -50,7 +50,6 @@ struct WeblogApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeWeblogListView(
         address: SelectedAddress
     ) -> some View {
@@ -77,7 +76,6 @@ struct WeblogApp: View {
         .help("Open Weblog")
     }
 
-    @ViewBuilder
     private func makeAddEntryToolbarItem(
         address: SelectedAddress
     ) -> some View {

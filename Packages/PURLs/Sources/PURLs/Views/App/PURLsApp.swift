@@ -46,7 +46,6 @@ public struct PURLsApp: View {
         }
     }
 
-    @ViewBuilder
     private func makePURLsListView(
         address: SelectedAddress
     ) -> some View {
@@ -82,7 +81,6 @@ public struct PURLsApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeCreateNewPURLToolbarItem() -> some View {
         Button {
             openWindow(id: AddPURLWindow.id)

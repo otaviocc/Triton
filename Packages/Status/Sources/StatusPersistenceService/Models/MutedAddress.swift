@@ -25,7 +25,7 @@ public final class MutedAddress {
 
     // MARK: - Unique constraints
 
-    /// Ensures only one mute entry per address is stored in the database.
+    // Ensures only one mute entry per address is stored in the database.
     #Unique<MutedAddress>([\.address])
 
     // MARK: - Lifecycle

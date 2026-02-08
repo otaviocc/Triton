@@ -46,7 +46,6 @@ public struct PastebinApp: View {
         }
     }
 
-    @ViewBuilder
     private func makePastesListView(
         address: SelectedAddress
     ) -> some View {
@@ -82,7 +81,6 @@ public struct PastebinApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeCreateNewPasteToolbarItem() -> some View {
         Button {
             openWindow(id: CreatePasteWindow.id)

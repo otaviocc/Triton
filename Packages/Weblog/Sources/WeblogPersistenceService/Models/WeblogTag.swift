@@ -28,11 +28,11 @@ public final class WeblogTag {
 
     // MARK: - Unique constraints
 
-    /// Ensures each tag title is unique in the database.
-    ///
-    /// This constraint prevents duplicate tags from being created and ensures
-    /// that tag titles remain unique across all stored tags. This enables
-    /// consistent tag reuse and prevents fragmentation of categorization.
+    // Ensures each tag title is unique in the database.
+    //
+    // This constraint prevents duplicate tags from being created and ensures
+    // that tag titles remain unique across all stored tags. This enables
+    // consistent tag reuse and prevents fragmentation of categorization.
     #Unique<WeblogTag>([\.title])
 
     /// Initializes a new tag with the specified title.

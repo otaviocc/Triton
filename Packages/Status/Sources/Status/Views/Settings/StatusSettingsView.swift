@@ -31,7 +31,6 @@ struct StatusSettingsView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeMutedAddressesSection() -> some View {
         Section {
             makeMuteSection(
@@ -50,7 +49,6 @@ struct StatusSettingsView: View {
         }
     }
 
-    @ViewBuilder
     private func makeMutedKeywordsSection() -> some View {
         Section {
             makeMuteSection(

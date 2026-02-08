@@ -43,6 +43,11 @@ enum WeblogEntryStatus: String, CaseIterable, Hashable, Identifiable {
 
     // MARK: - Properties
 
-    var id: Self { self }
-    var displayName: String { rawValue.capitalized }
+    var id: Self {
+        self
+    }
+
+    var displayName: String {
+        rawValue.capitalized
+    }
 }

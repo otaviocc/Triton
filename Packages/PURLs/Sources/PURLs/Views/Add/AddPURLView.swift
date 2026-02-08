@@ -37,7 +37,6 @@ struct AddPURLView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makePURLNameView() -> some View {
         Group {
             Text("Name")
@@ -49,7 +48,6 @@ struct AddPURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makePURLView() -> some View {
         Group {
             Text("URL")
@@ -75,7 +73,6 @@ struct AddPURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCreatePURLToolbarItem() -> some View {
         Button {
             viewModel.addPURL()

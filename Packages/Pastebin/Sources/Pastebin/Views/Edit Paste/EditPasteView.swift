@@ -42,7 +42,6 @@ struct EditPasteView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         TextEditor(text: $viewModel.content)
             .font(.body.monospaced())
@@ -60,7 +59,6 @@ struct EditPasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makePublishToolbarItem() -> some View {
         Button {
             viewModel.publishPaste()

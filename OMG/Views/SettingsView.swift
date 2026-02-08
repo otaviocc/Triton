@@ -44,7 +44,6 @@ struct SettingsView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeStatusSettingsView() -> some View {
         environment
             .statusAppFactory

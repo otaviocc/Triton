@@ -41,7 +41,6 @@ struct PostStatusView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEmojiView() -> some View {
         Text(viewModel.emoji)
             .font(.system(size: 56))
@@ -58,7 +57,6 @@ struct PostStatusView: View {
             }
     }
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         TextEditor(text: $viewModel.content)
             .autocorrectionDisabled(false)
@@ -67,7 +65,6 @@ struct PostStatusView: View {
             .textEditorCard()
     }
 
-    @ViewBuilder
     private func makeStatusView() -> some View {
         HStack {
             Spacer()
@@ -91,7 +88,6 @@ struct PostStatusView: View {
         }
     }
 
-    @ViewBuilder
     private func makePostStatusUpdateToolbarItem() -> some View {
         Button {
             viewModel.postStatus()
@@ -102,7 +98,6 @@ struct PostStatusView: View {
         .disabled(viewModel.isSubmitDisabled)
     }
 
-    @ViewBuilder
     private func makeEmojiPickerView() -> some View {
         EmojiPickerView(
             binding: $viewModel.emoji,

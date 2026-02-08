@@ -24,7 +24,9 @@
                 content: String
             ) async throws {}
 
-            func fetchStatuses() async throws -> [StatusResponse] { [] }
+            func fetchStatuses() async throws -> [StatusResponse] {
+                []
+            }
         }
 
         // MARK: - Public

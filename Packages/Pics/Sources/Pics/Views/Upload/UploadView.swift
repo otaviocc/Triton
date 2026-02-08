@@ -47,7 +47,6 @@ struct UploadView: View {
         return true
     }
 
-    @ViewBuilder
     private func makeContentView() -> some View {
         VStack {
             HStack(alignment: .top) {
@@ -59,7 +58,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeSidebarView() -> some View {
         VStack {
             if viewModel.imageData != nil {
@@ -77,7 +75,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeDropZoneBorder() -> some View {
         RoundedRectangle(cornerRadius: 8)
             .fill(
@@ -90,7 +87,6 @@ struct UploadView: View {
             .frame(minHeight: 200)
     }
 
-    @ViewBuilder
     private func makeDropZoneContentView() -> some View {
         VStack(spacing: 12) {
             Image(systemName: viewModel.dropZoneImageName)
@@ -119,7 +115,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makePicturePickerView() -> some View {
         PhotosPicker(
             selection: $selectedItem,
@@ -137,7 +132,6 @@ struct UploadView: View {
         .buttonStyle(.borderedProminent)
     }
 
-    @ViewBuilder
     private func makeRemoveButtonView() -> some View {
         Button {
             withAnimation(.easeInOut(duration: 0.2)) {
@@ -151,7 +145,6 @@ struct UploadView: View {
         .buttonStyle(.bordered)
     }
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         VStack {
             PlaceholderTextEditor(
@@ -170,7 +163,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeTagsView() -> some View {
         VStack(alignment: .leading) {
             makeTagInputView()
@@ -179,7 +171,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeTagInputView() -> some View {
         TextField("Add tag", text: $viewModel.tagInput)
             .autocorrectionDisabled(true)
@@ -235,7 +226,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeVisibilityView() -> some View {
         HStack {
             Spacer()
@@ -261,7 +251,6 @@ struct UploadView: View {
         }
     }
 
-    @ViewBuilder
     private func makeUploadPictureToolbarItem() -> some View {
         Button {
             viewModel.uploadPicture()

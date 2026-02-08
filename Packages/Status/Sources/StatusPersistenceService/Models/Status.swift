@@ -66,11 +66,11 @@ public final class Status {
 
     // MARK: - Unique constraints
 
-    /// Ensures only one status update per username is stored in the database.
-    ///
-    /// This constraint implements the "current status per user" storage model,
-    /// automatically replacing older status updates when new ones arrive for
-    /// the same user, maintaining an efficient and current view of the social timeline.
+    // Ensures only one status update per username is stored in the database.
+    //
+    // This constraint implements the "current status per user" storage model,
+    // automatically replacing older status updates when new ones arrive for
+    // the same user, maintaining an efficient and current view of the social timeline.
     #Unique<Status>([\.username])
 
     // MARK: - Lifecycle

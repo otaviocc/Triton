@@ -77,10 +77,10 @@ public final class WeblogEntry {
 
     // MARK: - Unique constraints
 
-    /// Ensures each entry has a unique identifier in the database.
-    ///
-    /// This constraint prevents duplicate entries from being stored and enables
-    /// efficient updates when synchronizing with remote data.
+    // Ensures each entry has a unique identifier in the database.
+    //
+    // This constraint prevents duplicate entries from being stored and enables
+    // efficient updates when synchronizing with remote data.
     #Unique<WeblogEntry>([\.id])
 
     // MARK: - Lifecycle

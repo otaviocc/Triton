@@ -4,5 +4,5 @@ import XCTest
 final class PURLsTests: XCTestCase {
 
     // swiftlint:disable:next empty_xctest_method
-    func testExample() throws {}
+    func testExample() {}
 }

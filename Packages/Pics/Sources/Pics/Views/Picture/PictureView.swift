@@ -37,7 +37,6 @@ struct PictureView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makePictureView() -> some View {
         GeometryReader { geometry in
             AsyncImage(url: viewModel.photoURL?.imagePreviewURL) { image in
@@ -73,7 +72,6 @@ struct PictureView: View {
         makeDeletePictureMenuItem()
     }
 
-    @ViewBuilder
     private func makeEditPictureMenuItem() -> some View {
         Button {
             openEditor()
@@ -82,7 +80,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyPhotoURLMenuItem() -> some View {
         Button {
             viewModel.copyPhotoURLToClipboard()
@@ -91,7 +88,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopySomePicsURLMenuItem() -> some View {
         Button {
             viewModel.copySomePicsURLToClipboard()
@@ -100,7 +96,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownLinkMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownLinkToClipboard()
@@ -109,7 +104,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownImageMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownImageToClipboard()
@@ -118,7 +112,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
         Button {
             openURL(viewModel.somePicsURL!)
@@ -136,7 +129,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareOnStatuslogMenuItem() -> some View {
         Button {
             openWindow(
@@ -151,7 +143,6 @@ struct PictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeDeletePictureMenuItem() -> some View {
         Button {
             showDeleteConfirmation = true

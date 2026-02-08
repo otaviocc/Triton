@@ -40,7 +40,6 @@ struct EditPictureView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         VStack {
             PlaceholderTextEditor(
@@ -59,7 +58,6 @@ struct EditPictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeTagsView() -> some View {
         VStack(alignment: .leading) {
             makeTagInputView()
@@ -68,7 +66,6 @@ struct EditPictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeTagInputView() -> some View {
         TextField("Add tag", text: $viewModel.tagInput)
             .autocorrectionDisabled(true)
@@ -134,7 +131,6 @@ struct EditPictureView: View {
         }
     }
 
-    @ViewBuilder
     private func makeEditPictureToolbarItem() -> some View {
         Button {
             viewModel.updatePicture()
