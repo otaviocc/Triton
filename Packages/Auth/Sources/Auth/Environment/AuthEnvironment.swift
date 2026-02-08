@@ -9,7 +9,9 @@ struct AuthEnvironment {
 
     // MARK: - Properties
 
-    var viewModelFactory: ViewModelFactory { container.resolve() }
+    var viewModelFactory: ViewModelFactory {
+        container.resolve()
+    }
 
     private let container = DependencyContainer()
 

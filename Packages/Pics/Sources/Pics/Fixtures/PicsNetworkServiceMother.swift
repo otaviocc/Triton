@@ -14,7 +14,9 @@
 
             func fetchPictures(
                 for address: String
-            ) async throws -> [PictureResponse] { [] }
+            ) async throws -> [PictureResponse] {
+                []
+            }
 
             func deletePicture(
                 address: String,

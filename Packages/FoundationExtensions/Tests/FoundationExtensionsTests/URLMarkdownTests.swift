@@ -6,9 +6,9 @@ import Testing
 struct URLMarkdownTests {
 
     @Test("It should return a markdown link with custom title")
-    func markdownFormatted_withTitleAndDefaultIsImage_returnsMarkdownLink() {
+    func markdownFormatted_withTitleAndDefaultIsImage_returnsMarkdownLink() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
         let title = "Example Website"
 
         // When
@@ -22,9 +22,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown link when isImage is explicitly false")
-    func markdownFormatted_withTitleAndIsImageFalse_returnsMarkdownLink() {
+    func markdownFormatted_withTitleAndIsImageFalse_returnsMarkdownLink() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
         let title = "Example Website"
 
         // When
@@ -38,9 +38,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown image with custom alt text")
-    func markdownFormatted_withTitleAndIsImageTrue_returnsMarkdownImage() {
+    func markdownFormatted_withTitleAndIsImageTrue_returnsMarkdownImage() throws {
         // Given
-        let url = URL(string: "https://example.com/image.jpg")!
+        let url = try #require(URL(string: "https://example.com/image.jpg"))
         let title = "My Image"
 
         // When
@@ -54,9 +54,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown link using URL as both title and link when no title provided")
-    func markdownFormatted_withNoTitleAndDefaultIsImage_returnsMarkdownLinkWithURL() {
+    func markdownFormatted_withNoTitleAndDefaultIsImage_returnsMarkdownLinkWithURL() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
 
         // When
         let result = url.markdownFormatted()
@@ -69,9 +69,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown image using URL as both alt text and source when no title provided")
-    func markdownFormatted_withNoTitleAndIsImageTrue_returnsMarkdownImageWithURL() {
+    func markdownFormatted_withNoTitleAndIsImageTrue_returnsMarkdownImageWithURL() throws {
         // Given
-        let url = URL(string: "https://example.com/photo.png")!
+        let url = try #require(URL(string: "https://example.com/photo.png"))
 
         // When
         let result = url.markdownFormatted(isImage: true)
@@ -84,9 +84,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown link with empty title text when empty string provided")
-    func markdownFormatted_withEmptyTitle_returnsMarkdownLinkWithURL() {
+    func markdownFormatted_withEmptyTitle_returnsMarkdownLinkWithURL() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
         let title = ""
 
         // When
@@ -100,9 +100,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should return a markdown image with empty alt text when empty string provided")
-    func markdownFormatted_withEmptyTitleAndIsImageTrue_returnsMarkdownImageWithEmptyAlt() {
+    func markdownFormatted_withEmptyTitleAndIsImageTrue_returnsMarkdownImageWithEmptyAlt() throws {
         // Given
-        let url = URL(string: "https://example.com/image.gif")!
+        let url = try #require(URL(string: "https://example.com/image.gif"))
         let title = ""
 
         // When
@@ -116,9 +116,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should handle complex URLs with paths, queries, and fragments")
-    func markdownFormatted_withComplexURL_returnsCorrectMarkdownLink() {
+    func markdownFormatted_withComplexURL_returnsCorrectMarkdownLink() throws {
         // Given
-        let url = URL(string: "https://example.com/path/to/resource?query=value&other=param#section")!
+        let url = try #require(URL(string: "https://example.com/path/to/resource?query=value&other=param#section"))
         let title = "Complex URL"
 
         // When
@@ -148,9 +148,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should preserve special characters in title without escaping")
-    func markdownFormatted_withSpecialCharactersInTitle_returnsMarkdownLinkWithSpecialChars() {
+    func markdownFormatted_withSpecialCharactersInTitle_returnsMarkdownLinkWithSpecialChars() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
         let title = "Special [Characters] & Symbols"
 
         // When
@@ -164,9 +164,9 @@ struct URLMarkdownTests {
     }
 
     @Test("It should handle unicode characters and emojis in title correctly")
-    func markdownFormatted_withUnicodeInTitle_returnsMarkdownLinkWithUnicode() {
+    func markdownFormatted_withUnicodeInTitle_returnsMarkdownLinkWithUnicode() throws {
         // Given
-        let url = URL(string: "https://example.com")!
+        let url = try #require(URL(string: "https://example.com"))
         let title = "Café & Naïve résumé 🌟"
 
         // When

@@ -45,7 +45,6 @@ struct PasteView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeHeaderView() -> some View {
         HStack(alignment: .center) {
             Text(viewModel.title)
@@ -58,7 +57,6 @@ struct PasteView: View {
         .foregroundColor(.secondary)
     }
 
-    @ViewBuilder
     private func makeContentView() -> some View {
         Text(viewModel.content)
             .monospaced()
@@ -86,7 +84,6 @@ struct PasteView: View {
         makeDeletePasteMenuItem()
     }
 
-    @ViewBuilder
     private func makeEditPasteMenuItem() -> some View {
         Button {
             openEditor()
@@ -95,7 +92,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyPasteURLMenuItem() -> some View {
         Button {
             viewModel.copyPasteURLToClipboard()
@@ -104,7 +100,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownLinkMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownLinkToClipboard()
@@ -113,7 +108,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownCodeBlockMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownCodeBlockToClipboard()
@@ -122,7 +116,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
         Button {
             openURL(viewModel.permanentURL)
@@ -131,7 +124,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareMenuItem() -> some View {
         ShareLink(item: viewModel.permanentURL) {
             Label("Share", systemImage: "square.and.arrow.up")
@@ -155,7 +147,6 @@ struct PasteView: View {
         }
     }
 
-    @ViewBuilder
     private func makeDeletePasteMenuItem() -> some View {
         Button {
             showDeleteConfirmation = true

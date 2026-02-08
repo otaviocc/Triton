@@ -11,7 +11,9 @@ enum PURLsListSort: Int, CaseIterable, Hashable, Identifiable {
         describing: Self.self
     )
 
-    var id: Self { self }
+    var id: Self {
+        self
+    }
 
     var localizedTitle: String {
         switch self {

@@ -25,7 +25,7 @@ public final class MutedKeyword {
 
     // MARK: - Unique constraints
 
-    /// Ensures only one mute entry per keyword is stored in the database.
+    // Ensures only one mute entry per keyword is stored in the database.
     #Unique<MutedKeyword>([\.keyword])
 
     // MARK: - Lifecycle

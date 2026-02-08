@@ -41,7 +41,6 @@ struct WeblogEntriesListView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEntriesView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {

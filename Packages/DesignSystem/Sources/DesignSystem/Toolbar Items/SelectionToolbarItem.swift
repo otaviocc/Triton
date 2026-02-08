@@ -71,19 +71,9 @@ public struct SortSelectionToolbarItemStyle: SelectionToolbarItemStyle {
     }
 }
 
-// MARK: - Environment Key
-
-private struct SelectionToolbarItemStyleKey: EnvironmentKey {
-
-    static let defaultValue: any SelectionToolbarItemStyle = FilterSelectionToolbarItemStyle()
-}
-
 extension EnvironmentValues {
 
-    var selectionToolbarItemStyle: any SelectionToolbarItemStyle {
-        get { self[SelectionToolbarItemStyleKey.self] }
-        set { self[SelectionToolbarItemStyleKey.self] = newValue }
-    }
+    @Entry var selectionToolbarItemStyle: any SelectionToolbarItemStyle = FilterSelectionToolbarItemStyle()
 }
 
 // MARK: - View Extension

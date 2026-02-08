@@ -41,7 +41,6 @@ struct PicturesListView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makePicturesView() -> some View {
         ScrollView {
             LazyVGrid(columns: [

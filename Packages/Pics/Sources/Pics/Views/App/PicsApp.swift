@@ -49,7 +49,6 @@ struct PicsApp: View {
         }
     }
 
-    @ViewBuilder
     private func makePicturesListView(
         address: SelectedAddress
     ) -> some View {
@@ -74,7 +73,6 @@ struct PicsApp: View {
         .help("Open Some Pics")
     }
 
-    @ViewBuilder
     private func makeUploadPictureToolbarItem() -> some View {
         Button {
             openWindow(id: UploadPictureWindow.id)

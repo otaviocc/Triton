@@ -60,7 +60,6 @@ struct AccountDetailsView: View {
         }
     }
 
-    @ViewBuilder
     private func makeAddressesView() -> some View {
         Section("Addresses") {
             List {

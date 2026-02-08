@@ -45,14 +45,12 @@ struct StatusView: View {
         }
     }
 
-    @ViewBuilder
     private func makeIconView() -> some View {
         Text(viewModel.icon)
             .font(.system(size: 56))
             .frame(width: 60, height: 60)
     }
 
-    @ViewBuilder
     private func makeMessageView() -> some View {
         Text(LocalizedStringKey(viewModel.message))
             .font(.body)
@@ -63,7 +61,6 @@ struct StatusView: View {
             })
     }
 
-    @ViewBuilder
     private func makeClockView() -> some View {
         HStack(spacing: 4) {
             Image(systemName: "clock")
@@ -100,7 +97,6 @@ struct StatusView: View {
         makeMuteAddressItem()
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserItem() -> some View {
         Button {
             openURL(viewModel.statusURL)
@@ -120,7 +116,6 @@ struct StatusView: View {
         }
     }
 
-    @ViewBuilder
     private func makeMuteAddressItem() -> some View {
         Button {
             viewModel.muteAddress()
@@ -132,7 +127,6 @@ struct StatusView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyStatusURLToClipboard() -> some View {
         Button {
             viewModel.copyStatusURLToClipboard()
@@ -141,7 +135,6 @@ struct StatusView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyReplyURLToClipboard() -> some View {
         Button {
             viewModel.copyReplyURLToClipboard()

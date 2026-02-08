@@ -49,7 +49,6 @@ struct WeblogEntryView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeHeaderView() -> some View {
         HStack(alignment: .center, spacing: 4) {
             Image(systemName: "clock")
@@ -61,7 +60,6 @@ struct WeblogEntryView: View {
         .foregroundColor(.secondary)
     }
 
-    @ViewBuilder
     private func makeContentView() -> some View {
         Text(viewModel.title)
             .truncationMode(.tail)
@@ -69,7 +67,6 @@ struct WeblogEntryView: View {
             .foregroundColor(.primary)
     }
 
-    @ViewBuilder
     private func makeStatusView() -> some View {
         HStack {
             Spacer()
@@ -101,7 +98,6 @@ struct WeblogEntryView: View {
         makeDeleteEntryMenuItem()
     }
 
-    @ViewBuilder
     private func makeEditEntryMenuItem() -> some View {
         Button {
             openEditor()
@@ -110,7 +106,6 @@ struct WeblogEntryView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyEntryURLMenuItem() -> some View {
         Button {
             viewModel.copyEntryURLToClipboard()
@@ -119,7 +114,6 @@ struct WeblogEntryView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownLinkMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownLinkToClipboard()
@@ -128,7 +122,6 @@ struct WeblogEntryView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
         Button {
             openURL(viewModel.permanentURL)
@@ -137,7 +130,6 @@ struct WeblogEntryView: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareMenuItem() -> some View {
         ShareLink(item: viewModel.permanentURL) {
             Label("Share", systemImage: "square.and.arrow.up")
@@ -162,7 +154,6 @@ struct WeblogEntryView: View {
         }
     }
 
-    @ViewBuilder
     private func makeDeleteEntryMenuItem() -> some View {
         Button {
             showDeleteConfirmation = true

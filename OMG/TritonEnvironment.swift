@@ -19,6 +19,8 @@ import Status
 import Weblog
 import Webpage
 
+// swiftlint:disable file_length
+
 /// The main dependency injection container protocol for the OMG application.
 ///
 /// `TritonEnvironmentProtocol` defines the contract for resolving and providing access
@@ -176,22 +178,69 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
 
     // MARK: - Properties
 
-    var authSessionService: any AuthSessionServiceProtocol { container.resolve() }
-    var sessionService: any SessionServiceProtocol { container.resolve() }
-    var networkClient: any NetworkClientProtocol { container.resolve() }
-    var shortcutsService: any ShortcutsServiceProtocol { container.resolve() }
-    var clipboardService: any ClipboardServiceProtocol { container.resolve() }
-    var statusAppFactory: StatusAppFactory { container.resolve() }
-    var authAppFactory: AuthAppFactory { container.resolve() }
-    var accountAppFactory: AccountAppFactory { container.resolve() }
-    var accountUpdateAppFactory: AccountUpdateAppFactory { container.resolve() }
-    var sidebarAppFactory: SidebarAppFactory { container.resolve() }
-    var purlsAppFactory: PURLsAppFactory { container.resolve() }
-    var nowAppFactory: NowAppFactory { container.resolve() }
-    var webpageAppFactory: WebpageAppFactory { container.resolve() }
-    var pastebinAppFactory: PastebinAppFactory { container.resolve() }
-    var weblogAppFactory: WeblogAppFactory { container.resolve() }
-    var picsAppFactory: PicsAppFactory { container.resolve() }
+    var authSessionService: any AuthSessionServiceProtocol {
+        container.resolve()
+    }
+
+    var sessionService: any SessionServiceProtocol {
+        container.resolve()
+    }
+
+    var networkClient: any NetworkClientProtocol {
+        container.resolve()
+    }
+
+    var shortcutsService: any ShortcutsServiceProtocol {
+        container.resolve()
+    }
+
+    var clipboardService: any ClipboardServiceProtocol {
+        container.resolve()
+    }
+
+    var statusAppFactory: StatusAppFactory {
+        container.resolve()
+    }
+
+    var authAppFactory: AuthAppFactory {
+        container.resolve()
+    }
+
+    var accountAppFactory: AccountAppFactory {
+        container.resolve()
+    }
+
+    var accountUpdateAppFactory: AccountUpdateAppFactory {
+        container.resolve()
+    }
+
+    var sidebarAppFactory: SidebarAppFactory {
+        container.resolve()
+    }
+
+    var purlsAppFactory: PURLsAppFactory {
+        container.resolve()
+    }
+
+    var nowAppFactory: NowAppFactory {
+        container.resolve()
+    }
+
+    var webpageAppFactory: WebpageAppFactory {
+        container.resolve()
+    }
+
+    var pastebinAppFactory: PastebinAppFactory {
+        container.resolve()
+    }
+
+    var weblogAppFactory: WeblogAppFactory {
+        container.resolve()
+    }
+
+    var picsAppFactory: PicsAppFactory {
+        container.resolve()
+    }
 
     private let container = DependencyContainer()
 
@@ -376,3 +425,5 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
     }
     // swiftlint:enable function_body_length
 }
+
+// swiftlint:enable file_length

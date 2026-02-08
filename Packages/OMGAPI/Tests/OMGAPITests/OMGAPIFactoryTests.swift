@@ -5,7 +5,7 @@ import Testing
 struct OMGAPIFactoryTests {
 
     @Test("It should create a properly configured network client")
-    func makeOMGAPIClient_createsClient() async throws {
+    func makeOMGAPIClient_createsClient() {
         // Given
         let factory = OMGAPIFactory()
         let expectedToken = "test_token_123"
@@ -24,7 +24,7 @@ struct OMGAPIFactoryTests {
     }
 
     @Test("It should create a network client with nil token provider")
-    func makeOMGAPIClient_withNilToken_createsClient() async throws {
+    func makeOMGAPIClient_withNilToken_createsClient() {
         // Given
         let factory = OMGAPIFactory()
 

@@ -55,12 +55,12 @@ public final class PURL {
 
     // MARK: - Unique constraints
 
-    /// Ensures each PURL has a unique combination of address and name.
-    ///
-    /// This constraint prevents duplicate PURLs from being stored and ensures
-    /// that each PURL name is unique within a user's address. The combination
-    /// of address and name uniquely identifies each PURL in the database,
-    /// supporting multi-address PURL management.
+    // Ensures each PURL has a unique combination of address and name.
+    //
+    // This constraint prevents duplicate PURLs from being stored and ensures
+    // that each PURL name is unique within a user's address. The combination
+    // of address and name uniquely identifies each PURL in the database,
+    // supporting multi-address PURL management.
     #Unique<PURL>([\.address, \.name])
 
     // MARK: - Lifecycle

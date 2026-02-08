@@ -65,11 +65,11 @@ public final class Now {
 
     // MARK: - Unique constraints
 
-    /// Ensures each /now page version has a unique combination of address and timestamp.
-    ///
-    /// This constraint prevents duplicate /now page versions from being stored and
-    /// enables efficient version management. The combination of address and timestamp
-    /// uniquely identifies each /now page content version in the database.
+    // Ensures each /now page version has a unique combination of address and timestamp.
+    //
+    // This constraint prevents duplicate /now page versions from being stored and
+    // enables efficient version management. The combination of address and timestamp
+    // uniquely identifies each /now page content version in the database.
     #Unique<Now>([\.address, \.timestamp])
 
     // MARK: - Lifecycle

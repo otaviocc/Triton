@@ -47,7 +47,6 @@ struct PURLView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeHeader() -> some View {
         Text(viewModel.title)
             .textCase(.uppercase)
@@ -55,7 +54,6 @@ struct PURLView: View {
             .foregroundColor(.secondary)
     }
 
-    @ViewBuilder
     private func makeOriginalURLView() -> some View {
         Text(viewModel.originalURL.absoluteString)
             .font(.title2)
@@ -63,7 +61,6 @@ struct PURLView: View {
             .foregroundColor(.primary)
     }
 
-    @ViewBuilder
     private func makePURLView() -> some View {
         Text(viewModel.permanentURL.absoluteString)
             .font(.subheadline)
@@ -82,7 +79,6 @@ struct PURLView: View {
         makeDeletePURLMenuItem()
     }
 
-    @ViewBuilder
     private func makeCopyPURLMenuItem() -> some View {
         Button {
             viewModel.copyPURLToClipboard()
@@ -91,7 +87,6 @@ struct PURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makeCopyMarkdownLinkMenuItem() -> some View {
         Button {
             viewModel.copyMarkdownToClipboard()
@@ -100,7 +95,6 @@ struct PURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareMenuItem() -> some View {
         ShareLink(item: viewModel.permanentURL) {
             Label("Share", systemImage: "square.and.arrow.up")
@@ -125,7 +119,6 @@ struct PURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
         Button {
             openURL(viewModel.permanentURL)
@@ -134,7 +127,6 @@ struct PURLView: View {
         }
     }
 
-    @ViewBuilder
     private func makeDeletePURLMenuItem() -> some View {
         Button {
             showDeleteConfirmation = true

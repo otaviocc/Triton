@@ -57,63 +57,54 @@ struct DetailView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeCurrentAccountView() -> some View {
         environment
             .accountAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makeStatusView() -> some View {
         environment
             .statusAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makeAuthView() -> some View {
         environment
             .authAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makeNowView() -> some View {
         environment
             .nowAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makePURLsView() -> some View {
         environment
             .purlsAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makeWebpageView() -> some View {
         environment
             .webpageAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makePastebinView() -> some View {
         environment
             .pastebinAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makeWeblogAppView() -> some View {
         environment
             .weblogAppFactory
             .makeAppView()
     }
 
-    @ViewBuilder
     private func makePicsAppView() -> some View {
         environment
             .picsAppFactory

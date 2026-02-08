@@ -69,7 +69,7 @@ public protocol Archiving {
     func clearArchive() async throws
 }
 
-public actor Archiver<ArchivableType>: Archiving where ArchivableType: Codable & Sendable {
+public actor Archiver<ArchivableType: Codable & Sendable>: Archiving {
 
     public typealias Item = ArchivableType
 

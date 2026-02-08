@@ -47,11 +47,11 @@ public final class Webpage {
 
     // MARK: - Unique constraints
 
-    /// Ensures each webpage version has a unique combination of address and timestamp.
-    ///
-    /// This constraint prevents duplicate webpage versions from being stored and
-    /// enables efficient version management. The combination of address and timestamp
-    /// uniquely identifies each webpage content version in the database.
+    // Ensures each webpage version has a unique combination of address and timestamp.
+    //
+    // This constraint prevents duplicate webpage versions from being stored and
+    // enables efficient version management. The combination of address and timestamp
+    // uniquely identifies each webpage content version in the database.
     #Unique<Webpage>([\.address, \.timestamp])
 
     // MARK: - Lifecycle

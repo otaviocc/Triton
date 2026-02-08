@@ -57,7 +57,6 @@ public struct StatusApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeCreateNewStatusToolbarItem() -> some View {
         Button {
             openWindow(

@@ -41,7 +41,6 @@ struct WebpageApp: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeWebpageListView(
         address: SelectedAddress
     ) -> some View {
@@ -55,7 +54,6 @@ struct WebpageApp: View {
         }
     }
 
-    @ViewBuilder
     private func makeShareToolbarItem(
         address: SelectedAddress
     ) -> some View {
@@ -67,7 +65,6 @@ struct WebpageApp: View {
         .help("Share webpage")
     }
 
-    @ViewBuilder
     private func makeWebpageToolbarItem(
         address: SelectedAddress
     ) -> some View {

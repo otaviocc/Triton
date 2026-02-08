@@ -44,7 +44,6 @@ struct EditorView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeComposeView() -> some View {
         TextEditor(text: viewModel.isTextEditorDisabled ? .constant(viewModel.body) : $viewModel.body)
             .autocorrectionDisabled(false)
@@ -52,7 +51,6 @@ struct EditorView: View {
             .textEditorCard()
     }
 
-    @ViewBuilder
     private func makeSidebarView() -> some View {
         Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
             GridRow(alignment: .firstTextBaseline) {
@@ -131,7 +129,6 @@ struct EditorView: View {
         .help("Select publication visibility")
     }
 
-    @ViewBuilder
     private func makeTagInputView() -> some View {
         TextField("Add tag", text: $viewModel.tagInput)
             .autocorrectionDisabled(true)
@@ -196,7 +193,6 @@ struct EditorView: View {
         }
     }
 
-    @ViewBuilder
     private func makePublishToolbarItem() -> some View {
         Button {
             viewModel.publishWeblogEntry()

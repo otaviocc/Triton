@@ -40,7 +40,6 @@ struct WebpageListView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeListView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {

@@ -63,12 +63,12 @@ public final class Paste {
 
     // MARK: - Unique constraints
 
-    /// Ensures each paste has a unique combination of address and title.
-    ///
-    /// This constraint prevents duplicate pastes from being stored and ensures
-    /// that each paste title is unique within a user's address. The combination
-    /// of address and title uniquely identifies each paste in the database,
-    /// supporting multi-address paste management.
+    // Ensures each paste has a unique combination of address and title.
+    //
+    // This constraint prevents duplicate pastes from being stored and ensures
+    // that each paste title is unique within a user's address. The combination
+    // of address and title uniquely identifies each paste in the database,
+    // supporting multi-address paste management.
     #Unique<Paste>([\.address, \.title])
 
     // MARK: - Lifecycle

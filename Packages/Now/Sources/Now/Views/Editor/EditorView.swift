@@ -42,7 +42,6 @@ struct EditorView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeEditorView() -> some View {
         TextEditor(text: $viewModel.content)
             .autocorrectionDisabled(false)
@@ -61,7 +60,6 @@ struct EditorView: View {
         }
     }
 
-    @ViewBuilder
     private func makePublishToolbarItem() -> some View {
         Button {
             viewModel.publishNowPage()

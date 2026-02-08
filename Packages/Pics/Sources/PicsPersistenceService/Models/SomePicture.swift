@@ -104,11 +104,11 @@ public final class SomePicture {
 
     // MARK: - Unique constraints
 
-    /// Ensures each picture has a unique ID in the database.
-    ///
-    /// This constraint prevents duplicate pictures from being stored and ensures
-    /// that each picture ID is unique across all users. The picture ID serves as
-    /// the primary unique identifier for pictures in local storage.
+    // Ensures each picture has a unique ID in the database.
+    //
+    // This constraint prevents duplicate pictures from being stored and ensures
+    // that each picture ID is unique across all users. The picture ID serves as
+    // the primary unique identifier for pictures in local storage.
     #Unique<SomePicture>([\.id])
 
     // MARK: - Lifecycle

@@ -60,7 +60,6 @@ public struct EmojiPickerView: View {
 
     // MARK: - Private
 
-    @ViewBuilder
     private func makeCategoriesView(
         proxy: ScrollViewProxy
     ) -> some View {
@@ -80,7 +79,6 @@ public struct EmojiPickerView: View {
         }
     }
 
-    @ViewBuilder
     private func makeEmojiSectionsView() -> some View {
         LazyVGrid(columns: columns, pinnedViews: .sectionHeaders) {
             ForEach(Emoji.Category.allCases) { section in
@@ -130,13 +128,11 @@ public struct EmojiPickerView: View {
         }
     }
 
-    @ViewBuilder
     private func makeSearchView() -> some View {
         TextField("Search", text: $viewModel.searchTerm)
             .search(searchTerm: $viewModel.searchTerm)
     }
 
-    @ViewBuilder
     private func makeEmojiIcon(
         emoji: Emoji
     ) -> some View {

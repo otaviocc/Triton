@@ -53,7 +53,6 @@ struct NowView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenEditorMenuItem() -> some View {
         Button {
             openEditor()
@@ -62,7 +61,6 @@ struct NowView: View {
         }
     }
 
-    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
         Button {
             openURL(URL(nowPageFor: viewModel.address))

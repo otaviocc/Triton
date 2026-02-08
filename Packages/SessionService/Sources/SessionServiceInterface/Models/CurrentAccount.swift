@@ -97,27 +97,6 @@ public struct CurrentAccount: Codable, Equatable, Sendable {
         self.creation = creation
         self.addresses = addresses
     }
-
-    /// Compares two CurrentAccount instances for equality.
-    ///
-    /// This custom equality implementation ensures accurate comparison of all
-    /// account properties, which is essential for detecting state changes in
-    /// the session management system. The comparison includes all user data
-    /// and associated addresses.
-    ///
-    /// - Parameters:
-    ///   - lhs: The left-hand side account to compare
-    ///   - rhs: The right-hand side account to compare
-    /// - Returns: `true` if all properties are equal, `false` otherwise
-    public static func == (
-        lhs: CurrentAccount,
-        rhs: CurrentAccount
-    ) -> Bool {
-        lhs.name == rhs.name &&
-            lhs.email == rhs.email &&
-            lhs.creation == rhs.creation &&
-            lhs.addresses == rhs.addresses
-    }
 }
 
 public extension CurrentAccount {
@@ -203,25 +182,6 @@ public extension CurrentAccount {
             self.address = address
             self.creation = creation
             self.expire = expire
-        }
-
-        /// Compares two Address instances for equality.
-        ///
-        /// This custom equality implementation ensures accurate comparison of all
-        /// address properties, which is important for detecting changes in the
-        /// user's address list and managing UI updates accordingly.
-        ///
-        /// - Parameters:
-        ///   - lhs: The left-hand side address to compare
-        ///   - rhs: The right-hand side address to compare
-        /// - Returns: `true` if all properties are equal, `false` otherwise
-        public static func == (
-            lhs: Address,
-            rhs: Address
-        ) -> Bool {
-            lhs.address == rhs.address &&
-                lhs.creation == rhs.creation &&
-                lhs.expire == rhs.expire
         }
     }
 }
