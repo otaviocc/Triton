@@ -54,7 +54,7 @@ struct StatusView: View {
     private func makeMessageView() -> some View {
         Text(LocalizedStringKey(viewModel.message))
             .font(.body)
-            .foregroundColor(.black)
+            .foregroundStyle(.black)
             .environment(\.openURL, OpenURLAction { url in
                 openURL(url)
                 return .handled
@@ -64,12 +64,12 @@ struct StatusView: View {
     private func makeClockView() -> some View {
         HStack(spacing: 4) {
             Image(systemName: "clock")
-                .foregroundColor(.black)
+                .foregroundStyle(.black)
                 .font(.subheadline)
 
             Text(viewModel.relativeDate)
                 .font(.subheadline)
-                .foregroundColor(.black)
+                .foregroundStyle(.black)
         }
     }
 
@@ -77,7 +77,7 @@ struct StatusView: View {
     private func makeReplyView() -> some View {
         if viewModel.replyURL != nil {
             Image(systemName: "message")
-                .foregroundColor(.black)
+                .foregroundStyle(.black)
                 .font(.subheadline)
         }
     }
