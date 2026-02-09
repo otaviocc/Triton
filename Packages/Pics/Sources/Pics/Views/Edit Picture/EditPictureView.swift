@@ -12,6 +12,12 @@ struct EditPictureView: View {
     @Environment(\.dismiss) private var dismiss
     @Query(SomeTag.fetchDescriptor()) private var existingTags: [SomeTag]
 
+    // MARK: - Computed Properties
+
+    private var existingTagTitles: [String] {
+        existingTags.map(\.title)
+    }
+
     // MARK: - Lifecycle
 
     init(
@@ -78,11 +84,11 @@ struct EditPictureView: View {
                 }
             }
             .onChange(of: viewModel.tagInput) {
-                viewModel.updateTagSuggestions(from: existingTags.map(\.title))
+                viewModel.updateTagSuggestions(from: existingTagTitles)
             }
             .onKeyPress(.tab) {
                 do {
-                    try viewModel.selectFistTagSuggestion()
+                    try viewModel.selectFirstTagSuggestion()
                     return .handled
                 } catch {
                     return .ignored
