@@ -63,7 +63,10 @@ private struct WeblogEntryContainer: View {
     // MARK: - Public
 
     var body: some View {
-        let viewModel = viewModelFactory.makeWeblogEntryViewModel(entry: entry)
+        let viewModel = viewModelFactory.makeWeblogEntryViewModel(
+            entry: entry
+        )
+
         WeblogEntryView(viewModel: viewModel)
     }
 }

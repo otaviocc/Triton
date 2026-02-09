@@ -32,10 +32,8 @@ struct PicturesListView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .onAppear {
-            Task {
-                try await viewModel.fetchPictures()
-            }
+        .task {
+            try? await viewModel.fetchPictures()
         }
     }
 
@@ -46,16 +44,32 @@ struct PicturesListView: View {
             LazyVGrid(columns: [
                 GridItem(.adaptive(minimum: 200))
             ]) {
-                ForEach(pictures, id: \.self) { picture in
-                    PictureView(
-                        viewModel: viewModelFactory.makePictureViewModel(
-                            picture: picture
-                        )
-                    )
+                ForEach(pictures, id: \.id) { picture in
+                    PictureContainer(picture: picture)
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - PictureContainer
+
+private struct PictureContainer: View {
+
+    // MARK: - Properties
+
+    let picture: SomePicture
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makePictureViewModel(
+            picture: picture
+        )
+
+        PictureView(viewModel: viewModel)
     }
 }
 
