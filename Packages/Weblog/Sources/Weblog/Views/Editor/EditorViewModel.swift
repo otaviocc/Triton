@@ -101,7 +101,7 @@ final class EditorViewModel {
 
         suggestedTags = existingTags
             .filter { tag in
-                tag.lowercased().contains(trimmedInput) && !tags.contains(tag)
+                tag.localizedStandardContains(trimmedInput) && !tags.contains(tag)
             }
             .prefix(5)
             .map(\.self)
@@ -123,7 +123,7 @@ final class EditorViewModel {
         tags.removeAll { $0 == tag }
     }
 
-    func selectFistTagSuggestion() throws(TagSelectionError) {
+    func selectFirstTagSuggestion() throws(TagSelectionError) {
         guard let tag = suggestedTags.first else {
             throw .noSuggestions
         }

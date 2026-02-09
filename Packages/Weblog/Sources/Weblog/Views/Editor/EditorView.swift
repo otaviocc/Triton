@@ -12,6 +12,12 @@ struct EditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Query(WeblogTag.fetchDescriptor()) private var existingTags: [WeblogTag]
 
+    // MARK: - Computed Properties
+
+    private var existingTagTitles: [String] {
+        existingTags.map(\.title)
+    }
+
     // MARK: - Lifecycle
 
     init(
@@ -45,7 +51,8 @@ struct EditorView: View {
     // MARK: - Private
 
     private func makeComposeView() -> some View {
-        TextEditor(text: viewModel.isTextEditorDisabled ? .constant(viewModel.body) : $viewModel.body)
+        TextEditor(text: $viewModel.body)
+            .disabled(viewModel.isTextEditorDisabled)
             .autocorrectionDisabled(false)
             .font(.body.monospaced())
             .textEditorCard()
@@ -141,11 +148,11 @@ struct EditorView: View {
                 }
             }
             .onChange(of: viewModel.tagInput) {
-                viewModel.updateTagSuggestions(from: existingTags.map(\.title))
+                viewModel.updateTagSuggestions(from: existingTagTitles)
             }
             .onKeyPress(.tab) {
                 do {
-                    try viewModel.selectFistTagSuggestion()
+                    try viewModel.selectFirstTagSuggestion()
                     return .handled
                 } catch {
                     return .ignored
