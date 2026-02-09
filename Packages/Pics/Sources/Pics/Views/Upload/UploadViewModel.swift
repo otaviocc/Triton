@@ -152,7 +152,7 @@ final class UploadViewModel {
         tags.removeAll { $0 == tag }
     }
 
-    func selectFistTagSuggestion() throws(TagSelectionError) {
+    func selectFirstTagSuggestion() throws(TagSelectionError) {
         guard let tag = suggestedTags.first else {
             throw .noSuggestions
         }
