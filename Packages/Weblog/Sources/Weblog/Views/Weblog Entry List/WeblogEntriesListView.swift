@@ -32,10 +32,8 @@ struct WeblogEntriesListView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .onAppear {
-            Task {
-                try await viewModel.fetchWeblogEntries()
-            }
+        .task {
+            try? await viewModel.fetchWeblogEntries()
         }
     }
 
@@ -44,16 +42,29 @@ struct WeblogEntriesListView: View {
     private func makeEntriesView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(entries, id: \.self) { entry in
-                    WeblogEntryView(
-                        viewModel: viewModelFactory.makeWeblogEntryViewModel(
-                            entry: entry
-                        )
-                    )
+                ForEach(entries, id: \.id) { entry in
+                    WeblogEntryContainer(entry: entry)
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - WeblogEntryContainer
+
+private struct WeblogEntryContainer: View {
+
+    // MARK: - Properties
+
+    let entry: WeblogEntry
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makeWeblogEntryViewModel(entry: entry)
+        WeblogEntryView(viewModel: viewModel)
     }
 }
 
