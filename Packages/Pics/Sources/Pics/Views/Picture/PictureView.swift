@@ -112,11 +112,14 @@ struct PictureView: View {
         }
     }
 
+    @ViewBuilder
     private func makeOpenInBrowserMenuItem() -> some View {
-        Button {
-            openURL(viewModel.somePicsURL!)
-        } label: {
-            Label("Open in Browser", systemImage: "safari")
+        if let somePicsURL = viewModel.somePicsURL {
+            Button {
+                openURL(somePicsURL)
+            } label: {
+                Label("Open in Browser", systemImage: "safari")
+            }
         }
     }
 
