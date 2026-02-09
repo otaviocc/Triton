@@ -23,26 +23,9 @@ struct StatusListView: View {
         _statuses = .init(viewModel.fetchDescriptor())
     }
 
-    // MARK: - Public
+    // MARK: - Computed Properties
 
-    var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 8) {
-                ForEach(filteredStatuses(), id: \.self) { status in
-                    StatusView(
-                        viewModel: viewModelFactory.makeStatusViewModel(
-                            status: status
-                        )
-                    )
-                }
-            }
-            .padding(8)
-        }
-    }
-
-    // MARK: - Private
-
-    private func filteredStatuses() -> [Status] {
+    private var filteredStatuses: [Status] {
         let addressSet = Set(mutedAddresses.map(\.address))
         let keywords = mutedKeywords.map(\.keyword)
 
@@ -52,6 +35,39 @@ struct StatusListView: View {
                 mutedKeywords: keywords
             )
         }
+    }
+
+    // MARK: - Public
+
+    var body: some View {
+        ScrollView {
+            LazyVStack(spacing: 8) {
+                ForEach(filteredStatuses, id: \.id) { status in
+                    StatusContainer(status: status)
+                }
+            }
+            .padding(8)
+        }
+    }
+}
+
+// MARK: - StatusContainer
+
+private struct StatusContainer: View {
+
+    // MARK: - Properties
+
+    let status: Status
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makeStatusViewModel(
+            status: status
+        )
+
+        StatusView(viewModel: viewModel)
     }
 }
 
