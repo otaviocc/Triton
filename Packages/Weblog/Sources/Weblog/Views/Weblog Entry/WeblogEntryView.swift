@@ -10,7 +10,7 @@ struct WeblogEntryView: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.openURL) private var openURL
 
-    private var viewModel: WeblogEntryViewModel
+    private let viewModel: WeblogEntryViewModel
 
     // MARK: - Lifecycle
 
@@ -57,14 +57,14 @@ struct WeblogEntryView: View {
                 .textCase(.uppercase)
         }
         .font(.caption)
-        .foregroundColor(.secondary)
+        .foregroundStyle(.secondary)
     }
 
     private func makeContentView() -> some View {
         Text(viewModel.title)
             .truncationMode(.tail)
             .lineLimit(2)
-            .foregroundColor(.primary)
+            .foregroundStyle(.primary)
     }
 
     private func makeStatusView() -> some View {
@@ -73,7 +73,7 @@ struct WeblogEntryView: View {
             Text(viewModel.status)
                 .textCase(.uppercase)
                 .font(.caption)
-                .foregroundColor(.accentColor)
+                .foregroundStyle(Color.accentColor)
         }
     }
 
