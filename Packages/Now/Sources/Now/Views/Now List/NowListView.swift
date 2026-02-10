@@ -32,10 +32,8 @@ struct NowListView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .onAppear {
-            Task {
-                try await viewModel.fetchNowPage()
-            }
+        .task {
+            try? await viewModel.fetchNowPage()
         }
     }
 
@@ -44,17 +42,37 @@ struct NowListView: View {
     private func makeListView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(nowPages, id: \.self) { nowPage in
-                    NowView(
-                        viewModel: viewModelFactory.makeNowViewModel(
-                            nowPage: nowPage,
-                            isCurrent: nowPage == nowPages.first
-                        )
+                ForEach(nowPages, id: \.id) { nowPage in
+                    NowContainer(
+                        nowPage: nowPage,
+                        isCurrent: nowPage == nowPages.first
                     )
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - NowContainer
+
+private struct NowContainer: View {
+
+    // MARK: - Properties
+
+    let nowPage: Now
+    let isCurrent: Bool
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makeNowViewModel(
+            nowPage: nowPage,
+            isCurrent: isCurrent
+        )
+
+        NowView(viewModel: viewModel)
     }
 }
 
