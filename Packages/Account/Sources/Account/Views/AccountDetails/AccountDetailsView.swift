@@ -45,16 +45,16 @@ struct AccountDetailsView: View {
                 VStack(alignment: .leading) {
                     Text(viewModel.currentAccount.name)
                         .bold()
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
 
                     Text(viewModel.currentAccount.email)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     Text("Registered \(registrationDate)")
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
-            .foregroundColor(.black)
+            .foregroundStyle(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .card(.omgBackground)
         }
@@ -97,15 +97,15 @@ struct AccountDetailsView: View {
                 VStack(alignment: .leading) {
                     Text(address.address)
                         .bold()
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
 
                     Text("Registered \(registrationDate)")
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     Text(formattedExpire)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
 
                 Spacer()
