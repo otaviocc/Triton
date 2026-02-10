@@ -104,7 +104,7 @@ public struct EmojiPickerView: View {
                 Text(category.rawValue)
                     .textCase(.uppercase)
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .id(category.id)
                 Spacer()
             }
@@ -113,17 +113,10 @@ public struct EmojiPickerView: View {
         }
     }
 
-    @ViewBuilder
     private func makeEmojiSearchResultsView() -> some View {
-        let filteredEmojis = viewModel.emojis.filter {
-            $0.keywords.containsPartial(viewModel.searchTerm)
-        }
-
         LazyVGrid(columns: columns, pinnedViews: .sectionHeaders) {
-            ForEach(filteredEmojis, id: \.id) { emoji in
-                makeEmojiIcon(
-                    emoji: emoji
-                )
+            ForEach(viewModel.filteredEmojis, id: \.id) { emoji in
+                makeEmojiIcon(emoji: emoji)
             }
         }
     }

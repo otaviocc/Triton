@@ -24,6 +24,11 @@ final class EmojiPickerViewModel {
         !searchTerm.isEmpty
     }
 
+    var filteredEmojis: [Emoji] {
+        guard !searchTerm.isEmpty else { return [] }
+        return emojis.filter { $0.keywords.containsPartial(searchTerm) }
+    }
+
     // MARK: - Lifecycle
 
     init() {
