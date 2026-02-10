@@ -32,10 +32,8 @@ struct PURLsListView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .onAppear {
-            Task {
-                try await viewModel.fetchPURLs()
-            }
+        .task {
+            try? await viewModel.fetchPURLs()
         }
     }
 
@@ -44,16 +42,29 @@ struct PURLsListView: View {
     private func makeListView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(purls, id: \.self) { purl in
-                    PURLView(
-                        viewModel: viewModelFactory.makePURLViewModel(
-                            purl: purl
-                        )
-                    )
+                ForEach(purls, id: \.id) { purl in
+                    PURLContainer(purl: purl)
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - PURLContainer
+
+private struct PURLContainer: View {
+
+    // MARK: - Properties
+
+    let purl: PURL
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makePURLViewModel(purl: purl)
+        PURLView(viewModel: viewModel)
     }
 }
 
