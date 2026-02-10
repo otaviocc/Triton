@@ -66,9 +66,9 @@ public struct PastebinApp: View {
                 options: PastesListSort.allCases,
                 selection: $sort,
                 itemLabel: { $0.localizedTitle },
+                style: SortSelectionToolbarItemStyle(),
                 helpText: "Sort pastes"
             )
-            .selectionToolbarItemStyle(SortSelectionToolbarItemStyle())
         }
 
         ToolbarItemGroup {

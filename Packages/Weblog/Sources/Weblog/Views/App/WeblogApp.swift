@@ -106,9 +106,9 @@ struct WeblogApp: View {
                 options: WeblogEntriesListSort.allCases,
                 selection: $sort,
                 itemLabel: { $0.localizedTitle },
+                style: SortSelectionToolbarItemStyle(),
                 helpText: "Sort entries"
             )
-            .selectionToolbarItemStyle(SortSelectionToolbarItemStyle())
         }
 
         ToolbarItemGroup {

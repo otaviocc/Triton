@@ -66,9 +66,9 @@ public struct PURLsApp: View {
                 options: PURLsListSort.allCases,
                 selection: $sort,
                 itemLabel: { $0.localizedTitle },
+                style: SortSelectionToolbarItemStyle(),
                 helpText: "Sort PURLs"
             )
-            .selectionToolbarItemStyle(SortSelectionToolbarItemStyle())
         }
 
         ToolbarItemGroup {
