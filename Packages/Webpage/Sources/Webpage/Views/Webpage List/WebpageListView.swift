@@ -31,10 +31,8 @@ struct WebpageListView: View {
                 makeListView()
             }
         }
-        .onAppear {
-            Task {
-                try await viewModel.fetchWebpages()
-            }
+        .task {
+            try? await viewModel.fetchWebpages()
         }
     }
 
@@ -43,17 +41,37 @@ struct WebpageListView: View {
     private func makeListView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(webpages, id: \.self) { webpage in
-                    WebpageView(
-                        viewModel: viewModelFactory.makeWebpageViewModel(
-                            webpage: webpage,
-                            isCurrent: webpage == webpages.first
-                        )
+                ForEach(webpages, id: \.id) { webpage in
+                    WebpageContainer(
+                        webpage: webpage,
+                        isCurrent: webpage == webpages.first
                     )
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - WebpageContainer
+
+private struct WebpageContainer: View {
+
+    // MARK: - Properties
+
+    let webpage: Webpage
+    let isCurrent: Bool
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makeWebpageViewModel(
+            webpage: webpage,
+            isCurrent: isCurrent
+        )
+
+        WebpageView(viewModel: viewModel)
     }
 }
 
