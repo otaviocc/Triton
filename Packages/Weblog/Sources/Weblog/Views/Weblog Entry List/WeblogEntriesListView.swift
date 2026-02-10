@@ -51,7 +51,7 @@ struct WeblogEntriesListView: View {
     }
 }
 
-// MARK: - WeblogEntryContainer
+// MARK: - Private
 
 private struct WeblogEntryContainer: View {
 

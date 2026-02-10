@@ -51,7 +51,7 @@ struct PastesListView: View {
     }
 }
 
-// MARK: - PasteContainer
+// MARK: - Private
 
 private struct PasteContainer: View {
 

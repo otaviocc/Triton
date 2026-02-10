@@ -53,7 +53,7 @@ struct PicturesListView: View {
     }
 }
 
-// MARK: - PictureContainer
+// MARK: - Private
 
 private struct PictureContainer: View {
 
