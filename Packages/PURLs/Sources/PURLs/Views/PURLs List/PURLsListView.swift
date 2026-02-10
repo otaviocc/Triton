@@ -63,7 +63,10 @@ private struct PURLContainer: View {
     // MARK: - Public
 
     var body: some View {
-        let viewModel = viewModelFactory.makePURLViewModel(purl: purl)
+        let viewModel = viewModelFactory.makePURLViewModel(
+            purl: purl
+        )
+
         PURLView(viewModel: viewModel)
     }
 }

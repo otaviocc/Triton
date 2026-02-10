@@ -63,7 +63,10 @@ private struct PasteContainer: View {
     // MARK: - Public
 
     var body: some View {
-        let viewModel = viewModelFactory.makePasteViewModel(paste: paste)
+        let viewModel = viewModelFactory.makePasteViewModel(
+            paste: paste
+        )
+
         PasteView(viewModel: viewModel)
     }
 }
