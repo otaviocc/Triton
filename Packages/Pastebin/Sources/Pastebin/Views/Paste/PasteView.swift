@@ -54,7 +54,7 @@ struct PasteView: View {
         }
         .textCase(.uppercase)
         .font(.caption)
-        .foregroundColor(.secondary)
+        .foregroundStyle(.secondary)
     }
 
     private func makeContentView() -> some View {
@@ -62,7 +62,7 @@ struct PasteView: View {
             .monospaced()
             .truncationMode(.tail)
             .lineLimit(5)
-            .foregroundColor(.primary)
+            .foregroundStyle(.primary)
     }
 
     @ViewBuilder

@@ -32,10 +32,8 @@ struct PastesListView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .onAppear {
-            Task {
-                try await viewModel.fetchPastes()
-            }
+        .task {
+            try? await viewModel.fetchPastes()
         }
     }
 
@@ -44,17 +42,29 @@ struct PastesListView: View {
     private func makeListView() -> some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(pastes, id: \.self) { paste in
-                    PasteView(
-                        viewModel: viewModelFactory
-                            .makePasteViewModel(
-                                paste: paste
-                            )
-                    )
+                ForEach(pastes, id: \.id) { paste in
+                    PasteContainer(paste: paste)
                 }
             }
             .padding(8)
         }
+    }
+}
+
+// MARK: - PasteContainer
+
+private struct PasteContainer: View {
+
+    // MARK: - Properties
+
+    let paste: Paste
+    @Environment(\.viewModelFactory) private var viewModelFactory
+
+    // MARK: - Public
+
+    var body: some View {
+        let viewModel = viewModelFactory.makePasteViewModel(paste: paste)
+        PasteView(viewModel: viewModel)
     }
 }
 
