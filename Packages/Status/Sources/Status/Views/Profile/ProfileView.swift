@@ -33,7 +33,7 @@ struct ProfileView: View {
                     makeWeblogView()
                 }
                 .buttonStyle(.borderless)
-                .foregroundColor(.accentColor)
+                .foregroundStyle(Color.accentColor)
             }
         }
         .padding()

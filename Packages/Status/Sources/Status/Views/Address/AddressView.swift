@@ -25,7 +25,7 @@ struct AddressView: View {
     var body: some View {
         Text(formattedAddress)
             .font(.headline)
-            .foregroundColor(.black)
+            .foregroundStyle(.black)
             .onTapGesture {
                 isPopoverPresented = true
             }
