@@ -71,44 +71,15 @@ public struct SortSelectionToolbarItemStyle: SelectionToolbarItemStyle {
     }
 }
 
-extension EnvironmentValues {
-
-    @Entry var selectionToolbarItemStyle: any SelectionToolbarItemStyle = FilterSelectionToolbarItemStyle()
-}
-
-// MARK: - View Extension
-
-public extension View {
-
-    /// Sets the style for selection toolbar items within this view.
-    ///
-    /// - Parameter style: The style to apply to selection toolbar items.
-    /// - Returns: A view with the specified selection toolbar item style applied.
-    ///
-    /// ## Example
-    ///
-    /// ```swift
-    /// SelectionToolbarItem(
-    ///     options: Filter.allCases,
-    ///     selection: $filter,
-    ///     itemLabel: { $0.title }
-    /// )
-    /// .selectionToolbarItemStyle(FilterSelectionToolbarItemStyle())
-    /// ```
-    func selectionToolbarItemStyle(_ style: some SelectionToolbarItemStyle) -> some View {
-        environment(\.selectionToolbarItemStyle, style)
-    }
-}
-
 // MARK: - Selection Toolbar Item
 
 /// A toolbar item that displays a dropdown menu for selecting from various options.
 ///
-/// `SelectionToolbarItem` is a generic, reusable component that can be styled using
-/// the `.selectionToolbarItemStyle()` modifier. It's designed to work with any
-/// `Hashable & CaseIterable` type.
+/// `SelectionToolbarItem` is a generic, reusable component that requires a style
+/// conforming to `SelectionToolbarItemStyle`. It's designed to work with any
+/// `Hashable & CaseIterable` type for options.
 ///
-/// The visual appearance (icon and default help text) is determined by the applied style.
+/// The visual appearance (icon and default help text) is determined by the style parameter.
 /// Use `FilterSelectionToolbarItemStyle` for filtering or `SortSelectionToolbarItemStyle`
 /// for sorting, or create custom styles conforming to `SelectionToolbarItemStyle`.
 ///
@@ -130,16 +101,15 @@ public extension View {
 /// SelectionToolbarItem(
 ///     options: ContentFilter.allCases,
 ///     selection: $selectedFilter,
-///     itemLabel: { $0.title }
+///     itemLabel: { $0.title },
+///     style: FilterSelectionToolbarItemStyle()
 /// )
-/// .selectionToolbarItemStyle(FilterSelectionToolbarItemStyle())
 /// ```
-public struct SelectionToolbarItem<Option: Hashable & CaseIterable>: View {
+public struct SelectionToolbarItem<Option: Hashable & CaseIterable, Style: SelectionToolbarItemStyle>: View {
 
     // MARK: - Properties
 
-    @Environment(\.selectionToolbarItemStyle) private var style
-
+    private let style: Style
     private let options: [Option]
     private let selection: Binding<Option>
     private let itemLabel: (Option) -> String
@@ -155,17 +125,20 @@ public struct SelectionToolbarItem<Option: Hashable & CaseIterable>: View {
     ///   - selection: A binding to the currently selected option. This binding is
     ///     updated when the user selects a different option from the dropdown.
     ///   - itemLabel: A closure that converts an option to its display string.
+    ///   - style: The style that determines the icon and default help text.
     ///   - helpText: Optional custom help text shown when hovering over the icon.
     ///     If `nil`, the style's default help text is used.
     public init(
         options: [Option],
         selection: Binding<Option>,
         itemLabel: @escaping (Option) -> String,
+        style: Style,
         helpText: LocalizedStringKey? = nil
     ) {
         self.options = options
         self.selection = selection
         self.itemLabel = itemLabel
+        self.style = style
         self.helpText = helpText
     }
 
@@ -178,7 +151,7 @@ public struct SelectionToolbarItem<Option: Hashable & CaseIterable>: View {
             itemLabel: itemLabel
         ) {
             let helpText = helpText ?? style.defaultHelpText
-            return AnyView(style.makeLabel(helpText: helpText))
+            style.makeLabel(helpText: helpText)
         }
     }
 }
