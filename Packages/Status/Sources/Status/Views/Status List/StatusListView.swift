@@ -51,7 +51,7 @@ struct StatusListView: View {
     }
 }
 
-// MARK: - StatusContainer
+// MARK: - Private
 
 private struct StatusContainer: View {
 

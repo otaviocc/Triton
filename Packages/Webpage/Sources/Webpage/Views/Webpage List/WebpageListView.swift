@@ -53,7 +53,7 @@ struct WebpageListView: View {
     }
 }
 
-// MARK: - WebpageContainer
+// MARK: - Private
 
 private struct WebpageContainer: View {
 

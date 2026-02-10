@@ -54,7 +54,7 @@ struct NowListView: View {
     }
 }
 
-// MARK: - NowContainer
+// MARK: - Private
 
 private struct NowContainer: View {
 

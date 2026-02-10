@@ -51,7 +51,7 @@ struct PURLsListView: View {
     }
 }
 
-// MARK: - PURLContainer
+// MARK: - Private
 
 private struct PURLContainer: View {
 
