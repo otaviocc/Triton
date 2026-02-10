@@ -51,20 +51,20 @@ struct PURLView: View {
         Text(viewModel.title)
             .textCase(.uppercase)
             .font(.caption)
-            .foregroundColor(.secondary)
+            .foregroundStyle(.secondary)
     }
 
     private func makeOriginalURLView() -> some View {
         Text(viewModel.originalURL.absoluteString)
             .font(.title2)
             .truncationMode(.tail)
-            .foregroundColor(.primary)
+            .foregroundStyle(.primary)
     }
 
     private func makePURLView() -> some View {
         Text(viewModel.permanentURL.absoluteString)
             .font(.subheadline)
-            .foregroundColor(.accentColor)
+            .foregroundStyle(Color.accentColor)
     }
 
     @ViewBuilder
