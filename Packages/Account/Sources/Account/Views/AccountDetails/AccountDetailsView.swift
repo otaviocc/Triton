@@ -54,7 +54,6 @@ struct AccountDetailsView: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            .foregroundStyle(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .card(.omgBackground)
         }
