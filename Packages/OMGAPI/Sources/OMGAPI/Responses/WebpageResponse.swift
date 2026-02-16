@@ -42,7 +42,7 @@ public extension WebpageResponse {
         public let theme: String
         public let css: String
         public let head: String
-        public let verified: Int
+        public let verified: Int?
         public let pfp: String
         public let metadata: String
         public let branding: String
