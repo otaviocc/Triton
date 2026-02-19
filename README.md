@@ -10,6 +10,11 @@ A native macOS client for [omg.lol](https://omg.lol), built with SwiftUI. Triton
 
 If you find this project useful, consider [buying me a coffee](https://ko-fi.com/otaviocc) to fuel future development ☕️
 
+## Follow on Mastodon
+
+- <a rel="me" href="https://social.lol/@otaviocc">@otaviocc@social.lol</a>
+- <a rel="me" href="https://social.lol/@triton">@triton@social.lol</a>
+
 ## Table of Contents
 
 - [Features](#features)
