@@ -85,6 +85,20 @@ struct WeblogApp: View {
     }
 
     @ViewBuilder
+    private func makeWeblogConfigurationToolbarItem(
+        address: SelectedAddress
+    ) -> some View {
+        let configurationURL = URL(weblogConfigurationFor: address)
+
+        Button {
+            openURL(configurationURL)
+        } label: {
+            Image(systemName: "gearshape")
+        }
+        .help("Open Weblog configuration")
+    }
+
+    @ViewBuilder
     private func makeWeblogToolbarItem(
         address: SelectedAddress
     ) -> some View {
@@ -123,6 +137,12 @@ struct WeblogApp: View {
     private func makeToolbarContent(
         address: SelectedAddress
     ) -> some ToolbarContent {
+        ToolbarItemGroup {
+            makeWeblogConfigurationToolbarItem(
+                address: address
+            )
+        }
+
         ToolbarItemGroup {
             SelectionToolbarItem(
                 options: WeblogEntriesListSort.allCases,

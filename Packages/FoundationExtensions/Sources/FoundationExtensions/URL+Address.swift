@@ -77,6 +77,22 @@ public extension URL {
         )!
     }
 
+    /// Creates a URL for the weblog configuration page on the OMG.LOL home site.
+    ///
+    /// This initializer constructs the URL for accessing a user's weblog
+    /// configuration settings on the OMG.LOL home site, where they can manage
+    /// weblog appearance, behavior, and other settings.
+    ///
+    /// - Parameter address: The OMG.LOL username
+    /// - Example: `URL(weblogConfigurationFor: "alice")` → `https://home.omg.lol/address/alice/weblog/configuration`
+    init(
+        weblogConfigurationFor address: String
+    ) {
+        self.init(
+            string: "https://home.omg.lol/address/\(address)/weblog/configuration"
+        )!
+    }
+
     /// Creates a URL for a specific weblog entry.
     ///
     /// This initializer constructs the URL for an individual weblog post using
