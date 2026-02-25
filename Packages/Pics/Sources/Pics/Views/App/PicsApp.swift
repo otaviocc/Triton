@@ -65,7 +65,7 @@ struct PicsApp: View {
             makePicturesListView(
                 address: current
             )
-            .toolbar {
+            .toolbar(id: "pics") {
                 makeToolbarContent(address: current)
             }
         }
@@ -102,20 +102,29 @@ struct PicsApp: View {
             Image(systemName: "plus")
         }
         .help("Upload new picture")
+        .keyboardShortcut("n", modifiers: .command)
     }
 
     @ToolbarContentBuilder
     private func makeToolbarContent(
         address: SelectedAddress
-    ) -> some ToolbarContent {
-        ToolbarItemGroup {
-            makeSomePicsToolbarItem(address: address)
-            RefreshToolbarItem(
-                action: { viewModel.fetchPictures() },
-                helpText: "Refresh pictures",
-                isDisabled: viewModel.isLoading
-            )
-            makeUploadPictureToolbarItem()
+    ) -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "pics.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                makeSomePicsToolbarItem(address: address)
+                RefreshToolbarItem(
+                    action: { viewModel.fetchPictures() },
+                    helpText: "Refresh pictures",
+                    isDisabled: viewModel.isLoading
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeUploadPictureToolbarItem()
+            } label: {
+                Label("Pics Actions", systemImage: "photo")
+            }
         }
     }
 }

@@ -54,7 +54,7 @@ struct EditPictureView: View {
         VStack {
             makeEditorView()
         }
-        .toolbar {
+        .toolbar(id: "pics.edit") {
             makeToolbarContent()
         }
         .navigationTitle("Pics")
@@ -150,11 +150,20 @@ struct EditPictureView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.shouldShowProgress {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.shouldShowProgress {
+            ToolbarItem(
+                id: "pics.edit.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
+        }
+        
+        ToolbarItem(
+            id: "pics.edit.submit",
+            placement: .automatic
+        ) {
             makeEditPictureToolbarItem()
         }
     }
@@ -166,6 +175,7 @@ struct EditPictureView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Update picture")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

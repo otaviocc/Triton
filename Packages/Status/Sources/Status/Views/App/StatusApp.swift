@@ -55,7 +55,7 @@ public struct StatusApp: View {
             )
         )
         .id(filter)
-        .toolbar {
+        .toolbar(id: "status") {
             makeToolbarContent()
         }
     }
@@ -63,8 +63,11 @@ public struct StatusApp: View {
     // MARK: - Private
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "status.filter",
+            placement: .automatic
+        ) {
             SelectionToolbarItem(
                 options: StatusListFilter.allCases,
                 selection: $filter,
@@ -73,7 +76,10 @@ public struct StatusApp: View {
             )
         }
 
-        ToolbarItemGroup {
+        ToolbarItem(
+            id: "status.compose",
+            placement: .automatic
+        ) {
             makeCreateNewStatusToolbarItem()
         }
     }
@@ -90,6 +96,7 @@ public struct StatusApp: View {
             Image(systemName: "square.and.pencil")
         }
         .help("Compose new status")
+        .keyboardShortcut("n", modifiers: .command)
         .disabled(viewModel.disableComposeButton)
     }
 }

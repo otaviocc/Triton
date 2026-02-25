@@ -51,7 +51,7 @@ public struct PURLsApp: View {
 
     public var body: some View {
         makePURLsView()
-            .toolbar {
+            .toolbar(id: "purls") {
                 makeToolbarContent()
             }
     }
@@ -82,8 +82,11 @@ public struct PURLsApp: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "purls.sort",
+            placement: .automatic
+        ) {
             SelectionToolbarItem(
                 options: PURLsListSort.allCases,
                 selection: $sort,
@@ -93,13 +96,21 @@ public struct PURLsApp: View {
             )
         }
 
-        ToolbarItemGroup {
-            RefreshToolbarItem(
-                action: { viewModel.fetchPURLs() },
-                helpText: "Refresh PURLs",
-                isDisabled: viewModel.disableRefreshButton
-            )
-            makeCreateNewPURLToolbarItem()
+        ToolbarItem(
+            id: "purls.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                RefreshToolbarItem(
+                    action: { viewModel.fetchPURLs() },
+                    helpText: "Refresh PURLs",
+                    isDisabled: viewModel.disableRefreshButton
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeCreateNewPURLToolbarItem()
+            } label: {
+                Label("PURLs Actions", systemImage: "link")
+            }
         }
     }
 
@@ -110,6 +121,7 @@ public struct PURLsApp: View {
             Image(systemName: "plus")
         }
         .help("Create new PURL")
+        .keyboardShortcut("n", modifiers: .command)
         .disabled(viewModel.disableAddButton)
     }
 }

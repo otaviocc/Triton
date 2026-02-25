@@ -54,7 +54,7 @@ struct UploadView: View {
 
     var body: some View {
         makeContentView()
-            .toolbar {
+            .toolbar(id: "pics.upload") {
                 makeToolbarContent()
             }
             .navigationTitle("")
@@ -263,18 +263,33 @@ struct UploadView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.shouldShowProgress {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.shouldShowProgress {
+            ToolbarItem(
+                id: "pics.upload.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
-            if viewModel.showAddressesPicker {
+        }
+        
+        if viewModel.showAddressesPicker {
+            ToolbarItem(
+                id: "pics.upload.address",
+                placement: .automatic
+            ) {
                 AddressPickerToolbarItem(
                     addresses: viewModel.addresses,
                     selection: $viewModel.selectedAddress,
                     helpText: "Select address for picture upload"
                 )
             }
+        }
+        
+        ToolbarItem(
+            id: "pics.upload.submit",
+            placement: .automatic
+        ) {
             makeUploadPictureToolbarItem()
         }
     }
@@ -286,6 +301,7 @@ struct UploadView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Upload picture")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

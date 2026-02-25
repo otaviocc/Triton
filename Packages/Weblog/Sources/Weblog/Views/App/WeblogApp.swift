@@ -66,7 +66,7 @@ struct WeblogApp: View {
             makeWeblogListView(
                 address: current
             )
-            .toolbar {
+            .toolbar(id: "weblog") {
                 makeToolbarContent(address: current)
             }
         }
@@ -131,19 +131,26 @@ struct WeblogApp: View {
             Image(systemName: "plus")
         }
         .help("Create new weblog entry")
+        .keyboardShortcut("n", modifiers: .command)
     }
 
     @ToolbarContentBuilder
     private func makeToolbarContent(
         address: SelectedAddress
-    ) -> some ToolbarContent {
-        ToolbarItemGroup {
+    ) -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "weblog.configuration",
+            placement: .automatic
+        ) {
             makeWeblogConfigurationToolbarItem(
                 address: address
             )
         }
 
-        ToolbarItemGroup {
+        ToolbarItem(
+            id: "weblog.sort",
+            placement: .automatic
+        ) {
             SelectionToolbarItem(
                 options: WeblogEntriesListSort.allCases,
                 selection: $sort,
@@ -153,14 +160,22 @@ struct WeblogApp: View {
             )
         }
 
-        ToolbarItemGroup {
-            makeWeblogToolbarItem(address: address)
-            RefreshToolbarItem(
-                action: { viewModel.fetchEntries() },
-                helpText: "Refresh weblog entries",
-                isDisabled: viewModel.isLoading
-            )
-            makeAddEntryToolbarItem(address: address)
+        ToolbarItem(
+            id: "weblog.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                makeWeblogToolbarItem(address: address)
+                RefreshToolbarItem(
+                    action: { viewModel.fetchEntries() },
+                    helpText: "Refresh weblog entries",
+                    isDisabled: viewModel.isLoading
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeAddEntryToolbarItem(address: address)
+            } label: {
+                Label("Weblog Actions", systemImage: "square.and.pencil")
+            }
         }
     }
 }
