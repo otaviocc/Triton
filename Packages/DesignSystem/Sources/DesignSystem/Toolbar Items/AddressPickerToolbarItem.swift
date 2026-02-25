@@ -77,7 +77,7 @@ public struct AddressPickerToolbarItem<Address: Hashable>: View {
             options: addresses,
             selection: selection
         ) {
-            Image(systemName: "person.circle")
+            Label("Address", systemImage: "person.circle")
                 .help(helpText)
         }
     }

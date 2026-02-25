@@ -118,7 +118,7 @@ public struct PastebinApp: View {
         Button {
             openWindow(id: CreatePasteWindow.id)
         } label: {
-            Image(systemName: "plus")
+            Label("New Paste", systemImage: "plus")
         }
         .help("Create new paste")
         .keyboardShortcut("n", modifiers: .command)

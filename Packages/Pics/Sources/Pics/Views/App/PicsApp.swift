@@ -90,7 +90,7 @@ struct PicsApp: View {
         Button {
             openURL(weblogURL)
         } label: {
-            Image(systemName: "safari")
+            Label("Open Pics", systemImage: "safari")
         }
         .help("Open Some Pics")
     }
@@ -99,7 +99,7 @@ struct PicsApp: View {
         Button {
             openWindow(id: UploadPictureWindow.id)
         } label: {
-            Image(systemName: "plus")
+            Label("Upload", systemImage: "plus")
         }
         .help("Upload new picture")
         .keyboardShortcut("n", modifiers: .command)

@@ -93,7 +93,7 @@ struct WeblogApp: View {
         Button {
             openURL(configurationURL)
         } label: {
-            Image(systemName: "gearshape")
+            Label("Configuration", systemImage: "gearshape")
         }
         .help("Open Weblog configuration")
     }
@@ -107,7 +107,7 @@ struct WeblogApp: View {
         Button {
             openURL(weblogURL)
         } label: {
-            Image(systemName: "safari")
+            Label("Open Weblog", systemImage: "safari")
         }
         .help("Open Weblog")
     }
@@ -128,7 +128,7 @@ struct WeblogApp: View {
                 )
             )
         } label: {
-            Image(systemName: "plus")
+            Label("New Entry", systemImage: "plus")
         }
         .help("Create new weblog entry")
         .keyboardShortcut("n", modifiers: .command)

@@ -172,7 +172,7 @@ struct EditPictureView: View {
         Button {
             viewModel.updatePicture()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Update", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Update picture")
         .keyboardShortcut(.return, modifiers: .command)

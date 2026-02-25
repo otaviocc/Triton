@@ -105,7 +105,7 @@ struct CreatePasteView: View {
         Button {
             viewModel.postPaste()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Create", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Create paste")
         .keyboardShortcut(.return, modifiers: .command)

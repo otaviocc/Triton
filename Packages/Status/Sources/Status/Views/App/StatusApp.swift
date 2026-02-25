@@ -93,7 +93,7 @@ public struct StatusApp: View {
                 )
             )
         } label: {
-            Image(systemName: "square.and.pencil")
+            Label("Compose", systemImage: "square.and.pencil")
         }
         .help("Compose new status")
         .keyboardShortcut("n", modifiers: .command)

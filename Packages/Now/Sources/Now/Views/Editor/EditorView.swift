@@ -95,7 +95,7 @@ struct EditorView: View {
         Button {
             viewModel.publishNowPage()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Publish", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Publish now page")
         .keyboardShortcut(.return, modifiers: .command)

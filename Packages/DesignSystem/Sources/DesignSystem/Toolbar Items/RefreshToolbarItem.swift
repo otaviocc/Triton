@@ -76,14 +76,18 @@ public struct RefreshToolbarItem: View {
         Button {
             action()
         } label: {
-            Image(systemName: "arrow.counterclockwise")
-                .rotationEffect(.degrees(isDisabled ? -360 : 0))
-                .animation(
-                    isDisabled
-                        ? .linear(duration: 1).repeatForever(autoreverses: false)
-                        : .default,
-                    value: isDisabled
-                )
+            Label {
+                Text("Refresh")
+            } icon: {
+                Image(systemName: "arrow.counterclockwise")
+                    .rotationEffect(.degrees(isDisabled ? -360 : 0))
+                    .animation(
+                        isDisabled
+                            ? .linear(duration: 1).repeatForever(autoreverses: false)
+                            : .default,
+                        value: isDisabled
+                    )
+            }
         }
         .help(helpText)
         .disabled(isDisabled)
