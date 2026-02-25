@@ -51,7 +51,7 @@ struct CreatePasteView: View {
                     .help("Make paste publicly visible in directory")
             }
         }
-        .toolbar {
+        .toolbar(id: "pastebin.create") {
             makeToolbarContent()
         }
         .navigationTitle("")
@@ -79,15 +79,24 @@ struct CreatePasteView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.showAddressesPicker {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.showAddressesPicker {
+            ToolbarItem(
+                id: "pastebin.create.address",
+                placement: .automatic
+            ) {
                 AddressPickerToolbarItem(
                     addresses: viewModel.addresses,
                     selection: $viewModel.selectedAddress,
                     helpText: "Select address for paste"
                 )
             }
+        }
+        
+        ToolbarItem(
+            id: "pastebin.create.submit",
+            placement: .automatic
+        ) {
             makeCreatePasteToolbarItem()
         }
     }
@@ -99,6 +108,7 @@ struct CreatePasteView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Create paste")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

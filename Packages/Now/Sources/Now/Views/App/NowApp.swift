@@ -73,7 +73,7 @@ struct NowApp: View {
                     address: address
                 )
         )
-        .toolbar {
+        .toolbar(id: "now") {
             makeToolbarContent(
                 address: address
             )
@@ -114,8 +114,11 @@ struct NowApp: View {
     @ToolbarContentBuilder
     private func makeToolbarContent(
         address: SelectedAddress
-    ) -> some ToolbarContent {
-        ToolbarItemGroup {
+    ) -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "now.garden",
+            placement: .automatic
+        ) {
             makeGardenToolbarItem()
         }
 
@@ -125,18 +128,26 @@ struct NowApp: View {
             }
         #endif
 
-        ToolbarItemGroup {
-            makeOpenNowPageToolbarItem(
-                address: address
-            )
-            RefreshToolbarItem(
-                action: { viewModel.fetchNow() },
-                helpText: "Refresh now page",
-                isDisabled: viewModel.disableRefreshButton
-            )
-            makeShareToolbarItem(
-                address: address
-            )
+        ToolbarItem(
+            id: "now.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                makeOpenNowPageToolbarItem(
+                    address: address
+                )
+                RefreshToolbarItem(
+                    action: { viewModel.fetchNow() },
+                    helpText: "Refresh now page",
+                    isDisabled: viewModel.disableRefreshButton
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeShareToolbarItem(
+                    address: address
+                )
+            } label: {
+                Label("Now Page Actions", systemImage: "clock")
+            }
         }
     }
 

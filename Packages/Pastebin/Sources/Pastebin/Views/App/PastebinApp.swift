@@ -51,7 +51,7 @@ public struct PastebinApp: View {
 
     public var body: some View {
         makePastesView()
-            .toolbar {
+            .toolbar(id: "pastebin") {
                 makeToolbarContent()
             }
     }
@@ -82,8 +82,11 @@ public struct PastebinApp: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "pastebin.sort",
+            placement: .automatic
+        ) {
             SelectionToolbarItem(
                 options: PastesListSort.allCases,
                 selection: $sort,
@@ -93,13 +96,21 @@ public struct PastebinApp: View {
             )
         }
 
-        ToolbarItemGroup {
-            RefreshToolbarItem(
-                action: { viewModel.fetchPastes() },
-                helpText: "Refresh pastes",
-                isDisabled: viewModel.disableRefreshButton
-            )
-            makeCreateNewPasteToolbarItem()
+        ToolbarItem(
+            id: "pastebin.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                RefreshToolbarItem(
+                    action: { viewModel.fetchPastes() },
+                    helpText: "Refresh pastes",
+                    isDisabled: viewModel.disableRefreshButton
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeCreateNewPasteToolbarItem()
+            } label: {
+                Label("Pastebin Actions", systemImage: "doc.text")
+            }
         }
     }
 
@@ -110,6 +121,7 @@ public struct PastebinApp: View {
             Image(systemName: "plus")
         }
         .help("Create new paste")
+        .keyboardShortcut("n", modifiers: .command)
         .disabled(viewModel.disableAddButton)
     }
 }

@@ -45,7 +45,7 @@ struct AddPURLView: View {
             makePURLNameView()
             makePURLView()
         }
-        .toolbar {
+        .toolbar(id: "purls.add") {
             makeToolbarContent()
         }
         .navigationTitle("")
@@ -82,15 +82,24 @@ struct AddPURLView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.showAddressesPicker {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.showAddressesPicker {
+            ToolbarItem(
+                id: "purls.add.address",
+                placement: .automatic
+            ) {
                 AddressPickerToolbarItem(
                     addresses: viewModel.addresses,
                     selection: $viewModel.selectedAddress,
                     helpText: "Select address for PURL"
                 )
             }
+        }
+        
+        ToolbarItem(
+            id: "purls.add.submit",
+            placement: .automatic
+        ) {
             makeCreatePURLToolbarItem()
         }
     }
@@ -102,6 +111,7 @@ struct AddPURLView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "tray.and.arrow.down" : "tray.and.arrow.down.fill")
         }
         .help("Create permanent URL")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

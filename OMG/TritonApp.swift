@@ -45,6 +45,9 @@ struct TritonApp: App {
         TritonScene(
             environment: environment
         )
+        .commands {
+            ToolbarCommands()
+        }
 
         // Feature scenes
 

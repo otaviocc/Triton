@@ -49,7 +49,7 @@ struct PostStatusView: View {
             }
             makeStatusView()
         }
-        .toolbar {
+        .toolbar(id: "status.post") {
             makeToolbarContent()
         }
         .navigationTitle("")
@@ -97,15 +97,24 @@ struct PostStatusView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.showAddressesPicker {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.showAddressesPicker {
+            ToolbarItem(
+                id: "status.post.address",
+                placement: .automatic
+            ) {
                 AddressPickerToolbarItem(
                     addresses: viewModel.addresses,
                     selection: $viewModel.selectedAddress,
                     helpText: "Select posting address"
                 )
             }
+        }
+        
+        ToolbarItem(
+            id: "status.post.submit",
+            placement: .automatic
+        ) {
             makePostStatusUpdateToolbarItem()
         }
     }
@@ -117,6 +126,7 @@ struct PostStatusView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Post status update")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 

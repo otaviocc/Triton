@@ -58,7 +58,7 @@ struct EditorView: View {
             }
             makeSelectedTagsView()
         }
-        .toolbar {
+        .toolbar(id: "weblog.editor") {
             makeToolbarContent()
         }
         .navigationTitle("")
@@ -229,15 +229,25 @@ struct EditorView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Publish weblog entry")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.shouldShowProgress {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.shouldShowProgress {
+            ToolbarItem(
+                id: "weblog.editor.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
+        }
+        
+        ToolbarItem(
+            id: "weblog.editor.publish",
+            placement: .automatic
+        ) {
             makePublishToolbarItem()
         }
     }

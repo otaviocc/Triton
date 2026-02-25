@@ -50,7 +50,7 @@ struct EditPasteView: View {
                     .help("Make paste publicly visible")
             }
         }
-        .toolbar {
+        .toolbar(id: "pastebin.edit") {
             makeToolbarContent()
         }
         .navigationTitle(viewModel.title)
@@ -72,11 +72,20 @@ struct EditPasteView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.isSubmitDisabled {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.isSubmitDisabled {
+            ToolbarItem(
+                id: "pastebin.edit.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
+        }
+        
+        ToolbarItem(
+            id: "pastebin.edit.submit",
+            placement: .automatic
+        ) {
             makePublishToolbarItem()
         }
     }
@@ -88,6 +97,7 @@ struct EditPasteView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Save changes to paste")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

@@ -71,7 +71,7 @@ struct WebpageApp: View {
                 address: address
             )
         )
-        .toolbar {
+        .toolbar(id: "webpage") {
             makeToolbarContent(address: address)
         }
     }
@@ -101,19 +101,27 @@ struct WebpageApp: View {
     @ToolbarContentBuilder
     private func makeToolbarContent(
         address: SelectedAddress
-    ) -> some ToolbarContent {
-        ToolbarItemGroup {
-            makeWebpageToolbarItem(
-                address: address
-            )
-            RefreshToolbarItem(
-                action: { viewModel.fetchWebpage() },
-                helpText: "Refresh webpage",
-                isDisabled: viewModel.disableRefreshButton
-            )
-            makeShareToolbarItem(
-                address: address
-            )
+    ) -> some CustomizableToolbarContent {
+        ToolbarItem(
+            id: "webpage.actions",
+            placement: .automatic
+        ) {
+            ControlGroup {
+                makeWebpageToolbarItem(
+                    address: address
+                )
+                RefreshToolbarItem(
+                    action: { viewModel.fetchWebpage() },
+                    helpText: "Refresh webpage",
+                    isDisabled: viewModel.disableRefreshButton
+                )
+                .keyboardShortcut("r", modifiers: .command)
+                makeShareToolbarItem(
+                    address: address
+                )
+            } label: {
+                Label("Webpage Actions", systemImage: "safari")
+            }
         }
     }
 

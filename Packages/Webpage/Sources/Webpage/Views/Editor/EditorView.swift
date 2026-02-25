@@ -44,7 +44,7 @@ struct EditorView: View {
         VStack {
             makeEditorView()
         }
-        .toolbar {
+        .toolbar(id: "webpage.editor") {
             makeToolbarContent()
         }
         .navigationTitle(viewModel.viewTitle)
@@ -67,11 +67,20 @@ struct EditorView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.isSubmitDisabled {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.isSubmitDisabled {
+            ToolbarItem(
+                id: "webpage.editor.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
+        }
+        
+        ToolbarItem(
+            id: "webpage.editor.publish",
+            placement: .automatic
+        ) {
             makePublishToolbarItem()
         }
     }
@@ -83,6 +92,7 @@ struct EditorView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Publish webpage")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }

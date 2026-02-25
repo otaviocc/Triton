@@ -50,7 +50,7 @@ struct EditorView: View {
                     .help("Include in public garden listing")
             }
         }
-        .toolbar {
+        .toolbar(id: "now.editor") {
             makeToolbarContent()
         }
         .navigationTitle(viewModel.viewTitle)
@@ -73,11 +73,20 @@ struct EditorView: View {
     }
 
     @ToolbarContentBuilder
-    private func makeToolbarContent() -> some ToolbarContent {
-        ToolbarItemGroup {
-            if viewModel.isSubmitDisabled {
+    private func makeToolbarContent() -> some CustomizableToolbarContent {
+        if viewModel.isSubmitDisabled {
+            ToolbarItem(
+                id: "now.editor.progress",
+                placement: .automatic
+            ) {
                 ProgressToolbarItem()
             }
+        }
+        
+        ToolbarItem(
+            id: "now.editor.publish",
+            placement: .automatic
+        ) {
             makePublishToolbarItem()
         }
     }
@@ -89,6 +98,7 @@ struct EditorView: View {
             Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Publish now page")
+        .keyboardShortcut(.return, modifiers: .command)
         .disabled(viewModel.isSubmitDisabled)
     }
 }
