@@ -82,7 +82,7 @@ struct EditorView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         ToolbarItem(
             id: "now.editor.publish",
             placement: .automatic

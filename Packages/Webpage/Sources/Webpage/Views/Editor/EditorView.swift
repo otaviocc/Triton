@@ -76,7 +76,7 @@ struct EditorView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         ToolbarItem(
             id: "webpage.editor.publish",
             placement: .automatic

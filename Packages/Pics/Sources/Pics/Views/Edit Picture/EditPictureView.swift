@@ -159,7 +159,7 @@ struct EditPictureView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         ToolbarItem(
             id: "pics.edit.submit",
             placement: .automatic

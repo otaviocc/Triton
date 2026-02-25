@@ -110,7 +110,7 @@ struct PostStatusView: View {
                 )
             }
         }
-        
+
         ToolbarItem(
             id: "status.post.submit",
             placement: .automatic

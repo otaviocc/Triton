@@ -272,7 +272,7 @@ struct UploadView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         if viewModel.showAddressesPicker {
             ToolbarItem(
                 id: "pics.upload.address",
@@ -285,7 +285,7 @@ struct UploadView: View {
                 )
             }
         }
-        
+
         ToolbarItem(
             id: "pics.upload.submit",
             placement: .automatic
