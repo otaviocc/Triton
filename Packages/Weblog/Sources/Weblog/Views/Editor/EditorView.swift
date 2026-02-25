@@ -243,7 +243,7 @@ struct EditorView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         ToolbarItem(
             id: "weblog.editor.publish",
             placement: .automatic

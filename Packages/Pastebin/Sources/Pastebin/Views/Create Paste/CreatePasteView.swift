@@ -92,7 +92,7 @@ struct CreatePasteView: View {
                 )
             }
         }
-        
+
         ToolbarItem(
             id: "pastebin.create.submit",
             placement: .automatic

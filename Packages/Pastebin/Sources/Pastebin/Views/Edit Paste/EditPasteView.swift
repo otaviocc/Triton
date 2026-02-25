@@ -81,7 +81,7 @@ struct EditPasteView: View {
                 ProgressToolbarItem()
             }
         }
-        
+
         ToolbarItem(
             id: "pastebin.edit.submit",
             placement: .automatic
