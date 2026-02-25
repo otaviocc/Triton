@@ -298,7 +298,7 @@ struct UploadView: View {
         Button {
             viewModel.uploadPicture()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Upload", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Upload picture")
         .keyboardShortcut(.return, modifiers: .command)

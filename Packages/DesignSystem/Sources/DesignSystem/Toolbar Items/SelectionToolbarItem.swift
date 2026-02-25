@@ -46,14 +46,14 @@ import SwiftUI
 public protocol SelectionToolbarItemStyle: Sendable {
 
     /// The type of view representing the label.
-    associatedtype Label: View
+    associatedtype LabelView: View
 
     /// Creates the label view for the toolbar item.
     ///
     /// - Parameter helpText: The help text to display on hover.
     /// - Returns: A view representing the toolbar item's icon.
     @ViewBuilder
-    func makeLabel(helpText: LocalizedStringKey) -> Label
+    func makeLabel(helpText: LocalizedStringKey) -> LabelView
 
     /// The default help text for this style.
     var defaultHelpText: LocalizedStringKey { get }
@@ -67,7 +67,7 @@ public struct FilterSelectionToolbarItemStyle: SelectionToolbarItemStyle {
     public init() {}
 
     public func makeLabel(helpText: LocalizedStringKey) -> some View {
-        Image(systemName: "line.3.horizontal.decrease")
+        Label("Filter", systemImage: "line.3.horizontal.decrease")
             .help(helpText)
     }
 
@@ -84,7 +84,7 @@ public struct SortSelectionToolbarItemStyle: SelectionToolbarItemStyle {
     public init() {}
 
     public func makeLabel(helpText: LocalizedStringKey) -> some View {
-        Image(systemName: "arrow.up.arrow.down")
+        Label("Sort", systemImage: "arrow.up.arrow.down")
             .help(helpText)
     }
 

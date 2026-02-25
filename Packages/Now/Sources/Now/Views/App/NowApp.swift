@@ -86,7 +86,7 @@ struct NowApp: View {
         Button {
             openComposeWindow(address: address)
         } label: {
-            Image(systemName: "message")
+            Label("Share", systemImage: "message")
         }
         .help("Share now page")
     }
@@ -95,7 +95,7 @@ struct NowApp: View {
         Button {
             openURL(.nowGardenURL)
         } label: {
-            Image(systemName: "leaf.fill")
+            Label("Garden", systemImage: "leaf.fill")
         }
         .help("Open garden")
     }
@@ -106,7 +106,7 @@ struct NowApp: View {
         Button {
             openURL(URL(nowPageFor: address))
         } label: {
-            Image(systemName: "safari")
+            Label("Open Now", systemImage: "safari")
         }
         .help("Open now page")
     }

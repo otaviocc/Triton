@@ -118,7 +118,7 @@ public struct PURLsApp: View {
         Button {
             openWindow(id: AddPURLWindow.id)
         } label: {
-            Image(systemName: "plus")
+            Label("New PURL", systemImage: "plus")
         }
         .help("Create new PURL")
         .keyboardShortcut("n", modifiers: .command)

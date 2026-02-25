@@ -226,7 +226,7 @@ struct EditorView: View {
         Button {
             viewModel.publishWeblogEntry()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Publish", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Publish weblog entry")
         .keyboardShortcut(.return, modifiers: .command)

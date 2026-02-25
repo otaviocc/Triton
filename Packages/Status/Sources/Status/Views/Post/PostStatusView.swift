@@ -123,7 +123,7 @@ struct PostStatusView: View {
         Button {
             viewModel.postStatus()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Post", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Post status update")
         .keyboardShortcut(.return, modifiers: .command)

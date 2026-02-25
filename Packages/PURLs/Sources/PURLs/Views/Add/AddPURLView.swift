@@ -108,7 +108,7 @@ struct AddPURLView: View {
         Button {
             viewModel.addPURL()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "tray.and.arrow.down" : "tray.and.arrow.down.fill")
+            Label("Create", systemImage: viewModel.isSubmitDisabled ? "tray.and.arrow.down" : "tray.and.arrow.down.fill")
         }
         .help("Create permanent URL")
         .keyboardShortcut(.return, modifiers: .command)

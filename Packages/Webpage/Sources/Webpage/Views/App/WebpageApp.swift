@@ -82,7 +82,7 @@ struct WebpageApp: View {
         Button {
             openComposeWindow(address: address)
         } label: {
-            Image(systemName: "message")
+            Label("Share", systemImage: "message")
         }
         .help("Share webpage")
     }
@@ -93,7 +93,7 @@ struct WebpageApp: View {
         Button {
             openURL(URL(webpageFor: address))
         } label: {
-            Image(systemName: "safari")
+            Label("Open Webpage", systemImage: "safari")
         }
         .help("Open webpage")
     }

@@ -94,7 +94,7 @@ struct EditPasteView: View {
         Button {
             viewModel.publishPaste()
         } label: {
-            Image(systemName: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
+            Label("Save", systemImage: viewModel.isSubmitDisabled ? "paperplane" : "paperplane.fill")
         }
         .help("Save changes to paste")
         .keyboardShortcut(.return, modifiers: .command)
