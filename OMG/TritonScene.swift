@@ -61,6 +61,7 @@ struct TritonScene: Scene {
             #if os(macOS)
             .navigationTitle("Triton")
             #endif
+            .focusedValue(\.sidebarSelection, $selection)
             .environment(makeAccountUpdateService())
             .handlesExternalEvents(
                 preferring: ["viewer"],
