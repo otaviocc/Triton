@@ -47,6 +47,7 @@ struct TritonApp: App {
         )
         .commands {
             ToolbarCommands()
+            SidebarNavigationCommands()
         }
 
         // Feature scenes
