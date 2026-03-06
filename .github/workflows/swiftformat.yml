@@ -7,7 +7,7 @@ on:
 jobs:
   swiftformat:
     name: Code Formatting Check
-    runs-on: macos-26
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
