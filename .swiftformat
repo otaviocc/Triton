@@ -94,3 +94,6 @@
 --enable preferKeyPath
 --enable sortSwitchCases
 --enable blankLinesBetweenImports
+--disable redundantSwiftTestingSuite
+--disable swiftTestingTestCaseNames
+--disable redundantSendable
