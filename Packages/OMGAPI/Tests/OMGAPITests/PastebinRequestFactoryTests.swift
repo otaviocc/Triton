@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("PastebinRequestFactory Tests")
 struct PastebinRequestFactoryTests {
 
-    @Test("It should create pastes request with correct configuration")
-    func makePastesRequest_createsRequest() {
+    @Test
+    func `It should create pastes request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -46,8 +47,8 @@ struct PastebinRequestFactoryTests {
         )
     }
 
-    @Test("It should create paste creation request with listed true")
-    func makeCreateOrUpdatePasteRequest_withListedTrue_createsRequest() {
+    @Test
+    func `It should create paste creation request with listed true`() {
         // Given
         let address = "bob"
         let title = "config-example"
@@ -89,8 +90,8 @@ struct PastebinRequestFactoryTests {
         )
     }
 
-    @Test("It should create paste creation request with listed false")
-    func makeCreateOrUpdatePasteRequest_withListedFalse_createsRequest() {
+    @Test
+    func `It should create paste creation request with listed false`() {
         // Given
         let address = "charlie"
         let title = "private-notes"
@@ -132,8 +133,8 @@ struct PastebinRequestFactoryTests {
         )
     }
 
-    @Test("It should create paste deletion request with correct configuration")
-    func makeDeletePasteRequest_createsRequest() {
+    @Test
+    func `It should create paste deletion request with correct configuration`() {
         // Given
         let address = "dave"
         let title = "old-snippet"

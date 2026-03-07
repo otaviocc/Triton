@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import OMGAPI
 
-@Suite("PicsRequestFactory Tests")
 struct PicsRequestFactoryTests {
 
-    @Test("It should create all pictures request with correct configuration")
-    func makeAllPicturesRequest_createsRequest() {
+    @Test
+    func `It should create all pictures request with correct configuration`() {
         // When
         let request = PicsRequestFactory.makeAllPicturesRequest()
 
@@ -44,8 +45,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create user pictures request with correct configuration")
-    func makePicturesRequest_createsRequest() {
+    @Test
+    func `It should create user pictures request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -64,8 +65,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture upload request with correct configuration")
-    func makeUploadPictureRequest_createsRequest() {
+    @Test
+    func `It should create picture upload request with correct configuration`() {
         // Given
         let address = "bob"
         let imageData = Data([0x89, 0x50, 0x4E, 0x47]) // PNG header bytes
@@ -93,8 +94,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture edit request with isHidden true")
-    func makeEditPictureRequest_withIsHiddenTrue_createsRequest() {
+    @Test
+    func `It should create picture edit request with isHidden true`() {
         // Given
         let address = "charlie"
         let pictureID = "pic-123"
@@ -138,8 +139,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture edit request with isHidden false converted to nil")
-    func makeEditPictureRequest_withIsHiddenFalse_createsRequestWithNil() {
+    @Test
+    func `It should create picture edit request with isHidden false converted to nil`() {
         // Given
         let address = "charlie"
         let pictureID = "pic-456"
@@ -166,8 +167,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture edit request with only caption")
-    func makeEditPictureRequest_withOnlyCaption_createsRequest() {
+    @Test
+    func `It should create picture edit request with only caption`() {
         // Given
         let address = "dave"
         let pictureID = "pic-456"
@@ -207,8 +208,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture edit request with only tags")
-    func makeEditPictureRequest_withOnlyTags_createsRequest() {
+    @Test
+    func `It should create picture edit request with only tags`() {
         // Given
         let address = "dave"
         let pictureID = "pic-456"
@@ -253,8 +254,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture edit request with empty tags array")
-    func makeEditPictureRequest_withOnlyWithEmptyTagsArray_createsRequest() throws {
+    @Test
+    func `It should create picture edit request with empty tags array`() throws {
         // Given
         let address = "dave"
         let pictureID = "pic-456"
@@ -302,8 +303,8 @@ struct PicsRequestFactoryTests {
         )
     }
 
-    @Test("It should create picture deletion request with correct configuration")
-    func makeDeletePictureRequest_createsRequest() {
+    @Test
+    func `It should create picture deletion request with correct configuration`() {
         // Given
         let address = "eve"
         let pictureID = "pic-789"

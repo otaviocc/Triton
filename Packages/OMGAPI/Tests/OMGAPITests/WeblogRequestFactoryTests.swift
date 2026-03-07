@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import OMGAPI
 
-@Suite("WeblogRequestFactory Tests")
 struct WeblogRequestFactoryTests {
 
-    @Test("It should create all entries request with correct configuration")
-    func makeAllEntriesRequest_createsRequest() {
+    @Test
+    func `It should create all entries request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -47,8 +48,8 @@ struct WeblogRequestFactoryTests {
         )
     }
 
-    @Test("It should create individual entry request with correct configuration")
-    func makeWeblogIndividualEntryRequest_createsRequest() {
+    @Test
+    func `It should create individual entry request with correct configuration`() {
         // Given
         let address = "bob"
         let entryID = "my-blog-post"
@@ -71,8 +72,8 @@ struct WeblogRequestFactoryTests {
         )
     }
 
-    @Test("It should create weblog entry creation request with correct configuration")
-    func makeCreateWeblogEntryRequest_createsRequest() {
+    @Test
+    func `It should create weblog entry creation request with correct configuration`() {
         // Given
         let address = "charlie"
         let content = "This is my first blog post!"
@@ -106,8 +107,8 @@ struct WeblogRequestFactoryTests {
         )
     }
 
-    @Test("It should create weblog entry update request with correct configuration")
-    func makeUpdateWeblogEntryRequest_createsRequest() {
+    @Test
+    func `It should create weblog entry update request with correct configuration`() {
         // Given
         let address = "dave"
         let entryID = "updated-post"
@@ -143,8 +144,8 @@ struct WeblogRequestFactoryTests {
         )
     }
 
-    @Test("It should create weblog entry deletion request with correct configuration")
-    func makeDeleteWeblogEntryRequest_createsRequest() {
+    @Test
+    func `It should create weblog entry deletion request with correct configuration`() {
         // Given
         let address = "eve"
         let entryID = "post-to-delete"

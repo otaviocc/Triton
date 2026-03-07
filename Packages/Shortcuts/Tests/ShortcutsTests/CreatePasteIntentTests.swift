@@ -20,16 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import Shortcuts
 
-@Suite("CreatePasteIntent Tests")
 struct CreatePasteIntentTests {
 
-    @Test("CreatePasteIntent posts correct notification")
+    @Test
     @MainActor
-    func perform_withIntent_postsOpenCreatePasteWindowNotification() async throws {
+    func `It posts a notification to create a paste`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let intent = CreatePasteIntent(notificationCenter: notificationCenterMock)

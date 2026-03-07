@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import FoundationExtensions
 
-@Suite("URLAddress Tests")
 struct URLAddressTests {
 
-    @Test("It should create webpage URL for OMG.LOL address")
-    func webpageFor_withAddress_createsCorrectURL() {
+    @Test
+    func `It should create webpage URL for OMG.LOL address`() {
         // Given
         let address = "alice"
 
@@ -42,8 +43,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create now page URL for OMG.LOL address")
-    func nowPageFor_withAddress_createsCorrectURL() {
+    @Test
+    func `It should create now page URL for OMG.LOL address`() {
         // Given
         let address = "bob"
 
@@ -57,8 +58,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create weblog URL for OMG.LOL address")
-    func weblogFor_withAddress_createsCorrectURL() {
+    @Test
+    func `It should create weblog URL for OMG.LOL address`() {
         // Given
         let address = "charlie"
 
@@ -72,8 +73,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create weblog post URL with location")
-    func weblogPostFor_withAddressAndLocation_createsCorrectURL() {
+    @Test
+    func `It should create weblog post URL with location`() {
         // Given
         let address = "dave"
         let location = "/my-post"
@@ -88,8 +89,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create avatar URL for OMG.LOL address")
-    func avatarFor_withAddress_createsCorrectURL() {
+    @Test
+    func `It should create avatar URL for OMG.LOL address`() {
         // Given
         let address = "eve"
 
@@ -103,8 +104,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create status URL with status ID and address")
-    func statusID_withStatusIDAndAddress_createsCorrectURL() {
+    @Test
+    func `It should create status URL with status ID and address`() {
         // Given
         let statusID = "abc123"
         let address = "frank"
@@ -119,8 +120,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create PURL URL with PURL name and address")
-    func purlName_withPURLNameAndAddress_createsCorrectURL() {
+    @Test
+    func `It should create PURL URL with PURL name and address`() {
         // Given
         let purlName = "github"
         let address = "grace"
@@ -135,8 +136,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create paste URL with paste title and address")
-    func pasteTitle_withPasteTitleAndAddress_createsCorrectURL() {
+    @Test
+    func `It should create paste URL with paste title and address`() {
         // Given
         let pasteTitle = "my-code"
         let address = "henry"
@@ -151,8 +152,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create some.pics URL for OMG.LOL address")
-    func somePicsFor_withAddress_createsCorrectURL() {
+    @Test
+    func `It should create some.pics URL for OMG.LOL address`() {
         // Given
         let address = "iris"
 
@@ -166,8 +167,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle address with numbers")
-    func webpageFor_withNumericAddress_createsCorrectURL() {
+    @Test
+    func `It should handle address with numbers`() {
         // Given
         let address = "user123"
 
@@ -181,8 +182,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle address with hyphens")
-    func webpageFor_withHyphenatedAddress_createsCorrectURL() {
+    @Test
+    func `It should handle address with hyphens`() {
         // Given
         let address = "user-name"
 
@@ -196,8 +197,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle weblog post location with path")
-    func weblogPostFor_withPathLocation_createsCorrectURL() {
+    @Test
+    func `It should handle weblog post location with path`() {
         // Given
         let address = "alice"
         let location = "/2024/01/my-blog-post"
@@ -212,8 +213,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle status ID with special characters")
-    func statusID_withSpecialCharacters_createsCorrectURL() {
+    @Test
+    func `It should handle status ID with special characters`() {
         // Given
         let statusID = "abc-123_xyz"
         let address = "bob"
@@ -228,8 +229,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle PURL name with special characters")
-    func purlName_withSpecialCharacters_createsCorrectURL() {
+    @Test
+    func `It should handle PURL name with special characters`() {
         // Given
         let purlName = "my-purl_name"
         let address = "charlie"
@@ -244,8 +245,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle paste title with special characters")
-    func pasteTitle_withSpecialCharacters_createsCorrectURL() {
+    @Test
+    func `It should handle paste title with special characters`() {
         // Given
         let pasteTitle = "my-code-snippet"
         let address = "dave"
@@ -260,8 +261,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should create nowGardenURL static property")
-    func nowGardenURL_returnsCorrectURL() {
+    @Test
+    func `It should create nowGardenURL static property`() {
         // When
         let url = URL.nowGardenURL
 
@@ -272,8 +273,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle empty weblog location")
-    func weblogPostFor_withEmptyLocation_createsCorrectURL() {
+    @Test
+    func `It should handle empty weblog location`() {
         // Given
         let address = "eve"
         let location = ""
@@ -288,8 +289,8 @@ struct URLAddressTests {
         )
     }
 
-    @Test("It should handle weblog location without leading slash")
-    func weblogPostFor_withLocationWithoutSlash_createsCorrectURL() {
+    @Test
+    func `It should handle weblog location without leading slash`() {
         // Given
         let address = "frank"
         let location = "/my-post"

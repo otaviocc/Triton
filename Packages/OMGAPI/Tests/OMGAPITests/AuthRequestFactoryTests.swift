@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import OMGAPI
 
-@Suite("AuthRequestFactory Tests")
 struct AuthRequestFactoryTests {
 
-    @Test("It should create OAuth authorization URL with correct parameters")
-    func makeOAuthCodeRequestURL_createsURL() throws {
+    @Test
+    func `It should create OAuth authorization URL with correct parameters`() throws {
         // When
         let url = try #require(
             AuthRequestFactory.makeOAuthCodeRequestURL(),
@@ -82,8 +83,8 @@ struct AuthRequestFactoryTests {
         )
     }
 
-    @Test("It should create auth request with correct configuration")
-    func makeAuthRequest_createsRequest() {
+    @Test
+    func `It should create auth request with correct configuration`() {
         // Given
         let authCode = "test_auth_code_123"
 
