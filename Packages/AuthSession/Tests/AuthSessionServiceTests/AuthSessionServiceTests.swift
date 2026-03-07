@@ -20,22 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import AuthSessionServiceInterface
-import XCTest
+import Testing
 @testable import AuthSessionService
 
-final class AuthSessionServiceTests: XCTestCase {
+struct AuthSessionServiceTests {
 
     // MARK: - Properties
 
-    private var service: (any AuthSessionServiceProtocol)!
-    private var fakeKeychainStore: KeychainStoreProtocol!
+    private let service: any AuthSessionServiceProtocol
+    private let fakeKeychainStore: KeychainStoreProtocol
 
     // MARK: - Lifecycle
 
-    override func setUp() async throws {
-        try await super.setUp()
-
+    init() async throws {
         let store = KeychainStoreMother.makeKeychainStore()
         fakeKeychainStore = store
 
@@ -44,19 +44,13 @@ final class AuthSessionServiceTests: XCTestCase {
         )
     }
 
-    override func tearDown() async throws {
-        service = nil
-        fakeKeychainStore = nil
-
-        try await super.tearDown()
-    }
-
     // MARK: - Tests
 
-    func testAccessTokenSignIn() async {
+    @Test
+    func `It should be logged in after setting the access token`() async {
         // Given
         let initialState = await service.isLoggedIn
-        XCTAssertFalse(initialState, "Should start as logged out")
+        #expect(!initialState, "Should start as logged out")
 
         // When
         await service.setAccessToken("1b302f5c-157a-4caf-b450-8e1f7cde01ab")
@@ -64,24 +58,24 @@ final class AuthSessionServiceTests: XCTestCase {
         // Then
         let finalState = await service.isLoggedIn
 
-        XCTAssertTrue(
+        #expect(
             finalState,
             "It should be logged in after setting token"
         )
 
-        XCTAssertEqual(
-            fakeKeychainStore.wrappedValue,
-            "1b302f5c-157a-4caf-b450-8e1f7cde01ab",
+        #expect(
+            fakeKeychainStore.wrappedValue == "1b302f5c-157a-4caf-b450-8e1f7cde01ab",
             "It should store the correct access token"
         )
     }
 
-    func testAccessTokenSignOut() async {
+    @Test
+    func `It should be logged out after clearing the access token`() async {
         // Given
         await service.setAccessToken("1b302f5c-157a-4caf-b450-8e1f7cde01ab")
         let loggedInState = await service.isLoggedIn
 
-        XCTAssertTrue(
+        #expect(
             loggedInState,
             "It should be logged in initially"
         )
@@ -92,23 +86,24 @@ final class AuthSessionServiceTests: XCTestCase {
         // Then
         let loggedOutState = await service.isLoggedIn
 
-        XCTAssertFalse(
-            loggedOutState,
+        #expect(
+            !loggedOutState,
             "it should be logged out after clearing token"
         )
 
-        XCTAssertNil(
-            fakeKeychainStore.wrappedValue,
+        #expect(
+            fakeKeychainStore.wrappedValue == nil,
             "It should clear out the access token"
         )
     }
 
-    func testObserveLoginStateYieldsCurrentState() async throws {
+    @Test
+    func `It should yield the current login state when observing`() async throws {
         // Given
         let initialState = await service.isLoggedIn
 
-        XCTAssertFalse(
-            initialState,
+        #expect(
+            !initialState,
             "it should start logged out"
         )
 
@@ -117,10 +112,11 @@ final class AuthSessionServiceTests: XCTestCase {
 
         // Then
         var iterator = stream.makeAsyncIterator()
-        let firstValue = await iterator.next()
+        let nextValue = await iterator.next()
+        let firstValue = try #require(nextValue as Bool?)
 
-        XCTAssertFalse(
-            try XCTUnwrap(firstValue),
+        #expect(
+            firstValue == false,
             "It should yielded the first value correctly"
         )
     }
