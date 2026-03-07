@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import XCTest
+import Testing
 @testable import AuthPersistenceService
 
-final class AuthPersistenceServiceTests: XCTestCase {}
+struct AuthPersistenceServiceTests {}

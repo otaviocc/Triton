@@ -20,11 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import XCTest
+import Testing
 @testable import Now
 
-final class NowTests: XCTestCase {
-
-    // swiftlint:disable:next empty_xctest_method
-    func testExample() {}
-}
+struct NowTests {}
