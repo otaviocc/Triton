@@ -20,16 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import Shortcuts
 
-@Suite("UploadPictureIntent Tests")
 struct UploadPictureIntentTests {
 
-    @Test("UploadPictureIntent posts correct notification")
+    @Test
     @MainActor
-    func perform_withIntent_postsOpenUploadPictureWindowNotification() async throws {
+    func `It posts a notification to upload a picture`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let intent = UploadPictureIntent(notificationCenter: notificationCenterMock)

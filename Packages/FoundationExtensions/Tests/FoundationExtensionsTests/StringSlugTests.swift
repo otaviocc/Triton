@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import FoundationExtensions
 
-@Suite("StringSlug Tests")
 struct StringSlugTests {
 
-    @Test("It should convert simple string with space to slug format")
-    func slugified_withSimpleString_returnsSlugFormat() {
+    @Test
+    func `It should convert simple string with space to slug format`() {
         // Given
         let input = "Hello World"
 
@@ -42,8 +43,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should trim leading and trailing whitespace")
-    func slugified_withLeadingTrailingWhitespace_trimsWhitespace() {
+    @Test
+    func `It should trim leading and trailing whitespace`() {
         // Given
         let input = "  multiple   spaces  "
 
@@ -57,8 +58,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle already slugged strings")
-    func slugified_withAlreadySluggedString_returnsSameFormat() {
+    @Test
+    func `It should handle already slugged strings`() {
         // Given
         let input = "already-slugged"
 
@@ -72,8 +73,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle multiple consecutive spaces")
-    func slugified_withMultipleSpaces_replacesWithSingleHyphen() {
+    @Test
+    func `It should handle multiple consecutive spaces`() {
         // Given
         let input = "multiple    spaces    here"
 
@@ -87,8 +88,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle tabs and newlines as whitespace")
-    func slugified_withTabsAndNewlines_replacesWithHyphens() {
+    @Test
+    func `It should handle tabs and newlines as whitespace`() {
         // Given
         let input = "hello\tworld\nhere"
 
@@ -102,8 +103,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle empty string")
-    func slugified_withEmptyString_returnsEmptyString() {
+    @Test
+    func `It should handle empty string`() {
         // Given
         let input = ""
 
@@ -117,8 +118,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle string with only whitespace")
-    func slugified_withOnlyWhitespace_returnsEmptyString() {
+    @Test
+    func `It should handle string with only whitespace`() {
         // Given
         let input = "   \t\n   "
 
@@ -132,8 +133,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle single word")
-    func slugified_withSingleWord_returnsWord() {
+    @Test
+    func `It should handle single word`() {
         // Given
         let input = "Hello"
 
@@ -147,8 +148,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should preserve special characters in words")
-    func slugified_withSpecialCharacters_preservesCharacters() {
+    @Test
+    func `It should preserve special characters in words`() {
         // Given
         let input = "test@email.com user123"
 
@@ -162,8 +163,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle unicode characters")
-    func slugified_withUnicodeCharacters_preservesUnicode() {
+    @Test
+    func `It should handle unicode characters`() {
         // Given
         let input = "café naïve résumé"
 
@@ -177,8 +178,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle emoji characters")
-    func slugified_withEmojiCharacters_preservesEmoji() {
+    @Test
+    func `It should handle emoji characters`() {
         // Given
         let input = "Hello 👋 World 🌟"
 
@@ -192,8 +193,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle mixed case strings")
-    func slugified_withMixedCase_preservesCase() {
+    @Test
+    func `It should handle mixed case strings`() {
         // Given
         let input = "Hello World Test"
 
@@ -207,8 +208,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle string starting with whitespace")
-    func slugified_withLeadingWhitespace_trimsLeadingWhitespace() {
+    @Test
+    func `It should handle string starting with whitespace`() {
         // Given
         let input = "   Hello World"
 
@@ -222,8 +223,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle string ending with whitespace")
-    func slugified_withTrailingWhitespace_trimsTrailingWhitespace() {
+    @Test
+    func `It should handle string ending with whitespace`() {
         // Given
         let input = "Hello World   "
 
@@ -237,8 +238,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle string with single space")
-    func slugified_withSingleSpace_replacesWithHyphen() {
+    @Test
+    func `It should handle string with single space`() {
         // Given
         let input = "Hello World"
 
@@ -252,8 +253,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle numbers in string")
-    func slugified_withNumbers_preservesNumbers() {
+    @Test
+    func `It should handle numbers in string`() {
         // Given
         let input = "test 123 456"
 
@@ -267,8 +268,8 @@ struct StringSlugTests {
         )
     }
 
-    @Test("It should handle punctuation in words")
-    func slugified_withPunctuation_preservesPunctuation() {
+    @Test
+    func `It should handle punctuation in words`() {
         // Given
         let input = "hello-world test.com"
 

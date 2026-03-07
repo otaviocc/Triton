@@ -20,15 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import FoundationExtensions
 
-@Suite("URLImagePreview Tests")
 struct URLImagePreviewTests {
 
-    @Test("It should replace the file extension with .preview.jpg")
-    func imagePreviewURL_withStandardImageURL_insertsPreviewBeforeExtension() throws {
+    @Test
+    func `It should replace the file extension with .preview.jpg`() throws {
         // Given
         let url = try #require(URL(string: "https://cdn.some.pics/user/image.jpg"))
 
@@ -42,8 +43,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should replace PNG extension with .preview.jpg")
-    func imagePreviewURL_withPNGImage_insertsPreviewBeforeExtension() throws {
+    @Test
+    func `It should replace PNG extension with .preview.jpg`() throws {
         // Given
         let url = try #require(URL(string: "https://example.com/photos/sunset.png"))
 
@@ -57,8 +58,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should append .preview.jpg when there is no file extension")
-    func imagePreviewURL_withNoExtension_appendsPreview() throws {
+    @Test
+    func `It should append .preview.jpg when there is no file extension`() throws {
         // Given
         let url = try #require(URL(string: "https://example.com/images/photo"))
 
@@ -72,8 +73,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should replace the extension with .preview.jpg for complex filenames")
-    func imagePreviewURL_withComplexFilename_insertsPreviewCorrectly() throws {
+    @Test
+    func `It should replace the extension with .preview.jpg for complex filenames`() throws {
         // Given
         let url = try #require(URL(string: "https://cdn.example.com/user-uploads/my-vacation-photo.jpeg"))
 
@@ -87,8 +88,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should preserve query parameters and use .preview.jpg extension")
-    func imagePreviewURL_withQueryParameters_preservesQuery() throws {
+    @Test
+    func `It should preserve query parameters and use .preview.jpg extension`() throws {
         // Given
         let url = try #require(URL(string: "https://api.example.com/images/photo.jpg?size=large&quality=high"))
 
@@ -102,8 +103,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should maintain the full directory structure and use .preview.jpg extension")
-    func imagePreviewURL_withNestedDirectories_maintainsDirectoryStructure() throws {
+    @Test
+    func `It should maintain the full directory structure and use .preview.jpg extension`() throws {
         // Given
         let url = try #require(URL(string: "https://storage.example.com/users/123/albums/vacation/beach.gif"))
 
@@ -117,8 +118,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should work with local file URLs and use .preview.jpg extension")
-    func imagePreviewURL_withLocalFileURL_insertsPreviewCorrectly() {
+    @Test
+    func `It should work with local file URLs and use .preview.jpg extension`() {
         // Given
         let url = URL(fileURLWithPath: "/Users/test/Documents/screenshot.png")
 
@@ -132,8 +133,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should replace the last extension with .preview.jpg when multiple dots exist")
-    func imagePreviewURL_withMultipleDots_insertsPreviewBeforeLastExtension() throws {
+    @Test
+    func `It should replace the last extension with .preview.jpg when multiple dots exist`() throws {
         // Given
         let url = try #require(URL(string: "https://example.com/files/image.backup.jpg"))
 
@@ -147,8 +148,8 @@ struct URLImagePreviewTests {
         )
     }
 
-    @Test("It should handle single character filenames and use .preview.jpg extension")
-    func imagePreviewURL_withSingleCharacterFilename_insertsPreviewCorrectly() throws {
+    @Test
+    func `It should handle single character filenames and use .preview.jpg extension`() throws {
         // Given
         let url = try #require(URL(string: "https://example.com/a.jpg"))
 

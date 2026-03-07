@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("WebpageRequestFactory Tests")
 struct WebpageRequestFactoryTests {
 
-    @Test("It should create webpage request with correct configuration")
-    func makeWebpageRequest_createsRequest() {
+    @Test
+    func `It should create webpage request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -46,8 +47,8 @@ struct WebpageRequestFactoryTests {
         )
     }
 
-    @Test("It should create update webpage request with publish true")
-    func makeUpdateWebpageRequest_withPublishTrue_createsRequest() {
+    @Test
+    func `It should create update webpage request with publish true`() {
         // Given
         let address = "bob"
         let content = "<h1>Welcome to Bob's Page</h1>"
@@ -82,8 +83,8 @@ struct WebpageRequestFactoryTests {
         )
     }
 
-    @Test("It should create update webpage request with publish false")
-    func makeUpdateWebpageRequest_withPublishFalse_createsRequest() {
+    @Test
+    func `It should create update webpage request with publish false`() {
         // Given
         let address = "charlie"
         let content = "<h1>Draft Page</h1>"

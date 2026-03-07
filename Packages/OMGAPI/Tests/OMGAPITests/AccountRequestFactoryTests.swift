@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("AccountRequestFactory Tests")
 struct AccountRequestFactoryTests {
 
-    @Test("It should create account information request with correct configuration")
-    func makeAccountInformationRequest_createsRequest() {
+    @Test
+    func `It should create account information request with correct configuration`() {
         // When
         let request = AccountRequestFactory.makeAccountInformationRequest()
 
@@ -43,8 +44,8 @@ struct AccountRequestFactoryTests {
         )
     }
 
-    @Test("It should create account addresses request with correct configuration")
-    func makeAccountAddressesRequest_createsRequest() {
+    @Test
+    func `It should create account addresses request with correct configuration`() {
         // When
         let request = AccountRequestFactory.makeAccountAddressesRequest()
 

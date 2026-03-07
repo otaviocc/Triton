@@ -20,16 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import Shortcuts
 
-@Suite("CreatePURLIntent Tests")
 struct CreatePURLIntentTests {
 
-    @Test("CreatePURLIntent posts correct notification")
+    @Test
     @MainActor
-    func perform_withIntent_postsOpenAddPURLWindowNotification() async throws {
+    func `It posts a notification to create a PURL`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let intent = CreatePURLIntent(notificationCenter: notificationCenterMock)

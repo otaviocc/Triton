@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("StatusRequestFactory Tests")
 struct StatusRequestFactoryTests {
 
-    @Test("It should create all statuses request with correct configuration")
-    func makeAllStatusesRequest_createsRequest() {
+    @Test
+    func `It should create all statuses request with correct configuration`() {
         // When
         let request = StatusRequestFactory.makeAllStatusesRequest()
 
@@ -43,8 +44,8 @@ struct StatusRequestFactoryTests {
         )
     }
 
-    @Test("It should create latest statuses request with correct configuration")
-    func makeLatestStatusesRequest_createsRequest() {
+    @Test
+    func `It should create latest statuses request with correct configuration`() {
         // When
         let request = StatusRequestFactory.makeLatestStatusesRequest()
 
@@ -60,8 +61,8 @@ struct StatusRequestFactoryTests {
         )
     }
 
-    @Test("It should create address statuses request with correct configuration")
-    func makeAddressStatusesRequest_createsRequest() {
+    @Test
+    func `It should create address statuses request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -80,8 +81,8 @@ struct StatusRequestFactoryTests {
         )
     }
 
-    @Test("It should create address bio request with correct configuration")
-    func makeAddressBioRequest_createsRequest() {
+    @Test
+    func `It should create address bio request with correct configuration`() {
         // Given
         let address = "bob"
 
@@ -100,8 +101,8 @@ struct StatusRequestFactoryTests {
         )
     }
 
-    @Test("It should create share status request with correct configuration")
-    func makeShareStatusRequest_createsRequest() {
+    @Test
+    func `It should create share status request with correct configuration`() {
         // Given
         let address = "charlie"
         let emoji = "🎉"
@@ -136,8 +137,8 @@ struct StatusRequestFactoryTests {
         )
     }
 
-    @Test("It should create individual status request with correct configuration")
-    func makeIndividualStatusRequest_createsRequest() {
+    @Test
+    func `It should create individual status request with correct configuration`() {
         // Given
         let address = "dave"
         let statusID = "status_123"

@@ -20,16 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable file_length type_body_length identifier_name
+
 import Testing
 @testable import FoundationExtensions
 
-// swiftlint:disable file_length type_body_length
-
-@Suite("ArrayContains Tests")
 struct ArrayContainsTests {
 
-    @Test("It should return true when array contains element with matching substring")
-    func containsPartial_withMatchingSubstring_returnsTrue() {
+    @Test
+    func `It should return true when array contains element with matching substring`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = "app"
@@ -44,8 +43,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when multiple elements contain the partial string")
-    func containsPartial_withMultipleMatches_returnsTrue() {
+    @Test
+    func `It should return true when multiple elements contain the partial string`() {
         // Given
         let array = ["application", "approach", "apple", "banana"]
         let partial = "app"
@@ -60,8 +59,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when no elements contain the partial string")
-    func containsPartial_withNoMatches_returnsFalse() {
+    @Test
+    func `It should return false when no elements contain the partial string`() {
         // Given
         let array = ["banana", "orange", "grape"]
         let partial = "app"
@@ -76,8 +75,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial string matches case-insensitively")
-    func containsPartial_withUppercasePartial_returnsTrue() {
+    @Test
+    func `It should return true when partial string matches case-insensitively`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = "APP"
@@ -92,8 +91,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true with mixed case partial string")
-    func containsPartial_withMixedCasePartial_returnsTrue() {
+    @Test
+    func `It should return true with mixed case partial string`() {
         // Given
         let array = ["application", "BANANA", "OrAnGe"]
         let partial = "aPp"
@@ -108,8 +107,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when array elements are uppercase but partial is lowercase")
-    func containsPartial_withUppercaseArrayElements_returnsTrue() {
+    @Test
+    func `It should return true when array elements are uppercase but partial is lowercase`() {
         // Given
         let array = ["APPLE", "BANANA", "ORANGE"]
         let partial = "app"
@@ -124,8 +123,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when array is empty")
-    func containsPartial_withEmptyArray_returnsFalse() {
+    @Test
+    func `It should return false when array is empty`() {
         // Given
         let array: [String] = []
         let partial = "app"
@@ -140,8 +139,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when partial string is empty (empty string matches nothing)")
-    func containsPartial_withEmptyPartialString_returnsFalse() {
+    @Test
+    func `It should return false when partial string is empty (empty string matches nothing)`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = ""
@@ -156,8 +155,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when both array and partial string are empty")
-    func containsPartial_withEmptyArrayAndEmptyPartial_returnsFalse() {
+    @Test
+    func `It should return false when both array and partial string are empty`() {
         // Given
         let array: [String] = []
         let partial = ""
@@ -172,8 +171,9 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when array contains empty string and partial is empty (empty string matches nothing)")
-    func containsPartial_withEmptyStringInArray_returnsFalse() {
+    @Test
+    func `It should return false when array contains empty string and partial is empty (empty string matches nothing)`(
+    ) {
         // Given
         let array = ["apple", "", "banana"]
         let partial = ""
@@ -188,10 +188,9 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test(
-        "It should return true when searching for non-empty partial in array with empty string (should match 'apple')"
-    )
-    func containsPartial_withSearchingInEmptyString_returnsFalse() {
+    @Test
+    func `It should return true when searching for non-empty partial in array with empty string (should match 'apple')`(
+    ) {
         // Given
         let array = ["apple", "", "banana"]
         let partial = "app"
@@ -206,8 +205,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial is whitespace and array contains strings with spaces")
-    func containsPartial_withWhitespacePartial_returnsTrue() {
+    @Test
+    func `It should return true when partial is whitespace and array contains strings with spaces`() {
         // Given
         let array = ["hello world", "banana", "orange"]
         let partial = " "
@@ -222,8 +221,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial contains whitespace and matches substring with spaces")
-    func containsPartial_withWhitespaceInPartial_returnsTrue() {
+    @Test
+    func `It should return true when partial contains whitespace and matches substring with spaces`() {
         // Given
         let array = ["hello world", "banana split", "orange juice"]
         let partial = "lo wo"
@@ -238,8 +237,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when array element has trailing whitespace")
-    func containsPartial_withTrailingWhitespace_returnsTrue() {
+    @Test
+    func `It should return true when array element has trailing whitespace`() {
         // Given
         let array = ["apple ", "banana", "orange"]
         let partial = "apple"
@@ -254,8 +253,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when array element has leading whitespace")
-    func containsPartial_withLeadingWhitespace_returnsTrue() {
+    @Test
+    func `It should return true when array element has leading whitespace`() {
         // Given
         let array = [" apple", "banana", "orange"]
         let partial = "apple"
@@ -270,8 +269,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial contains special characters and matches")
-    func containsPartial_withSpecialCharacters_returnsTrue() {
+    @Test
+    func `It should return true when partial contains special characters and matches`() {
         // Given
         let array = ["test@email.com", "user123", "hello-world"]
         let partial = "@email"
@@ -286,8 +285,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial contains numbers and matches")
-    func containsPartial_withNumbersInPartial_returnsTrue() {
+    @Test
+    func `It should return true when partial contains numbers and matches`() {
         // Given
         let array = ["user123", "test456", "admin"]
         let partial = "123"
@@ -302,8 +301,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial contains unicode characters and matches")
-    func containsPartial_withUnicodeCharacters_returnsTrue() {
+    @Test
+    func `It should return true when partial contains unicode characters and matches`() {
         // Given
         let array = ["café", "naïve", "résumé"]
         let partial = "café"
@@ -318,8 +317,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial contains emoji and matches")
-    func containsPartial_withEmojiCharacters_returnsTrue() {
+    @Test
+    func `It should return true when partial contains emoji and matches`() {
         // Given
         let array = ["Hello 👋", "Good morning", "Have a nice day"]
         let partial = "👋"
@@ -334,8 +333,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial is single character and matches")
-    func containsPartial_withSingleCharacterPartial_returnsTrue() {
+    @Test
+    func `It should return true when partial is single character and matches`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = "a"
@@ -350,8 +349,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when single character partial doesn't match any element")
-    func containsPartial_withSingleCharacterNoMatch_returnsFalse() {
+    @Test
+    func `It should return false when single character partial doesn't match any element`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = "z"
@@ -366,8 +365,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when array contains single characters and partial matches")
-    func containsPartial_withSingleCharacterArray_returnsTrue() {
+    @Test
+    func `It should return true when array contains single characters and partial matches`() {
         // Given
         let array = ["a", "b", "c"]
         let partial = "a"
@@ -382,8 +381,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial exactly matches an array element")
-    func containsPartial_withExactMatch_returnsTrue() {
+    @Test
+    func `It should return true when partial exactly matches an array element`() {
         // Given
         let array = ["apple", "banana", "orange"]
         let partial = "apple"
@@ -398,8 +397,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial exactly matches with different case")
-    func containsPartial_withExactMatchDifferentCase_returnsTrue() {
+    @Test
+    func `It should return true when partial exactly matches with different case`() {
         // Given
         let array = ["Apple", "Banana", "Orange"]
         let partial = "APPLE"
@@ -414,8 +413,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when plain text doesn't match accented characters exactly")
-    func containsPartial_withAccentedCharacters_returnsFalse() {
+    @Test
+    func `It should return false when plain text doesn't match accented characters exactly`() {
         // Given
         let array = ["café", "résumé", "naïve"]
         let partial = "cafe"
@@ -430,8 +429,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when accented characters match exactly")
-    func containsPartial_withMatchingAccentedCharacters_returnsTrue() {
+    @Test
+    func `It should return true when accented characters match exactly`() {
         // Given
         let array = ["café", "résumé", "naïve"]
         let partial = "café"
@@ -446,8 +445,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when plain text doesn't match umlauts exactly")
-    func containsPartial_withGermanUmlaut_returnsFalse() {
+    @Test
+    func `It should return false when plain text doesn't match umlauts exactly`() {
         // Given
         let array = ["Müller", "Straße", "Käse"]
         let partial = "muller"
@@ -462,8 +461,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when umlauts match exactly")
-    func containsPartial_withMatchingUmlaut_returnsTrue() {
+    @Test
+    func `It should return true when umlauts match exactly`() {
         // Given
         let array = ["Müller", "Straße", "Käse"]
         let partial = "Müller"
@@ -478,8 +477,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when case-insensitive matching works with umlauts")
-    func containsPartial_withCaseInsensitiveUmlaut_returnsTrue() {
+    @Test
+    func `It should return true when case-insensitive matching works with umlauts`() {
         // Given
         let array = ["Müller", "Straße", "Käse"]
         let partial = "müller"
@@ -494,8 +493,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when searching in very long strings")
-    func containsPartial_withVeryLongString_returnsTrue() {
+    @Test
+    func `It should return true when searching in very long strings`() {
         // Given
         let longString = String(repeating: "a", count: 1000) + "target" + String(repeating: "b", count: 1000)
         let array = [longString, "short", "medium"]
@@ -511,8 +510,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return false when partial string is longer than all array elements")
-    func containsPartial_withPartialLongerThanElements_returnsFalse() {
+    @Test
+    func `It should return false when partial string is longer than all array elements`() {
         // Given
         let array = ["a", "bb", "ccc"]
         let partial = "longpartialstring"
@@ -527,8 +526,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial matches at the end of an element")
-    func containsPartial_withSubstringAtEnd_returnsTrue() {
+    @Test
+    func `It should return true when partial matches at the end of an element`() {
         // Given
         let array = ["something", "another", "endapp"]
         let partial = "app"
@@ -543,8 +542,8 @@ struct ArrayContainsTests {
         )
     }
 
-    @Test("It should return true when partial matches in the middle of an element")
-    func containsPartial_withSubstringInMiddle_returnsTrue() {
+    @Test
+    func `It should return true when partial matches in the middle of an element`() {
         // Given
         let array = ["something", "mapplication", "other"]
         let partial = "app"
@@ -559,5 +558,3 @@ struct ArrayContainsTests {
         )
     }
 }
-
-// swiftlint:enable file_length type_body_length

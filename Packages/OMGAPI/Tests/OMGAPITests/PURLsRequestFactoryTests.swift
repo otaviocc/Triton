@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("PURLsRequestFactory Tests")
 struct PURLsRequestFactoryTests {
 
-    @Test("It should create all PURLs request with correct configuration")
-    func makeAllPURLsRequest_createsRequest() {
+    @Test
+    func `It should create all PURLs request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -46,8 +47,8 @@ struct PURLsRequestFactoryTests {
         )
     }
 
-    @Test("It should create PURL creation request with correct configuration")
-    func makeCreatePURLRequest_createsRequest() {
+    @Test
+    func `It should create PURL creation request with correct configuration`() {
         // Given
         let address = "bob"
         let name = "blog"
@@ -87,8 +88,8 @@ struct PURLsRequestFactoryTests {
         )
     }
 
-    @Test("It should create PURL deletion request with correct configuration")
-    func makeDeletePURLRequest_createsRequest() {
+    @Test
+    func `It should create PURL deletion request with correct configuration`() {
         // Given
         let address = "charlie"
         let name = "portfolio"

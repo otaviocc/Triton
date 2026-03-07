@@ -20,16 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Foundation
 import Testing
 @testable import Shortcuts
 
-@Suite("PostStatusIntent Tests")
 struct PostStatusIntentTests {
 
-    @Test("PostStatusIntent posts notification with no parameters uses default emoji")
+    @Test
     @MainActor
-    func perform_withNoParameters_postsOpenComposeWindowNotificationWithDefaultEmoji() async throws {
+    func `It posts a notification with no parameters using the default emoji`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let intent = PostStatusIntent(
@@ -69,9 +70,9 @@ struct PostStatusIntentTests {
         )
     }
 
-    @Test("PostStatusIntent posts notification with message parameter uses default emoji")
+    @Test
     @MainActor
-    func perform_withMessage_postsOpenComposeWindowNotificationWithMessageAndDefaultEmoji() async throws {
+    func `It posts a notification with a message parameter using the default emoji`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let testMessage = "Test status message"
@@ -108,9 +109,9 @@ struct PostStatusIntentTests {
         )
     }
 
-    @Test("PostStatusIntent posts notification with emoji parameter")
+    @Test
     @MainActor
-    func perform_withEmoji_postsOpenComposeWindowNotificationWithEmojiInUserInfo() async throws {
+    func `It posts a notification with an emoji parameter`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let testEmoji = "🎉"
@@ -146,9 +147,9 @@ struct PostStatusIntentTests {
         )
     }
 
-    @Test("PostStatusIntent posts notification with both parameters")
+    @Test
     @MainActor
-    func perform_withMessageAndEmoji_postsOpenComposeWindowNotificationWithBothInUserInfo() async throws {
+    func `It posts a notification with both parameters`() async throws {
         // Given
         let notificationCenterMock = NotificationCenterProtocolMock()
         let testMessage = "Test status message"

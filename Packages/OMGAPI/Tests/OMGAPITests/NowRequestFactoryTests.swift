@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("NowRequestFactory Tests")
 struct NowRequestFactoryTests {
 
-    @Test("It should create now page request with correct configuration")
-    func makeNowRequest_createsRequest() {
+    @Test
+    func `It should create now page request with correct configuration`() {
         // Given
         let address = "alice"
 
@@ -46,8 +47,8 @@ struct NowRequestFactoryTests {
         )
     }
 
-    @Test("It should create update now request with listed flag true")
-    func makeUpdateNowRequest_withListedTrue_createsRequest() {
+    @Test
+    func `It should create update now request with listed flag true`() {
         // Given
         let address = "bob"
         let content = "Working on a new project"
@@ -82,8 +83,8 @@ struct NowRequestFactoryTests {
         )
     }
 
-    @Test("It should create update now request with listed flag false")
-    func makeUpdateNowRequest_withListedFalse_createsRequest() {
+    @Test
+    func `It should create update now request with listed flag false`() {
         // Given
         let address = "charlie"
         let content = "Taking a break"

@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable file_length
+
 import Account
 import AccountUpdateService
 import Auth
@@ -40,8 +42,6 @@ import Sidebar
 import Status
 import Weblog
 import Webpage
-
-// swiftlint:disable file_length
 
 /// The main dependency injection container protocol for the OMG application.
 ///

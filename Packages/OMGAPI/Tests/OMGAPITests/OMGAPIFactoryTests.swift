@@ -20,14 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// swiftlint:disable identifier_name
+
 import Testing
 @testable import OMGAPI
 
-@Suite("OMGAPIFactory Tests")
 struct OMGAPIFactoryTests {
 
-    @Test("It should create a properly configured network client")
-    func makeOMGAPIClient_createsClient() {
+    @Test
+    func `It should create a properly configured network client`() {
         // Given
         let factory = OMGAPIFactory()
         let expectedToken = "test_token_123"
@@ -45,8 +46,8 @@ struct OMGAPIFactoryTests {
         )
     }
 
-    @Test("It should create a network client with nil token provider")
-    func makeOMGAPIClient_withNilToken_createsClient() {
+    @Test
+    func `It should create a network client with nil token provider`() {
         // Given
         let factory = OMGAPIFactory()
 
