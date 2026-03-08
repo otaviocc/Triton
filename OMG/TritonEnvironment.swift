@@ -447,5 +447,3 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
     }
     // swiftlint:enable function_body_length
 }
-
-// swiftlint:enable file_length
