@@ -42,7 +42,11 @@ private struct SidebarSelectionKey: FocusedValueKey {
 
 struct SidebarNavigationCommands: Commands {
 
+    // MARK: - Properties
+
     @FocusedBinding(\.sidebarSelection) private var selection
+
+    // MARK: - Public
 
     var body: some Commands {
         CommandGroup(after: .toolbar) {
