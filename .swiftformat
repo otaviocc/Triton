@@ -94,4 +94,3 @@
 --enable preferKeyPath
 --enable sortSwitchCases
 --enable blankLinesBetweenImports
---disable redundantSendable
