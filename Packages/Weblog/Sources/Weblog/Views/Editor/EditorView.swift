@@ -91,14 +91,14 @@ struct EditorView: View {
             }
 
             Divider()
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(.accentColor)
 
             GridRow(alignment: .firstTextBaseline) {
                 makeStatusPicker()
             }
 
             Divider()
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(.accentColor)
 
             GridRow(alignment: .firstTextBaseline) {
                 Text("Tags")

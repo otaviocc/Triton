@@ -22,36 +22,85 @@
 
 import SwiftUI
 
-public extension View {
+public extension ShapeStyle where Self == Color {
 
-    /// Applies a card-like appearance to the TextEditor.
-    ///
-    /// This modifier styles the TextEditor with padding and a rounded border,
-    /// giving it a distinct, card-like visual treatment. It's useful for making
-    /// text editing areas stand out from the background.
-    ///
-    /// - Returns: A view with the card styling applied.
-    func textEditorCard() -> some View {
-        modifier(TextEditorCardModifier())
+    static var accentColor: Color {
+        .accentColor
     }
-}
 
-// MARK: - Private
+    static var omgAccountBackground: Color {
+        .omgAccountBackground
+    }
 
-private struct TextEditorCardModifier: ViewModifier {
+    static var omgBackground: Color {
+        .omgBackground
+    }
 
-    // MARK: - Public
+    static var omgButtonBackground: Color {
+        .omgButtonBackground
+    }
 
-    func body(
-        content: Content
-    ) -> some View {
-        content
-            .scrollContentBackground(.hidden)
-            .padding(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(.accentColor, lineWidth: 1)
-                    .opacity(0.3)
-            )
+    static var omg0: Color {
+        .omg0
+    }
+
+    static var omg1: Color {
+        .omg1
+    }
+
+    static var omg2: Color {
+        .omg2
+    }
+
+    static var omg3: Color {
+        .omg3
+    }
+
+    static var omg4: Color {
+        .omg4
+    }
+
+    static var omg5: Color {
+        .omg5
+    }
+
+    static var omg6: Color {
+        .omg6
+    }
+
+    static var omg7: Color {
+        .omg7
+    }
+
+    static var omg8: Color {
+        .omg8
+    }
+
+    static var omg9: Color {
+        .omg9
+    }
+
+    static var omg10: Color {
+        .omg10
+    }
+
+    static var omg11: Color {
+        .omg11
+    }
+
+    static var omg12: Color {
+        .omg12
+    }
+
+    static var omg13: Color {
+        .omg13
+    }
+
+    static var omg14: Color {
+        .omg14
+    }
+
+    static var omg15: Color {
+        .omg15
     }
 }

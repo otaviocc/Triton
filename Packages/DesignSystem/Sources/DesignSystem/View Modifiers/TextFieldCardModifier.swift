@@ -52,7 +52,7 @@ private struct TextFieldCardModifier: ViewModifier {
             .padding(12)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.accentColor, lineWidth: 1)
+                    .stroke(.accentColor, lineWidth: 1)
                     .opacity(0.3)
             )
     }

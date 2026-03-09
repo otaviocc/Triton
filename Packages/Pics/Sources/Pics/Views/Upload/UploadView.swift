@@ -107,10 +107,10 @@ struct UploadView: View {
         RoundedRectangle(cornerRadius: 8)
             .fill(
                 AnyShapeStyle(
-                    viewModel.isDragging ? Color.accentColor.opacity(0.3) : .secondary.opacity(0.05)
+                    viewModel.isDragging ? .accentColor.opacity(0.3) : .secondary.opacity(0.05)
                 )
             )
-            .stroke(Color.accentColor, lineWidth: 1.0)
+            .stroke(.accentColor, lineWidth: 1.0)
             .opacity(0.3)
             .frame(minHeight: 200)
     }
@@ -119,7 +119,7 @@ struct UploadView: View {
         VStack(spacing: 12) {
             Image(systemName: viewModel.dropZoneImageName)
                 .font(.system(size: 48))
-                .foregroundStyle(viewModel.isDragging ? Color.accentColor : .secondary)
+                .foregroundStyle(viewModel.isDragging ? .accentColor : .secondary)
 
             if !viewModel.isDragging {
                 Text("Drag your picture here or click the button to select one from your Photo Library")

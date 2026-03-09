@@ -52,7 +52,7 @@ struct WebpageView: View {
                 Text("Published")
                     .textCase(.uppercase)
                     .font(.subheadline)
-                    .foregroundStyle(Color.accentColor)
+                    .foregroundStyle(.accentColor)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
