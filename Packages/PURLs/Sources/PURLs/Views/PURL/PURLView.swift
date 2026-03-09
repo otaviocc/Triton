@@ -86,7 +86,7 @@ struct PURLView: View {
     private func makePURLView() -> some View {
         Text(viewModel.permanentURL.absoluteString)
             .font(.subheadline)
-            .foregroundStyle(Color.accentColor)
+            .foregroundStyle(.accentColor)
     }
 
     @ViewBuilder

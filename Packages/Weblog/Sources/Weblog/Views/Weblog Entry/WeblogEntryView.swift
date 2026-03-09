@@ -95,7 +95,7 @@ struct WeblogEntryView: View {
             Text(viewModel.status)
                 .textCase(.uppercase)
                 .font(.caption)
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(.accentColor)
         }
     }
 

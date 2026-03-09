@@ -55,7 +55,7 @@ struct ProfileView: View {
                     makeWeblogView()
                 }
                 .buttonStyle(.borderless)
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(.accentColor)
             }
         }
         .padding()
