@@ -24,6 +24,7 @@ import SwiftUI
 
 public extension Color {
 
+    /// An ordered collection of all 16 omg.lol palette colors, from `omg0` through `omg15`.
     static let allColors: [Color] = [
         omg0,
         omg1,
@@ -43,6 +44,11 @@ public extension Color {
         omg15
     ]
 
+    /// Returns the palette color at the given position, wrapping around using modular arithmetic.
+    ///
+    /// - Parameter position: An integer index into the palette. Negative values and values beyond
+    ///   the palette bounds are wrapped correctly, so any integer is a valid input.
+    /// - Returns: The `Color` at the computed index within `allColors`.
     static func color(at position: Int) -> Color {
         let modPosition = position % allColors.count
         let index = modPosition < 0
