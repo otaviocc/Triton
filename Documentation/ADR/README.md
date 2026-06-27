@@ -81,6 +81,11 @@ Use of Mother Object pattern for creating reusable test fixtures that support Sw
 ### [ADR-017: Direct Distribution Outside App Store](ADR-017-direct-distribution-outside-app-store.md)
 Decision to distribute the application directly through downloadable installers outside the Mac App Store, prioritizing development velocity and cost efficiency while maintaining security through code signing and notarization.
 
+## Build Configuration
+
+### [ADR-018: Per-Machine Signing via xcconfig](ADR-018-per-machine-signing-via-xcconfig.md)
+Decision to drive `DEVELOPMENT_TEAM` and the bundle-identifier prefix from `Config/Triton.xcconfig` with an optional gitignored local override, so the app can be built under different developer accounts without editing tracked files.
+
 ## Contributing
 
 When making significant architectural decisions:

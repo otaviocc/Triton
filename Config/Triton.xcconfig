@@ -1,0 +1,18 @@
+// Per-machine signing & identity configuration.
+//
+// This committed file holds the defaults used on the maintainer's primary machine. To build under a
+// different developer account / bundle prefix (e.g. a personal Apple ID on another machine), DO NOT
+// edit this file — create `Config/Triton.local.xcconfig` (gitignored) overriding the two settings
+// below (see Config/Triton.local.xcconfig.example for a template), e.g.:
+//
+//     TRITON_BUNDLE_PREFIX = com.example
+//     DEVELOPMENT_TEAM = ABCDE12345
+//
+// `TRITON_BUNDLE_PREFIX` is the reverse-DNS organisation prefix (everything before `.OMG`); it drives
+// the app's bundle identifier. `Triton.local.xcconfig` is included optionally at the end, so it wins
+// when present and is simply absent on the maintainer's machine.
+
+TRITON_BUNDLE_PREFIX = com.otaviocc
+DEVELOPMENT_TEAM = S9X9XY5GF8
+
+#include? "Triton.local.xcconfig"

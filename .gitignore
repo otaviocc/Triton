@@ -27,3 +27,6 @@ Packages/*/Package.resolved
 
 # Environment
 .env
+
+# Per-machine signing override (see Config/Triton.local.xcconfig.example)
+Config/Triton.local.xcconfig
