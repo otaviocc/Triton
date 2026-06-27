@@ -1,0 +1,14 @@
+// Per-machine signing override — TEMPLATE.
+//
+// Copy this file to `Triton.local.xcconfig` (same directory) and fill in your own values to build
+// under a different developer account / bundle prefix. `Triton.local.xcconfig` is gitignored;
+// `Triton.xcconfig` includes it optionally via `#include? "Triton.local.xcconfig"`, so it overrides
+// the committed defaults when present and is ignored when absent.
+//
+//     cp Triton.local.xcconfig.example Triton.local.xcconfig
+//
+// `TRITON_BUNDLE_PREFIX` is your reverse-DNS organisation prefix (everything before `.OMG`);
+// `DEVELOPMENT_TEAM` is your 10-character Apple Developer team identifier.
+
+TRITON_BUNDLE_PREFIX =
+DEVELOPMENT_TEAM =

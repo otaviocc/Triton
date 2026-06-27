@@ -49,6 +49,7 @@
 		EAD89BCB2E6B2BF900C9041F /* Weblog */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Weblog; sourceTree = "<group>"; };
 		EADEE5FD2E786D3900204760 /* Pics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Pics; sourceTree = "<group>"; };
 		EAE1723C29F5C08000AEC787 /* Pastebin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Pastebin; sourceTree = "<group>"; };
+		B1A5C0FFEE0000000000C0DE /* Triton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Triton.xcconfig"; path = "Config/Triton.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -99,10 +100,19 @@
 			isa = PBXGroup;
 			children = (
 				EAA086842E8EA353005D4406 /* OMG */,
+				B1A5C0FFEE0000000000C0DF /* Config */,
 				EAC944E6295E5873004EE34F /* Packages */,
 				EAC944D5295E56E9004EE34F /* Products */,
 				EAD763042960953600E18E02 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		B1A5C0FFEE0000000000C0DF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B1A5C0FFEE0000000000C0DE /* Triton.xcconfig */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 		EAC944D5295E56E9004EE34F /* Products */ = {
@@ -295,6 +305,7 @@
 /* Begin XCBuildConfiguration section */
 		EAC944E1295E56EA004EE34F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A5C0FFEE0000000000C0DE /* Triton.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -329,7 +340,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = S9X9XY5GF8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -360,6 +370,7 @@
 		};
 		EAC944E2295E56EA004EE34F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A5C0FFEE0000000000C0DE /* Triton.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -394,7 +405,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = S9X9XY5GF8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -428,7 +438,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OMG/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -453,7 +462,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.otaviocc.OMG;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(TRITON_BUNDLE_PREFIX).OMG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -478,7 +487,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OMG/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -503,7 +511,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.otaviocc.OMG;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(TRITON_BUNDLE_PREFIX).OMG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
