@@ -172,8 +172,7 @@ struct ArrayContainsTests {
     }
 
     @Test
-    func `It should return false when array contains empty string and partial is empty (empty string matches nothing)`(
-    ) {
+    func `It should return false when array contains empty string and partial is empty (empty string matches nothing)`() {
         // Given
         let array = ["apple", "", "banana"]
         let partial = ""
@@ -189,8 +188,7 @@ struct ArrayContainsTests {
     }
 
     @Test
-    func `It should return true when searching for non-empty partial in array with empty string (should match 'apple')`(
-    ) {
+    func `It should return true when searching for non-empty partial in array with empty string (should match 'apple')`() {
         // Given
         let array = ["apple", "", "banana"]
         let partial = "app"
