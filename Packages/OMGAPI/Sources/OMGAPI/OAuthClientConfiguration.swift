@@ -20,61 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import AuthRepository
-import Foundation
-import MicroContainer
-import OMGAPI
-import SwiftUI
-
-final class ViewModelFactory: Sendable {
+/// OAuth client credentials for the OMG.LOL API.
+public struct OAuthClientConfiguration: Sendable {
 
     // MARK: - Properties
 
-    private let container: DependencyContainer
+    public let id: String
+    public let secret: String
+    public let redirectURI: String
 
     // MARK: - Lifecycle
 
-    init(
-        container: DependencyContainer
+    public init(
+        id: String,
+        secret: String,
+        redirectURI: String
     ) {
-        self.container = container
+        self.id = id
+        self.secret = secret
+        self.redirectURI = redirectURI
     }
-
-    // MARK: - Public
-
-    @MainActor
-    func makeAuthAppViewModel() -> AuthAppViewModel {
-        .init(
-            authSessionService: container.resolve()
-        )
-    }
-
-    @MainActor
-    func makeLoginViewModel() -> LoginViewModel {
-        .init(
-            repository: container.resolve(),
-            requestFactory: container.resolve()
-        )
-    }
-
-    @MainActor
-    func makeLogoutViewModel() -> LogoutViewModel {
-        .init(
-            repository: container.resolve()
-        )
-    }
-}
-
-// MARK: - Environment
-
-extension EnvironmentValues {
-
-    @Entry var viewModelFactory: ViewModelFactory = .placeholder
-}
-
-extension ViewModelFactory {
-
-    static let placeholder = ViewModelFactory(
-        container: .init()
-    )
 }

@@ -341,6 +341,7 @@ struct TritonEnvironment: TritonEnvironmentProtocol {
             allocation: .static
         ) { container in
             AuthAppFactory(
+                oauthConfiguration: .fromBuildSettings(),
                 authSessionService: container.resolve(),
                 networkClient: container.resolve()
             )

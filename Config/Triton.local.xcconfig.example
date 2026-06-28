@@ -1,14 +1,20 @@
 // Per-machine signing override — TEMPLATE.
 //
 // Copy this file to `Triton.local.xcconfig` (same directory) and fill in your own values to build
-// under a different developer account / bundle prefix. `Triton.local.xcconfig` is gitignored;
-// `Triton.xcconfig` includes it optionally via `#include? "Triton.local.xcconfig"`, so it overrides
-// the committed defaults when present and is ignored when absent.
+// under a different developer account, bundle prefix, or OAuth credentials. `Triton.local.xcconfig`
+// is gitignored; `Triton.xcconfig` includes it optionally via `#include? "Triton.local.xcconfig"`,
+// so it overrides the committed defaults when present and is ignored when absent.
 //
 //     cp Triton.local.xcconfig.example Triton.local.xcconfig
 //
 // `TRITON_BUNDLE_PREFIX` is your reverse-DNS organisation prefix (everything before `.OMG`);
 // `DEVELOPMENT_TEAM` is your 10-character Apple Developer team identifier.
+// The three `OMGLOL_*` settings are the OMG.LOL OAuth application credentials for your registered
+// app — all three are required for authentication to work.
 
 TRITON_BUNDLE_PREFIX =
 DEVELOPMENT_TEAM =
+
+OMGLOL_CLIENT_ID =
+OMGLOL_CLIENT_SECRET =
+OMGLOL_REDIRECT_URI =

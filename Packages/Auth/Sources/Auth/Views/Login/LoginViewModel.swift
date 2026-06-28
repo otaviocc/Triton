@@ -32,19 +32,22 @@ final class LoginViewModel {
     // MARK: - Properties
 
     private let repository: AuthRepositoryProtocol
+    private let requestFactory: AuthRequestFactory
 
     // MARK: - Computed Properties
 
     var codeRequestURL: URL {
-        AuthRequestFactory.makeOAuthCodeRequestURL()!
+        requestFactory.makeOAuthCodeRequestURL()!
     }
 
     // MARK: - Lifecycle
 
     init(
-        repository: AuthRepositoryProtocol
+        repository: AuthRepositoryProtocol,
+        requestFactory: AuthRequestFactory
     ) {
         self.repository = repository
+        self.requestFactory = requestFactory
     }
 
     // MARK: - Public

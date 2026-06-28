@@ -61,13 +61,16 @@ actor AuthNetworkService: AuthNetworkServiceProtocol {
     // MARK: - Properties
 
     private let networkClient: NetworkClientProtocol
+    private let requestFactory: AuthRequestFactory
 
     // MARK: - Lifecycle
 
     init(
-        networkClient: NetworkClientProtocol
+        networkClient: NetworkClientProtocol,
+        requestFactory: AuthRequestFactory
     ) {
         self.networkClient = networkClient
+        self.requestFactory = requestFactory
     }
 
     // MARK: - Public
@@ -75,7 +78,7 @@ actor AuthNetworkService: AuthNetworkServiceProtocol {
     func accessToken(
         code: String
     ) async throws -> String {
-        let request = AuthRequestFactory.makeAuthRequest(
+        let request = requestFactory.makeAuthRequest(
             code: code
         )
 

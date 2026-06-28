@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import MicroClient
+import OMGAPI
 
 /// A protocol for creating authentication network service instances.
 ///
@@ -55,7 +56,8 @@ public protocol AuthNetworkServiceFactoryProtocol {
     /// - Parameter networkClient: The network client for performing HTTP requests.
     /// - Returns: A configured `AuthNetworkServiceProtocol` instance ready for use.
     func makeAuthNetworkService(
-        networkClient: NetworkClientProtocol
+        networkClient: NetworkClientProtocol,
+        requestFactory: AuthRequestFactory
     ) -> AuthNetworkServiceProtocol
 }
 
@@ -68,10 +70,12 @@ public struct AuthNetworkServiceFactory: AuthNetworkServiceFactoryProtocol {
     // MARK: - Public
 
     public func makeAuthNetworkService(
-        networkClient: NetworkClientProtocol
+        networkClient: NetworkClientProtocol,
+        requestFactory: AuthRequestFactory
     ) -> AuthNetworkServiceProtocol {
         AuthNetworkService(
-            networkClient: networkClient
+            networkClient: networkClient,
+            requestFactory: requestFactory
         )
     }
 }

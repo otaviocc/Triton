@@ -28,11 +28,15 @@ import Testing
 
 struct AuthRequestFactoryTests {
 
+    private let factory = AuthRequestFactory(
+        configuration: .init(id: "", secret: "", redirectURI: "")
+    )
+
     @Test
     func `It should create OAuth authorization URL with correct parameters`() throws {
         // When
         let url = try #require(
-            AuthRequestFactory.makeOAuthCodeRequestURL(),
+            factory.makeOAuthCodeRequestURL(),
             "It should create a non-nil URL"
         )
 
@@ -89,7 +93,7 @@ struct AuthRequestFactoryTests {
         let authCode = "test_auth_code_123"
 
         // When
-        let request = AuthRequestFactory.makeAuthRequest(code: authCode)
+        let request = factory.makeAuthRequest(code: authCode)
 
         // Then
         #expect(
