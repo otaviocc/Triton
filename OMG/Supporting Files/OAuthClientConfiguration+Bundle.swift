@@ -20,61 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import AuthRepository
-import Foundation
-import MicroContainer
 import OMGAPI
-import SwiftUI
 
-final class ViewModelFactory: Sendable {
+extension OAuthClientConfiguration {
 
-    // MARK: - Properties
-
-    private let container: DependencyContainer
-
-    // MARK: - Lifecycle
-
-    init(
-        container: DependencyContainer
-    ) {
-        self.container = container
-    }
-
-    // MARK: - Public
-
-    @MainActor
-    func makeAuthAppViewModel() -> AuthAppViewModel {
+    /// Builds the OAuth configuration from constants generated at compile time by the
+    /// `GenerateOAuthSecrets` build phase. Values are sourced from xcconfig and baked
+    /// directly into the binary — they do not appear in Info.plist or any bundle resource.
+    static func fromBuildSettings() -> OAuthClientConfiguration {
         .init(
-            authSessionService: container.resolve()
+            id: OAuthSecrets.clientID,
+            secret: OAuthSecrets.clientSecret,
+            redirectURI: OAuthSecrets.redirectURI
         )
     }
-
-    @MainActor
-    func makeLoginViewModel() -> LoginViewModel {
-        .init(
-            repository: container.resolve(),
-            requestFactory: container.resolve()
-        )
-    }
-
-    @MainActor
-    func makeLogoutViewModel() -> LogoutViewModel {
-        .init(
-            repository: container.resolve()
-        )
-    }
-}
-
-// MARK: - Environment
-
-extension EnvironmentValues {
-
-    @Entry var viewModelFactory: ViewModelFactory = .placeholder
-}
-
-extension ViewModelFactory {
-
-    static let placeholder = ViewModelFactory(
-        container: .init()
-    )
 }

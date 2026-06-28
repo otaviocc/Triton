@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0AUTH022F000000000000002 /* OAuthSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AUTH032F000000000000003 /* OAuthSecrets.swift */; };
 		E211DA8429CA5AC000A11C82 /* Now in Frameworks */ = {isa = PBXBuildFile; productRef = E211DA8329CA5AC000A11C82 /* Now */; };
 		E213884229A5153D00CE1692 /* Account in Frameworks */ = {isa = PBXBuildFile; productRef = E213884129A5153D00CE1692 /* Account */; };
 		E215670929BA86FF0062C8C3 /* AuthSessionService in Frameworks */ = {isa = PBXBuildFile; productRef = E215670829BA86FF0062C8C3 /* AuthSessionService */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA0AUTH032F000000000000003 /* OAuthSecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OAuthSecrets.swift; path = "$(DERIVED_FILE_DIR)/OAuthSecrets.swift"; sourceTree = "<absolute>"; };
 		E205A369296C0376007D092D /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		E210DF1229CA57AB0049B9E7 /* Now */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Now; sourceTree = "<group>"; };
 		E215670C29BA9B2F0062C8C3 /* SessionService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SessionService; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		EAA086952E8EA353005D4406 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Generated/OAuthSecrets.swift",
 				"Supporting Files/Info.plist",
 			);
 			target = EAC944D3295E56E9004EE34F /* OMG */;
@@ -163,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAC944E3295E56EA004EE34F /* Build configuration list for PBXNativeTarget "OMG" */;
 			buildPhases = (
+				EA0AUTH012F000000000000001 /* GenerateOAuthSecrets */,
 				EA67B2142F17DE3400A145FB /* SwiftFormat */,
 				EA67B2152F17DF3300A145FB /* SwiftLint */,
 				EAC944D0295E56E9004EE34F /* Sources */,
@@ -252,6 +256,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EA0AUTH012F000000000000001 /* GenerateOAuthSecrets */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Config/Triton.xcconfig",
+			);
+			name = GenerateOAuthSecrets;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/OAuthSecrets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "#!/bin/zsh\n\ncat > \"${DERIVED_FILE_DIR}/OAuthSecrets.swift\" << SWIFT\n// AUTO-GENERATED — do not edit. Values are sourced from xcconfig at build time.\nenum OAuthSecrets {\n    static let clientID = \"${OMGLOL_CLIENT_ID}\"\n    static let clientSecret = \"${OMGLOL_CLIENT_SECRET}\"\n    static let redirectURI = \"${OMGLOL_REDIRECT_URI}\"\n}\nSWIFT\n";
+		};
 		EA67B2142F17DE3400A145FB /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -297,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0AUTH022F000000000000002 /* OAuthSecrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

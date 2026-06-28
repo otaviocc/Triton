@@ -24,6 +24,7 @@
 
     import AuthRepository
     import Foundation
+    import OMGAPI
 
     enum LoginViewModelMother {
 
@@ -45,7 +46,10 @@
         @MainActor
         static func makeLoginViewModel() -> LoginViewModel {
             .init(
-                repository: FakeAuthRepository()
+                repository: FakeAuthRepository(),
+                requestFactory: .init(
+                    configuration: .init(id: "", secret: "", redirectURI: "")
+                )
             )
         }
     }

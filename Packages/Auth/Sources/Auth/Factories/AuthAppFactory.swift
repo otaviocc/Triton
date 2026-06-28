@@ -22,6 +22,7 @@
 
 import AuthSessionServiceInterface
 import MicroClient
+import OMGAPI
 import SwiftUI
 
 /// Factory responsible for creating the authentication feature and its views.
@@ -49,10 +50,12 @@ public final class AuthAppFactory {
     // MARK: - Lifecycle
 
     public init(
+        oauthConfiguration: OAuthClientConfiguration,
         authSessionService: any AuthSessionServiceProtocol,
         networkClient: NetworkClientProtocol
     ) {
         environment = .init(
+            oauthConfiguration: oauthConfiguration,
             authSessionService: authSessionService,
             networkClient: networkClient
         )

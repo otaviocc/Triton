@@ -43,7 +43,8 @@ let package = Package(
                 .product(name: "AuthSessionServiceInterface", package: "AuthSession"),
                 "AuthRepository",
                 "DesignSystem",
-                "MicroContainer"
+                "MicroContainer",
+                "OMGAPI"
             ]
         ),
         .target(

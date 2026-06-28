@@ -26,6 +26,7 @@ import AuthRepository
 import AuthSessionServiceInterface
 import MicroClient
 import MicroContainer
+import OMGAPI
 
 struct AuthEnvironment {
 
@@ -40,10 +41,12 @@ struct AuthEnvironment {
     // MARK: - Lifecycle
 
     init(
+        oauthConfiguration: OAuthClientConfiguration,
         authSessionService: any AuthSessionServiceProtocol,
         networkClient: NetworkClientProtocol
     ) {
         self.init(
+            oauthConfiguration: oauthConfiguration,
             repositoryFactory: AuthRepositoryFactory(),
             networkServiceFactory: AuthNetworkServiceFactory(),
             persistenceServiceFactory: AuthPersistenceServiceFactory(),
@@ -52,7 +55,9 @@ struct AuthEnvironment {
         )
     }
 
+    // swiftlint:disable function_body_length
     init(
+        oauthConfiguration: OAuthClientConfiguration,
         repositoryFactory: AuthRepositoryFactoryProtocol,
         networkServiceFactory: AuthNetworkServiceFactoryProtocol,
         persistenceServiceFactory: AuthPersistenceServiceFactoryProtocol,
@@ -73,13 +78,23 @@ struct AuthEnvironment {
             networkClient
         }
 
+        let requestFactory = AuthRequestFactory(configuration: oauthConfiguration)
+
+        container.register(
+            type: AuthRequestFactory.self,
+            allocation: .static
+        ) { _ in
+            requestFactory
+        }
+
         container.register(
             type: AuthNetworkServiceProtocol.self,
             allocation: .static
         ) { container in
             networkServiceFactory
                 .makeAuthNetworkService(
-                    networkClient: container.resolve()
+                    networkClient: container.resolve(),
+                    requestFactory: container.resolve()
                 )
         }
 
@@ -113,4 +128,5 @@ struct AuthEnvironment {
             )
         }
     }
+    // swiftlint:enable function_body_length
 }
