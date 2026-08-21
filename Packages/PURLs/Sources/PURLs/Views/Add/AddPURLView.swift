@@ -59,26 +59,24 @@ struct AddPURLView: View {
 
     // MARK: - Private
 
+    @ViewBuilder
     private func makePURLNameView() -> some View {
-        Group {
-            Text("Name")
-            TextField("omg", text: $viewModel.name)
-                .lineLimit(1)
-                .font(.body.monospaced())
-                .textFieldCard()
-                .help("Short name for permanent URL")
-        }
+        Text("Name")
+        TextField("omg", text: $viewModel.name)
+            .lineLimit(1)
+            .font(.body.monospaced())
+            .textFieldCard()
+            .help("Short name for permanent URL")
     }
 
+    @ViewBuilder
     private func makePURLView() -> some View {
-        Group {
-            Text("URL")
-            TextField("https://omg.lol", text: $viewModel.urlString)
-                .lineLimit(1)
-                .font(.body.monospaced())
-                .textFieldCard()
-                .help("Destination URL for redirection")
-        }
+        Text("URL")
+        TextField("https://omg.lol", text: $viewModel.urlString)
+            .lineLimit(1)
+            .font(.body.monospaced())
+            .textFieldCard()
+            .help("Destination URL for redirection")
     }
 
     @ToolbarContentBuilder
